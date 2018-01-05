@@ -17,11 +17,12 @@ public class Graph extends JPanel {
         int w = getWidth();
         int h = getHeight();
         // Draw x axis
-        g2.draw(new Line2D.Double(0, 0, 0, h));
+        g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
         // Draw y axis
-        g2.draw(new Line2D.Double(0, 0, w, 0));
+        g2.draw(new Line2D.Double(.5 * w, 0, .5 * w, h));
         // Draw lines.
         g2.setPaint(Color.BLUE);
+	
         g2.draw(new Line2D.Double(0, 0, data[0], data1[0]));
         for(int i = 0; i < size-1; i++) {
             double x1 = data[i];
@@ -29,7 +30,7 @@ public class Graph extends JPanel {
             double x2 = data[i + 1];
             double y2 = data1[i+ 1];
             g2.draw(new Line2D.Double(x1, y1, x2, y2));
-        }
+	    }
     }
     public static void main(String[] args) {
         JFrame f = new JFrame();
