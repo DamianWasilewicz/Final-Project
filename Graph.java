@@ -36,7 +36,7 @@ public class Graph extends JPanel {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.add(new Graph());
-        f.setSize(400, 400);
+        f.setSize(800, 800);
         f.setLocation(200,200);
         f.setVisible(true);
     }
