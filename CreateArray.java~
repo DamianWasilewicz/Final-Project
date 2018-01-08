@@ -1,0 +1,41 @@
+public class CreateArray{
+    private int X1;
+    private int X2;
+    private int X3;
+    private int[] xCoords;
+    private int[] yCoords;
+    public CreateArray(){
+	X1 = 2;
+	X2 = 2;
+	X3 = 2;
+	createYcoords();
+	createXcoords();
+    }
+    public void  createYcoords(){
+	int[] arr = new int[800000];
+	for(int counter = 0; counter < 800000; counter++){
+	    arr[counter] = generateY(xCoords[counter]);
+	}
+	yCoords = arr;
+    }
+    public void createXcoords(){
+	int arr = new int[800000];
+	for(int counter = 0; counter < 800000; counter++){
+	    arr[counter] = .1 * counter;
+	}
+	xCoords = arr;
+    }    
+    public int generateY(int arg){
+	int Y = (X1 * arg) + (X2 * arg * arg) + (X2 * arg * arg * arg);
+	return Y;
+    }
+    public int[] getX(){
+	return xCoords;
+    }
+    public int[] getY(){
+	return yCoords;
+    }
+}
+	
+    
+    
