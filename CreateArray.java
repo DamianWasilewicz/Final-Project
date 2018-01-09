@@ -1,41 +1,36 @@
 public class CreateArray{
-    private int X1;
-    private int X2;
-    private int X3;
-    private double[] xCoords;
-    private double[] yCoords;
-    public CreateArray(){
-	X1 = 2;
-	X2 = 2;
-	X3 = 2;
-	createYcoords();
-	createXcoords();
+  private double X1;
+  private double X2;
+  private double X3;
+  private double[] xCoords;
+  private double[] yCoords;
+  public CreateArray(){
+    X1 = 1;
+    X2 = 1;
+    X3 = 1;
+    double[] X = new double[400000];
+    for(int counter = 0; counter< X.length; counter++){
+      X[counter] = (counter * .001) -200 ;
     }
-    public void  createYcoords(){
-	double[] arr = new double[800000];
-	for(int counter = 0; counter < 800000; counter++){
-	    arr[counter] = generateY(xCoords[counter]);
-	}
-	yCoords = arr;
+    xCoords = X;
+    createY();
+  }
+  public double evaluate(double value){
+    double answer = (value * X1) + (value * value * X2)
+    + (value * value * value * X3);
+    return answer;
+  }
+  public void createY(){
+    double[] Y = new double[400000];
+    for(int counter = 0; counter < Y.length; counter++){
+      Y[counter] = evaluate(xCoords[counter]);
     }
-    public void createXcoords(){
-	double[] arr = new double[800000];
-	for(int counter = 0; counter < 800000; counter++){
-	    arr[counter] = .1 * counter;
-	}
-	xCoords = arr;
-    }    
-    public int generateY(int arg){
-	int Y = (X1 * arg) + (X2 * arg * arg) + (X2 * arg * arg * arg);
-	return Y;
-    }
-    public double[] getX(){
-	return xCoords;
-    }
-    public double[] getY(){
-	return yCoords;
-    }
+    yCoords = Y;
+  }
+  public double[] getX(){
+    return xCoords;
+  }
+  public double[] getY(){
+    return yCoords;
+  }
 }
-	
-    
-    
