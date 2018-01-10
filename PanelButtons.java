@@ -43,19 +43,23 @@ public class PanelButtons extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent e) {
 	JButton button = (JButton) e.getSource();
+	
+	//System.out.println(button);
+	//System.out.println(t1);
 	if (button == t1){
-		frame.remove(panel0);
 	    //frame.remove(panel0);
-	    //frame.setContentPane(panel1);
-		tf1.setText("If text shows up, button works");
+		frame.setContentPane(panel1);
+		frame.repaint();
+		//tf1.setText("If text shows up, button works");
 	}
-	/*else if (button == t2){
-	    frame.remove(panel1);
+	else if (button == t2){
+	    //frame.remove(panel1);
 	    frame.setContentPane(panel0);
-	    }*/
+	    }
     }
 
     public static void main(String[]args){
 	PanelButtons g = new PanelButtons();
+	g.setVisible(true);
     }
 }
