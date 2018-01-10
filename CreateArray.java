@@ -16,8 +16,8 @@ public class CreateArray{
     createY();
   }
   public double evaluate(double value){
-    double answer = (value * X1) + (value * value * X2)
-    + (value * value * value * X3);
+      double answer =((value * X1) + (value * value * X2)
+		      + (value * value * value * X3)) * .001;
     return answer;
   }
   public void createY(){

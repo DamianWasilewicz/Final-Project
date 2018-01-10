@@ -3,7 +3,7 @@ import java.awt.font.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
-public class Graph extends JPanel {
+public class Function extends JPanel {
     private double[] data;
     private double[] data1;
     public void paintComponent(Graphics g) {
@@ -18,7 +18,7 @@ public class Graph extends JPanel {
         // Draw lines.
         g2.setPaint(Color.BLUE);
 
-        g2.draw(new Line2D.Double(w/2, h/2, w/2 + data[0], h/2 + data1[0] * -1));
+        //g2.draw(new Line2D.Double(w/2, h/2, w/2 + data[0], h/2 + data1[0] * -1));
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
             double y1 = h/2 + data1[i] * -1 * h/100;
@@ -54,7 +54,7 @@ public class Graph extends JPanel {
     public static void main(String[] args) {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Graph test = new Graph();
+        Function test = new Function();
         CreateArray check = new CreateArray();
         test.setData(check.getX());
         test.setData1(check.getY());
