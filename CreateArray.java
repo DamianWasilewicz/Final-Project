@@ -5,9 +5,6 @@ public class CreateArray{
   private double[] xCoords;
   private double[] yCoords;
   public CreateArray(){
-    X1 = 1;
-    X2 = 1;
-    X3 = 1;
     double[] X = new double[400000];
     for(int counter = 0; counter< X.length; counter++){
       X[counter] = (counter * .001) -200 ;
@@ -32,5 +29,14 @@ public class CreateArray{
   }
   public double[] getY(){
     return yCoords;
+  }
+  public void setX1(double setter){
+    X1 = setter;
+  }
+  public void setX2(double setter){
+    X2 = setter;
+  }
+  public void setX3(double setter){
+    X3 = setter;
   }
 }
