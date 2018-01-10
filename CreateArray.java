@@ -2,19 +2,27 @@ public class CreateArray{
   private double X1;
   private double X2;
   private double X3;
+  //private double Xunder1;
   private double[] xCoords;
   private double[] yCoords;
   public CreateArray(){
     X1 = 1;
     X2 = 1;
     X3 = 1;
+    //Xunder1 = 1;
     double[] X = new double[400000];
     for(int counter = 0; counter< X.length; counter++){
-      X[counter] = (counter * .001) -200 ;
+      X[counter] = (counter * .001) - 200;
     }
     xCoords = X;
     createY();
   }
+  /*public void ScaleFactor(int w, int h){
+    YScale = h/1000;
+    XScale = w/1000;
+  }
+  */
+
   public double evaluate(double value){
     double answer = (value * X1) + (value * value * X2)
     + (value * value * value * X3);
@@ -26,6 +34,15 @@ public class CreateArray{
       Y[counter] = evaluate(xCoords[counter]);
     }
     yCoords = Y;
+  }
+  public double getX1(){
+    return X1;
+  }
+  public double getX2(){
+    return X2;
+  }
+  public double getX3(){
+    return X3;
   }
   public double[] getX(){
     return xCoords;

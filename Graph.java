@@ -6,11 +6,13 @@ import javax.swing.*;
 public class Graph extends JPanel {
     private double[] data;
     private double[] data1;
-    public void paintComponent(Graphics g) {
+    private double w;
+    private double h;
+    public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        int w = getWidth();
-        int h = getHeight();
+        w = getWidth();
+        h = getHeight();
         // Draw x axis
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
         // Draw y axis
@@ -20,10 +22,10 @@ public class Graph extends JPanel {
 
         g2.draw(new Line2D.Double(w/2, h/2, w/2 + data[0], h/2 + data1[0] * -1));
         for(int i = 0; i < data.length-1; i++) {
-            double x1 = w/2 + data[i] * w/100;
-            double y1 = h/2 + data1[i] * -1 * h/100;
-            double x2 = w/2 + data[i + 1] * w/100;
-            double y2 = h/2 +data1[i+ 1] * -1 * h/100;
+            double x1 = w/2 + (double)((w - 2*data.length)/xmax()) * data[i] ;
+            double y1 = h/2 + (double)((h - 2*data1.length)/ymax()) * data1[i] * -1;
+            double x2 = w/2 + (double)((w - 2*data.length)/xmax()) * data[i + 1] ;
+            double y2 = h/2 + (double)((h - 2*data1.length)/ymax()) * data1[i+ 1] * -1;
             g2.draw(new Line2D.Double(x1, y1, x2, y2));
 	    }
     }
@@ -56,10 +58,11 @@ public class Graph extends JPanel {
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Graph test = new Graph();
         CreateArray check = new CreateArray();
+      //  test.ScaleFactor(getWidth(), getHeight());
         test.setData(check.getX());
         test.setData1(check.getY());
         f.add(test);
-        f.setSize(800, 800);
+        f.setSize(600, 600);
         f.setLocation(200,200);
         f.setVisible(true);
     }
