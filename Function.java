@@ -20,6 +20,8 @@ public class Function extends JPanel {
         // Set color of graph
         g2.setPaint(Color.BLUE);
         // Draw lines.
+        createLabel();
+        g2.drawString(, 50, 50);
         g2.draw(new Line2D.Double(w/2, h/2, w/2 + data[0], h/2 + data1[0] * -1));
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
@@ -28,13 +30,11 @@ public class Function extends JPanel {
             double y2 = h/2 +data1[i+ 1] * -1 * h/100;
             g2.draw(new Line2D.Double(x1, y1, x2, y2));
 	    }
-         g2.drawString(label, 250, 50);
     }
     //creates Header Label
-    /*
     public void createLabel(){
       String label = new String ("you are viewing a function with degree");
-       if(X3 != 0){
+       /*if(X1 != 0){
          label+= "3";
        }
        else if(X2 != 0){
@@ -45,9 +45,8 @@ public class Function extends JPanel {
        }
        else{
          label+= "0";
-       }
+       }*/
      }
-     */
     //calculate max of x coordinates;
     public double xmax(){
       double xmax = data[0];
