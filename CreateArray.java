@@ -7,7 +7,7 @@ public class CreateArray{
   public CreateArray(){
     X1 = 1;
     X2 = 1;
-    X3 = 1;
+    X3 = 2;
     double[] X = new double[400000];
     for(int counter = 0; counter< X.length; counter++){
       X[counter] = (counter * .001) -200 ;

@@ -7,6 +7,12 @@ public class Function extends JPanel {
     private double[] data;
     private double[] data1;
     private String label;
+    private char[] labelchars;
+    private char[] numbers;
+    private boolean X1;
+    private boolean X2;
+    private boolean X3;
+
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
@@ -25,6 +31,7 @@ public class Function extends JPanel {
         g2.setPaint(Color.MAGENTA);
         g2.drawString("You are viewing a function", 50, 50);
         g2.drawString("of degree: ", 50, 65);
+        g2.drawChars(labelchars,0, 1, 120, 65);
         g2.drawString("X-Axis", 930, 380);
         g2.drawString("Y-Axis", 430, 40);
         //add labels for axes;
@@ -38,6 +45,19 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w, h/2, w-20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, h, w/2 + 20, h-20));
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
+        for(int counter = -40; counter < 41; counter++){
+        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 20*counter, w/2 + 10, h/2 + 20* counter));
+        }
+        createNumbers();
+        for(int counter = 0; counter < 100; counter++){
+        g2.drawChars(numbers, counter, 1, w/2 + 10, (h/2 + 20* counter) - 600);
+        }
+        for(int counter = 0; counter < 100; counter++){
+        g2.drawChars(numbers, counter, 1, (h/2 + 20* counter) - 600, h/2 + 20);
+        }
+        for(int counter = -50; counter < 51; counter++){
+        g2.draw(new Line2D.Double(w/2 + 20*counter, h/2 - 10, w/2 + 20*counter, h/2 + 10));
+        }
         g2.setPaint(Color.RED);
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
@@ -46,10 +66,15 @@ public class Function extends JPanel {
             double y2 = h/2 +data1[i+ 1] * -1 * h/100;
             g2.draw(new Line2D.Double(x1, y1, x2, y2));
 	    }
+      //for(int counter = -20; counter < 21; counter++){
+
+    //  }
     }
     //creates Header Label
     public void createLabel(){
-      String label = new String ("You are viewing a function with degree");
+    char[] answer = new char[1];
+    answer[0] = '3';
+    labelchars= answer;
        /*if(X1 != 0){
          label+= "3";
        }
@@ -62,7 +87,15 @@ public class Function extends JPanel {
        else{
          label+= "0";
        }*/
+
      }
+     public void createNumbers(){
+     char[] answer = new char[100];
+     for(int counter = 0; counter < 100; counter++){
+       answer[counter] = '1';
+     }
+     numbers = answer;
+   }
      public String getLabel(){
        return label;
      }
