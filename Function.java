@@ -92,7 +92,7 @@ public class Function extends JPanel {
      public void createNumbers(){
      char[] answer = new char[100];
      for(int counter = 0; counter < 100; counter++){
-       answer[counter] = '1';
+	 answer[counter] = (char)((1 * counter)+15);
      }
      numbers = answer;
    }
