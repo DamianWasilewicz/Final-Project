@@ -8,7 +8,8 @@ public class Function extends JPanel {
     private double[] data1;
     private String label;
     private char[] labelchars;
-    private char[] numbers;
+    private char[][] numbers;
+    private char[][] negnumbers;
     private boolean X1;
     private boolean X2;
     private boolean X3;
@@ -46,19 +47,33 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w, h/2, w-20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, h, w/2 + 20, h-20));
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
+
+
         for(int counter = -20; counter < 21; counter++){
-        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 20*counter, w/2 + 10, h/2 + 20* counter));
-        }
-        createNumbers();
-        for(int counter = 0; counter < 100; counter++){
-        g2.drawChars(numbers, counter, 1, w/2 + 10, (h/2 + 20* counter) - 600);
-        }
-        for(int counter = 0; counter < 100; counter++){
-        g2.drawChars(numbers, counter, 1, (h/2 + 20* counter) - 600, h/2 + 20);
+        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 50*counter, w/2 + 10, h/2 + 50* counter));
         }
         for(int counter = -24; counter < 25; counter++){
-        g2.draw(new Line2D.Double(w/2 + 20*counter, h/2 - 10, w/2 + 20*counter, h/2 + 10));
+        g2.draw(new Line2D.Double(w/2 + 50*counter, h/2 - 10, w/2 + 50*counter, h/2 + 10));
         }
+
+
+        createNumbers();
+        for(int counter = 0; counter < 25; counter++){
+        g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter));
+        }
+        for(int counter = 0; counter < 25; counter++){
+        g2.drawChars(numbers[counter], 0, numbers[counter].length, (h/2 - 40* counter), h/2 + 20);
+        }
+
+        createNegNumbers();
+        for(int counter = 0; counter < 25; counter++){
+        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 - 40* counter));
+        }
+        for(int counter = 0; counter < 25; counter++){
+        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (h/2 - 40* counter), h/2 + 20);
+        }
+
+
         g2.setPaint(Color.RED);
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
@@ -90,16 +105,32 @@ public class Function extends JPanel {
        }*/
 
      }
-     public void createNumbers(){
-	 String ans = new String ("");
-	 char[] answer = new char[100];
-     for(int counter = 0; counter < 100; counter++){
-	 ans= "" + (counter * .001);
-	 for(int count = 0; count < ans
-	 answer[counter] = ans.toCharArray;
+   public void createNumbers(){
+       char[][] a = new char[25][10];
+       for(int counter = 0; counter < 25; counter++){
+         String ans = new String ("");
+   	     char[] answer = new char[10];
+	        ans+= (counter);
+          answer = ans.toCharArray();
+	        for(int count = 0; count < answer.length; count++){
+	           a[counter][count] = answer[count];
+           }
+         }
+         numbers = a;
+    }
+    public void createNegNumbers(){
+        char[][] a = new char[25][10];
+        for(int counter = 0; counter < 25; counter++){
+          String ans = new String ("");
+    	     char[] answer = new char[10];
+ 	        ans+= (counter * -1);
+           answer = ans.toCharArray();
+ 	        for(int count = 0; count < answer.length; count++){
+ 	           a[counter][count] = answer[count];
+            }
+          }
+          negnumbers = a;
      }
-     numbers = answer;
-   }
     public String getLabel(){
        return label;
      }
