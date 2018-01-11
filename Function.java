@@ -20,6 +20,7 @@ public class Function extends JPanel {
         int w = getWidth();
         int h = getHeight();
           // Set color of axes
+	g2.setBackground(Color.BLACK);
         g2.setPaint(Color.BLUE);
         // Draw x axis
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
@@ -32,8 +33,8 @@ public class Function extends JPanel {
         g2.drawString("You are viewing a function", 50, 50);
         g2.drawString("of degree: ", 50, 65);
         g2.drawChars(labelchars,0, 1, 120, 65);
-        g2.drawString("X-Axis", 930, 380);
-        g2.drawString("Y-Axis", 430, 40);
+        g2.drawString("X-Axis", 940, 405);
+        g2.drawString("Y-Axis", 450, 40);
         //add labels for axes;
         g2.setPaint(Color.BLUE);
         //construct arrows;
@@ -45,7 +46,7 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w, h/2, w-20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, h, w/2 + 20, h-20));
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
-        for(int counter = -40; counter < 41; counter++){
+        for(int counter = -20; counter < 21; counter++){
         g2.draw(new Line2D.Double(w/2 - 10, h/2 + 20*counter, w/2 + 10, h/2 + 20* counter));
         }
         createNumbers();
@@ -55,7 +56,7 @@ public class Function extends JPanel {
         for(int counter = 0; counter < 100; counter++){
         g2.drawChars(numbers, counter, 1, (h/2 + 20* counter) - 600, h/2 + 20);
         }
-        for(int counter = -50; counter < 51; counter++){
+        for(int counter = -24; counter < 25; counter++){
         g2.draw(new Line2D.Double(w/2 + 20*counter, h/2 - 10, w/2 + 20*counter, h/2 + 10));
         }
         g2.setPaint(Color.RED);
@@ -90,13 +91,16 @@ public class Function extends JPanel {
 
      }
      public void createNumbers(){
-     char[] answer = new char[100];
+	 String ans = new String ("");
+	 char[] answer = new char[100];
      for(int counter = 0; counter < 100; counter++){
-	 answer[counter] = (char)((1 * counter)+15);
+	 ans= "" + (counter * .001);
+	 for(int count = 0; count < ans
+	 answer[counter] = ans.toCharArray;
      }
      numbers = answer;
    }
-     public String getLabel(){
+    public String getLabel(){
        return label;
      }
     //calculate max of x coordinates;
