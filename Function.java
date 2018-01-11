@@ -13,16 +13,32 @@ public class Function extends JPanel {
         //set variables for size of graph screen;
         int w = getWidth();
         int h = getHeight();
+          // Set color of axes
+        g2.setPaint(Color.BLUE);
         // Draw x axis
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
         // Draw y axis
         g2.draw(new Line2D.Double(.5 * w, 0, .5 * w, h));
-        // Set color of graph
-        g2.setPaint(Color.BLUE);
         // Draw lines.
         createLabel();
-        g2.drawString(, 50, 50);
-        g2.draw(new Line2D.Double(w/2, h/2, w/2 + data[0], h/2 + data1[0] * -1));
+        //Add Header;
+        g2.setPaint(Color.MAGENTA);
+        g2.drawString("You are viewing a function", 50, 50);
+        g2.drawString("of degree: ", 50, 65);
+        g2.drawString("X-Axis", 930, 380);
+        g2.drawString("Y-Axis", 430, 40);
+        //add labels for axes;
+        g2.setPaint(Color.BLUE);
+        //construct arrows;
+        g2.draw(new Line2D.Double(0, h/2, 20, h/2 + 20));
+        g2.draw(new Line2D.Double(0, h/2, 20, h/2 - 20));
+        g2.draw(new Line2D.Double(w/2, 0, w/2 + 20, 20));
+        g2.draw(new Line2D.Double(w/2, 0, w/2 - 20, 20));
+        g2.draw(new Line2D.Double(w, h/2, w-20, h/2 + 20));
+        g2.draw(new Line2D.Double(w, h/2, w-20, h/2 - 20));
+        g2.draw(new Line2D.Double(w/2, h, w/2 + 20, h-20));
+        g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
+        g2.setPaint(Color.RED);
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
             double y1 = h/2 + data1[i] * -1 * h/100;
@@ -33,7 +49,7 @@ public class Function extends JPanel {
     }
     //creates Header Label
     public void createLabel(){
-      String label = new String ("you are viewing a function with degree");
+      String label = new String ("You are viewing a function with degree");
        /*if(X1 != 0){
          label+= "3";
        }
@@ -46,6 +62,9 @@ public class Function extends JPanel {
        else{
          label+= "0";
        }*/
+     }
+     public String getLabel(){
+       return label;
      }
     //calculate max of x coordinates;
     public double xmax(){
@@ -82,7 +101,7 @@ public class Function extends JPanel {
         test.setData(check.getX());
         test.setData1(check.getY());
         f.add(test);
-        f.setSize(800, 800);
+        f.setSize(1000, 1000);
         f.setLocation(200,200);
         f.setVisible(true);
     }
