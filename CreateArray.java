@@ -6,9 +6,9 @@ public class CreateArray{
   private double[] yCoords;
   private double Scale;
   public CreateArray(){
-    X1 = 1;
-    X2 = 1;
-    X3 = 1;
+    X1 = .01;
+    X2 = .01;
+    X3 = .05;
     setScale(.1);
     double[] X = new double[400000];
     for(int counter = 0; counter< X.length; counter++){
