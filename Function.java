@@ -61,16 +61,17 @@ public class Function extends JPanel {
         for(int counter = 0; counter < 25; counter++){
         g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter));
         }
-        for(int counter = 0; counter < 25; counter++){
-        g2.drawChars(numbers[counter], 0, numbers[counter].length, (h/2 - 40* counter), h/2 + 20);
+	for(int counter = 0; counter < 25; counter++){
+	    g2.drawChars(numbers[counter], 0, numbers[counter].length, (h/2 + (40* counter)+ 70), h/2 + 20);
         }
+  
 
         createNegNumbers();
         for(int counter = 0; counter < 25; counter++){
-        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 - 40* counter));
+        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 40* counter));
         }
         for(int counter = 0; counter < 25; counter++){
-        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (h/2 - 40* counter), h/2 + 20);
+	    g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (h/2 - (40* counter) + 70), h/2 + 20);
         }
 
 
