@@ -10,6 +10,10 @@ public class Function extends JPanel {
     private char[] labelchars;
     private char[][] numbers;
     private char[][] negnumbers;
+    private char[] Max;
+    private char[] Min;
+    private char[] XIntercepts;
+    private char[] YIntercepts;
     private boolean X1;
     private boolean X2;
     private boolean X3;
@@ -36,6 +40,10 @@ public class Function extends JPanel {
         g2.drawChars(labelchars,0, 1, 120, 65);
         g2.drawString("X-Axis", 940, 405);
         g2.drawString("Y-Axis", 450, 40);
+	g2.drawChars(Min,0, Min.length, 50, 300);
+	g2.drawChars(Max,0, Max.length, 50, 340);
+	//	g2.drawString(XIntercepts, 940, 405);
+	//	g2.drawString(YIntercepts, 940, 405);
         //add labels for axes;
         g2.setPaint(Color.BLUE);
         //construct arrows;
@@ -155,6 +163,19 @@ public class Function extends JPanel {
       }
       return ymax;
     }
+    
+    
+    public double ymin(){
+      double ymin = data1[0];
+      for(int counter = 1; counter < data1.length; counter++){
+        if(data1[counter] < ymin){
+          ymin = data1[counter];
+        }
+      }
+      return ymin;
+    }
+    
+    
     //set xcoordinate array;
     public void setData(double[] arg){
       data = arg;
@@ -162,6 +183,15 @@ public class Function extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
+    public void SetMaxandMin(double ymax, double ymin){
+	String Ymax = new String ("Your Max is: ");
+	String Ymin = new String ("Your Max is: ");
+	    Ymax+= ymax; 
+	    Ymin+= ymin;
+	    Max = Ymax.toCharArray();
+	    Min = Ymin.toCharArray();
+    }
+	    
     public static void main(String[] args) {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -169,6 +199,7 @@ public class Function extends JPanel {
         CreateArray check = new CreateArray();
         test.setData(check.getX());
         test.setData1(check.getY());
+	test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(1000, 1000);
         f.setLocation(200,200);
