@@ -59,8 +59,8 @@ public class Function extends JPanel {
         test.setData(check.getX());
         test.setData1(check.getY());
         f.add(test);
-        f.setSize(800, 800);
-        f.setLocation(200,200);
+        f.setSize(1000, 1000);
+        f.setLocation(250,500);
         f.setVisible(true);
     }
 }

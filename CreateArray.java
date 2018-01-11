@@ -4,20 +4,22 @@ public class CreateArray{
   private double X3;
   private double[] xCoords;
   private double[] yCoords;
+  private double Scale;
   public CreateArray(){
     X1 = 1;
     X2 = 1;
     X3 = 1;
+    setScale(.1);
     double[] X = new double[400000];
     for(int counter = 0; counter< X.length; counter++){
-      X[counter] = (counter * .001) -200 ;
+      X[counter] = (counter * Scale) - (.5 * X.length * Scale);
     }
     xCoords = X;
     createY();
   }
   public double evaluate(double value){
       double answer =((value * X1) + (value * value * X2)
-		      + (value * value * value * X3)) * .001;
+		      + (value * value * value * X3)) * Scale;
     return answer;
   }
   public void createY(){
@@ -32,5 +34,8 @@ public class CreateArray{
   }
   public double[] getY(){
     return yCoords;
+  }
+  public void setScale(double scale){
+    Scale = scale;
   }
 }
