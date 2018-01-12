@@ -38,7 +38,7 @@ public class Function extends JPanel {
         g2.drawString("of degree: ", 50, 65);
         g2.drawChars(labelchars,0, 1, 120, 65);
         g2.drawString("The roots of your function are:", 50, 150);
-        g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
+	// g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
         g2.drawString("X-Axis", 940, 405);
         g2.drawString("Y-Axis", 450, 40);
 	//g2.drawChars(Min,0, Min.length, 50, 300);
@@ -68,7 +68,7 @@ public class Function extends JPanel {
 
 
         createNumbers();
-        for(int counter = 0; counter < 25; counter++){
+        for(int counter = 1; counter < 25; counter++){
           g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter) + 15);
         }
 	      for(int counter = 0; counter < 25; counter++){
