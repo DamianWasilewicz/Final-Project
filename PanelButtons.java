@@ -4,58 +4,122 @@ import java.awt.event.*;
 
 public class PanelButtons extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel panel0, panel1;
-    private JButton t1, t2;
-    private JTextField tf1;
-    private JLabel l1, l2;
-    
+    private JPanel Constant, Linear, Quadratic, Cubic;
+    private JButton B1, B2, B3, B4, BC1, BC2, BC3, BC4;
+    private JTextField TF1, TF2, TF3, TF4;
+    private JLabel L1, L2, L3, L4, LH1, LH2, LH3, LH4;
+
     public PanelButtons() {
     frame = new JFrame("Window");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+    Constant = new JPanel();
+    Linear = new JPanel();
+    Quadratic = new JPanel();
+    Cubic = new JPanel();
 
-    panel0 = new JPanel();
-    panel1 = new JPanel();
+    Constant.setLayout(new FlowLayout());
+    Linear.setLayout(new FlowLayout());
+    Quadratic.setLayout(new FlowLayout());
+    Cubic.setLayout(new FlowLayout());
 
-    panel0.setLayout(new FlowLayout());
+    B1 = new JButton("Graph Constant Function");
+    B2 = new JButton("Graph Linear Function");
+    B3 = new JButton("Graph Quadratic Function");
+    B4 = new JButton("Graph Cubic Function");
 
-    t1 = new JButton("Button");
-    t2 = new JButton("Other Button");
-    tf1 = new JTextField(16);
-    l1 = new JLabel("This is a label");
-    l2 = new JLabel("This is also a label");
+    BC1 = new JButton("Cycle");
+    BC2 = new JButton("Cycle");
+    BC3 = new JButton("Cycle");
+    BC4 = new JButton("Cycle");
 
-    t1.addActionListener(this);
-    tf1.addActionListener(this);
-    t2.addActionListener(this);
+    TF1 = new JTextField(16);
+    TF2 = new JTextField(16);
+    TF3 = new JTextField(16);
+    TF4 = new JTextField(16);
 
-    panel0.add(t1);
-    panel0.add(tf1);
-    panel0.add(l1);
-    panel1.add(t2);
-    panel1.add(l2);
+    LH1 = new JLabel("You are on the Constant Tab");
+    LH1 = new JLabel("You are on the Linear Tab");
+    LH1 = new JLabel("You are on the Quadratic Tab");
+    LH1 = new JLabel("You are on the Cubic Tab");
 
-    frame.setContentPane(panel0);
+    L1 = new JLabel("Constant Coefficient");
+    L2 = new JLabel("Linear Coefficient");
+    L3 = new JLabel("Quadratic Coefficient");
+    L4 = new JLabel("Cubic Coefficient");
+
+    B1.addActionListener(this);
+    B2.addActionListener(this);
+    B3.addActionListener(this);
+    B4.addActionListener(this);
+
+    BC1.addActionListener(this);
+    BC2.addActionListener(this);
+    BC3.addActionListener(this);
+    BC4.addActionListener(this);
+
+    TF1.addActionListener(this);
+    TF2.addActionListener(this);
+    TF3.addActionListener(this);
+    TF4.addActionListener(this);
+
+
+    Constant.add(LH1);
+    Constant.add(BC1);
+    Constant.add(L1);
+    Constant.add(TF1);
+    Constant.add(B1);
+
+    Linear.add(LH2);
+    Linear.add(BC2);
+    Linear.add(L1);
+    Linear.add(TF1);
+    Linear.add(L2);
+    Linear.add(TF2);
+    Linear.add(B2);
+
+    Quadratic.add(LH3);
+    Quadratic.add(BC3);
+    Quadratic.add(L1);
+    Quadratic.add(TF1);
+    Quadratic.add(L2);
+    Quadratic.add(TF2);
+    Quadratic.add(L3);
+    Quadratic.add(TF3);
+    Quadratic.add(B3);
+
+    Cubic.add(LH4);
+    Cubic.add(L1);
+    Cubic.add(TF1);
+    Cubic.add(L2);
+    Cubic.add(TF2);
+    Cubic.add(L3);
+    Cubic.add(TF3);
+    Cubic.add(L4);
+    Cubic.add(TF4);
+    Cubic.add(B4);
+
+    frame.setContentPane(Constant);
     frame.setSize(500,500);
     frame.setLocation(100,100);
     frame.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent e) {
-	JButton button = (JButton) e.getSource();
-	
-	//System.out.println(button);
-	//System.out.println(t1);
-	if (button == t1){
-	    //frame.remove(panel0);
-		frame.setContentPane(panel1);
-		frame.repaint();
-		//tf1.setText("If text shows up, button works");
-	}
-	else if (button == t2){
-	    //frame.remove(panel1);
-	    frame.setContentPane(panel0);
+  public void actionPerformed(ActionEvent e) {
+	   JButton button = (JButton) e.getSource();
+     if (button == BC1){
+		     frame.setContentPane(Linear);
+		     frame.repaint();
+         frame.setVisible(true);
+	   }
+	   if (button == BC2){
+	    frame.setContentPane(Quadratic);
+      frame.setVisible(true);
 	    }
+    if (button == BC3){
+ 	    frame.setContentPane(Cubic);
+      frame.setVisible(true);
+ 	    }
     }
 
     public static void main(String[]args){
