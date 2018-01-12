@@ -69,7 +69,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Constant.add(L1);
     Constant.add(TF1);
     Constant.add(B1);
-
     Linear.add(LH2);
     Linear.add(BC2);
     Linear.add(L1);
@@ -78,7 +77,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Linear.add(TF2);
     Linear.add(B2);
 
-    Quadratic.add(LH3);
+    /*Quadratic.add(LH3);
     Quadratic.add(BC3);
     Quadratic.add(L1);
     Quadratic.add(TF1);
@@ -99,6 +98,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Cubic.add(L4);
     Cubic.add(TF4);
     Cubic.add(B4);
+    */
     frame.setContentPane(Constant);
     frame.setSize(800,500);
     frame.setLocation(100,100);
@@ -113,15 +113,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
          frame.setVisible(true);
 	   }
 
-	   if (button == BC2){
+	   else if (button == BC2){
 	    frame.setContentPane(Quadratic);
-       frame.repaint();
-      frame.setVisible(true);
+
+
     }
-    if (button == BC3){
+    else if (button == BC3){
  	    frame.setContentPane(Cubic);
-       frame.repaint();
-      frame.setVisible(true);
+
+
     }
     }
 
