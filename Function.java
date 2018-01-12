@@ -12,8 +12,7 @@ public class Function extends JPanel {
     private char[][] negnumbers;
     private char[] Max;
     private char[] Min;
-    private char[] XIntercepts;
-    private char[] YIntercepts;
+    private char[] Roots;
     private boolean X1;
     private boolean X2;
     private boolean X3;
@@ -38,10 +37,12 @@ public class Function extends JPanel {
         g2.drawString("You are viewing a function", 50, 50);
         g2.drawString("of degree: ", 50, 65);
         g2.drawChars(labelchars,0, 1, 120, 65);
+        g2.drawString("The roots of your function are:", 50, 150);
+        g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
         g2.drawString("X-Axis", 940, 405);
         g2.drawString("Y-Axis", 450, 40);
-	g2.drawChars(Min,0, Min.length, 50, 300);
-	g2.drawChars(Max,0, Max.length, 50, 340);
+	//g2.drawChars(Min,0, Min.length, 50, 300);
+	//g2.drawChars(Max,0, Max.length, 50, 340);
 	//	g2.drawString(XIntercepts, 940, 405);
 	//	g2.drawString(YIntercepts, 940, 405);
         //add labels for axes;
@@ -60,6 +61,7 @@ public class Function extends JPanel {
         for(int counter = -20; counter < 21; counter++){
         g2.draw(new Line2D.Double(w/2 - 10, h/2 + 50*counter, w/2 + 10, h/2 + 50* counter));
         }
+
         for(int counter = -24; counter < 25; counter++){
         g2.draw(new Line2D.Double(w/2 + 50*counter, h/2 - 10, w/2 + 50*counter, h/2 + 10));
         }
@@ -67,19 +69,19 @@ public class Function extends JPanel {
 
         createNumbers();
         for(int counter = 0; counter < 25; counter++){
-        g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter));
+          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter) + 15);
         }
-	for(int counter = 0; counter < 25; counter++){
-	    g2.drawChars(numbers[counter], 0, numbers[counter].length, (h/2 + (40* counter)+ 70), h/2 + 20);
+	      for(int counter = 0; counter < 25; counter++){
+	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (40* counter)), h/2 + 20);
         }
-  
+
 
         createNegNumbers();
         for(int counter = 0; counter < 25; counter++){
-        g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 40* counter));
+         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 40* counter));
         }
         for(int counter = 0; counter < 25; counter++){
-	    g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (h/2 - (40* counter) + 70), h/2 + 20);
+	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (40* counter)), h/2 + 20);
         }
 
 
@@ -114,6 +116,9 @@ public class Function extends JPanel {
        }*/
 
      }
+     public void setRoots(char[] roots){
+       Roots = roots;
+     }
    public void createNumbers(){
        char[][] a = new char[25][10];
        for(int counter = 0; counter < 25; counter++){
@@ -143,28 +148,50 @@ public class Function extends JPanel {
     public String getLabel(){
        return label;
      }
-    //calculate max of x coordinates;
-    public double xmax(){
-      double xmax = data[0];
-      for(int counter = 1; counter < data.length; counter++){
-        if(data[counter] > xmax){
-          xmax = data[counter];
-        }
-      }
-      return xmax;
-    }
+
     //calculate max of y coordinates;
-    public double ymax(){
-      double ymax = data1[0];
-      for(int counter = 1; counter < data1.length; counter++){
-        if(data1[counter] > ymax){
-          ymax = data1[counter];
+    /*public String ymax(){
+      String answer = new String("");
+      if(X6on){
+        if(X6 < 0){
+          answer+= C;
+        }
+        else{
+          answer+= "∞";
+        }
+        }
+        else if(X5on){
+            answer+= "∞";
+      }
+      else if(X4on){
+        if(X4 < 0){
+          answer+= C;
+        }
+        else{
+          answer+= "∞";
         }
       }
-      return ymax;
-    }
-    
-    
+      else if(X3on){
+          answer+= "∞";
+        }
+        else if(X2on){
+          if(X2 < 0){
+            answer+= C;
+          }
+          else{
+            answer+= "∞";
+          }
+        }
+        else if(Xon){
+          answer+= "∞";
+        }
+        else{
+          answer+= C;
+        }
+      }
+
+*/
+
     public double ymin(){
       double ymin = data1[0];
       for(int counter = 1; counter < data1.length; counter++){
@@ -174,8 +201,7 @@ public class Function extends JPanel {
       }
       return ymin;
     }
-    
-    
+
     //set xcoordinate array;
     public void setData(double[] arg){
       data = arg;
@@ -183,23 +209,25 @@ public class Function extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
-    public void SetMaxandMin(double ymax, double ymin){
+    /*public void SetMaxandMin(double ymax, double ymin){
 	String Ymax = new String ("Your Max is: ");
 	String Ymin = new String ("Your Max is: ");
-	    Ymax+= ymax; 
+	    Ymax+= ymax;
 	    Ymin+= ymin;
 	    Max = Ymax.toCharArray();
 	    Min = Ymin.toCharArray();
     }
-	    
+*/
     public static void main(String[] args) {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
         CreateArray check = new CreateArray();
+        test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-	test.SetMaxandMin(test.ymax(), test.ymin());
+        test.setRoots(check.getRoots());
+	//test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(1000, 1000);
         f.setLocation(200,200);
