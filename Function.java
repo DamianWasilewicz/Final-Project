@@ -209,16 +209,7 @@ public class Function extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
-    /*public void SetMaxandMin(double ymax, double ymin){
-	String Ymax = new String ("Your Max is: ");
-	String Ymin = new String ("Your Max is: ");
-	    Ymax+= ymax;
-	    Ymin+= ymin;
-	    Max = Ymax.toCharArray();
-	    Min = Ymin.toCharArray();
-    }
-*/
-    public static void main(String[] args) {
+    public static void main() {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
