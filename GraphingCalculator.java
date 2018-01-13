@@ -4,10 +4,10 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel Constant, Linear, Quadratic, Cubic;
-    private JButton B1, B2, B3, B4, BC1, BC2, BC3, BC4;
-    private JTextField TF1, TF2, TF3, TF4;
-    private JLabel L1, L2, L3, L4, LH1, LH2, LH3, LH4;
+    private JPanel Constant, Linear, Quadratic, Cubic, Fun;
+    private JButton B1, B2, B3, B4, BC1, BC2, BC3, BC4, BG1;
+    private JTextField TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu;
+    private JLabel L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu, LH1, LH2, LH3, LH4;
 
     public GraphingCalculator() {
     frame = new JFrame("Window");
@@ -17,6 +17,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Linear = new JPanel();
     Quadratic = new JPanel();
     Cubic = new JPanel();
+    Fun= new JPanel();
 
     Constant.setLayout(new FlowLayout());
     Linear.setLayout(new FlowLayout());
@@ -28,25 +29,40 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B3 = new JButton("Graph Quadratic Function");
     B4 = new JButton("Graph Cubic Function");
 
+
     BC1 = new JButton("Cycle To Linear");
     BC2 = new JButton("Cycle To Quadratic");
     BC3 = new JButton("Cycle To Cubic");
     BC4 = new JButton("Cycle To Constant");
 
-    TF1 = new JTextField(16);
-    TF2 = new JTextField(16);
-    TF3 = new JTextField(16);
-    TF4 = new JTextField(16);
+    BG1 = new JButton("GRAPH IT");
+
+    TF1c = new JTextField(16);
+    TF1l = new JTextField(16);
+    TF1q = new JTextField(16);
+    TF1cu = new JTextField(16);
+    TF2l = new JTextField(16);
+    TF2q = new JTextField(16);
+    TF2cu = new JTextField(16);
+    TF3q = new JTextField(16);
+    TF3cu = new JTextField(16);
+    TF4cu = new JTextField(16);
 
     LH1 = new JLabel("You are on the Constant Tab");
-    LH1 = new JLabel("You are on the Linear Tab");
-    LH1 = new JLabel("You are on the Quadratic Tab");
-    LH1 = new JLabel("You are on the Cubic Tab");
+    LH2 = new JLabel("You are on the Linear Tab");
+    LH3 = new JLabel("You are on the Quadratic Tab");
+    LH4 = new JLabel("You are on the Cubic Tab");
 
-    L1 = new JLabel("Constant Coefficient");
-    L2 = new JLabel("Linear Coefficient");
-    L3 = new JLabel("Quadratic Coefficient");
-    L4 = new JLabel("Cubic Coefficient");
+    L1c = new JLabel("Constant Coefficient");
+    L1l = new JLabel("Constant Coefficient");
+    L1q = new JLabel("Constant Coefficient");
+    L1cu = new JLabel("Constant Coefficient");
+    L2l = new JLabel("Linear Coefficient");
+    L2q = new JLabel("Linear Coefficient");
+    L2cu = new JLabel("Linear Coefficient");
+    L3q = new JLabel("Quadratic Coefficient");
+    L3cu = new JLabel("Quadratic Coefficient");
+    L4cu = new JLabel("Cubic Coefficient");
 
     B1.addActionListener(this);
     B2.addActionListener(this);
@@ -58,49 +74,60 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC3.addActionListener(this);
     BC4.addActionListener(this);
 
-    TF1.addActionListener(this);
-    TF2.addActionListener(this);
-    TF3.addActionListener(this);
-    TF4.addActionListener(this);
+    BG1.addActionListener(this);
+
+    TF1c.addActionListener(this);
+    TF1l.addActionListener(this);
+    TF2l.addActionListener(this);
+    TF1q.addActionListener(this);
+    TF2q.addActionListener(this);
+    TF3q.addActionListener(this);
+    TF1cu.addActionListener(this);
+    TF2cu.addActionListener(this);
+    TF3cu.addActionListener(this);
+    TF4cu.addActionListener(this);
 
 
     Constant.add(LH1);
     Constant.add(BC1);
-    Constant.add(L1);
-    Constant.add(TF1);
+    Constant.add(L1c);
+    Constant.add(TF1c);
     Constant.add(B1);
+
     Linear.add(LH2);
     Linear.add(BC2);
-    Linear.add(L1);
-    Linear.add(TF1);
-    Linear.add(L2);
-    Linear.add(TF2);
+    Linear.add(L1l);
+    Linear.add(TF1l);
+    Linear.add(L2l);
+    Linear.add(TF2l);
     Linear.add(B2);
 
-    /*Quadratic.add(LH3);
+    Quadratic.add(LH3);
     Quadratic.add(BC3);
-    Quadratic.add(L1);
-    Quadratic.add(TF1);
-    Quadratic.add(L2);
-    Quadratic.add(TF2);
-    Quadratic.add(L3);
-    Quadratic.add(TF3);
+    Quadratic.add(L1q);
+    Quadratic.add(TF1q);
+    Quadratic.add(L2q);
+    Quadratic.add(TF2q);
+    Quadratic.add(L3q);
+    Quadratic.add(TF3q);
     Quadratic.add(B3);
 
     Cubic.add(LH4);
     Cubic.add(BC4);
-    Cubic.add(L1);
-    Cubic.add(TF1);
-    Cubic.add(L2);
-    Cubic.add(TF2);
-    Cubic.add(L3);
-    Cubic.add(TF3);
-    Cubic.add(L4);
-    Cubic.add(TF4);
+    Cubic.add(L1cu);
+    Cubic.add(TF1cu);
+    Cubic.add(L2cu);
+    Cubic.add(TF2cu);
+    Cubic.add(L3cu);
+    Cubic.add(TF3cu);
+    Cubic.add(L4cu);
+    Cubic.add(TF4cu);
     Cubic.add(B4);
-    */
+    Cubic.add(BG1);
+
+
     frame.setContentPane(Constant);
-    frame.setSize(800,500);
+    frame.setSize(1400,400);
     frame.setLocation(100,100);
     frame.setVisible(true);
     }
@@ -115,11 +142,31 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	   else if (button == BC2){
 	    frame.setContentPane(Quadratic);
-
+      frame.repaint();
+      frame.setVisible(true);
 
     }
     else if (button == BC3){
  	    frame.setContentPane(Cubic);
+      frame.repaint();
+      frame.setVisible(true);
+      }
+
+
+    else if (button == BC4){
+ 	    frame.setContentPane(Constant);
+      frame.repaint();
+      frame.setVisible(true);
+
+
+    }
+    else if (button == BG1){
+ 	    frame.setContentPane(Fun);
+      frame.repaint();
+      frame.setVisible(true);
+      Function test = new Function();
+      test.main();
+
 
 
     }

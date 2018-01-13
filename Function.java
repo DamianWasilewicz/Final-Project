@@ -3,7 +3,7 @@ import java.awt.font.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
-public class Graph extends JPanel {
+public class Function extends JPanel {
     private double[] data;
     private double[] data1;
     public void paintComponent(Graphics g) {
@@ -51,10 +51,10 @@ public class Graph extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
-    public static void main(String[] args) {
+    public static void main() {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Graph test = new Graph();
+        Function test = new Function();
         CreateArray check = new CreateArray();
         test.setData(check.getX());
         test.setData1(check.getY());
