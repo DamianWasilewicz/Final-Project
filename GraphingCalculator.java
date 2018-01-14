@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
     private JPanel Constant, Linear, Quadratic, Cubic, Fun;
-    private JButton B1, B2, B3, B4, BC1, BC2, BC3, BC4, BG1;
+    private JButton B1, B2, B3, B4, BC1, BC2, BC3, BC4;
     private JTextField TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu;
     private JLabel L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu, LH1, LH2, LH3, LH4;
 
@@ -35,7 +35,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC3 = new JButton("Cycle To Cubic");
     BC4 = new JButton("Cycle To Constant");
 
-    BG1 = new JButton("GRAPH IT");
 
     TF1c = new JTextField(5);
     TF1l = new JTextField(5);
@@ -74,7 +73,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC3.addActionListener(this);
     BC4.addActionListener(this);
 
-    BG1.addActionListener(this);
 
     TF1c.addActionListener(this);
     TF1l.addActionListener(this);
@@ -123,7 +121,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Cubic.add(L4cu);
     Cubic.add(TF4cu);
     Cubic.add(B4);
-    Cubic.add(BG1);
 
 
     frame.setContentPane(Constant);
@@ -160,7 +157,64 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     }
-    else if (button == BG1){
+    else if (button == B1){
+      JFrame f = new JFrame();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      Function test = new Function();
+      test.setC(Double.parseDouble(TF1c.getText()));
+      test.setX1(0);
+      test.setX2(0);
+      test.setX3(0);
+      CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3());
+      test.setRoots(check.getRoots());
+      test.setData(check.getX());
+      test.setData1(check.getY());
+      //test.setRoots(check.getRoots());
+//test.SetMaxandMin(test.ymax(), test.ymin());
+      f.add(test);
+      f.setSize(1000, 1000);
+      f.setLocation(200,200);
+      f.setVisible(true);
+    }
+      else if (button == B2){
+        JFrame f = new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Function test = new Function();
+        test.setC(Double.parseDouble(TF1l.getText()));
+        test.setX1(Double.parseDouble(TF2l.getText()));
+        test.setX2(0);
+        test.setX3(0);
+        CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3());
+        test.setRoots(check.getRoots());
+        test.setData(check.getX());
+        test.setData1(check.getY());
+        //test.setRoots(check.getRoots());
+  //test.SetMaxandMin(test.ymax(), test.ymin());
+        f.add(test);
+        f.setSize(1000, 1000);
+        f.setLocation(200,200);
+        f.setVisible(true);
+      }
+    else if (button == B3){
+      JFrame f = new JFrame();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      Function test = new Function();
+      test.setC(Double.parseDouble(TF1q.getText()));
+      test.setX1(Double.parseDouble(TF2q.getText()));
+      test.setX2(Double.parseDouble(TF3q.getText()));
+      test.setX3(0);
+      CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3());
+      test.setRoots(check.getRoots());
+      test.setData(check.getX());
+      test.setData1(check.getY());
+      //test.setRoots(check.getRoots());
+//test.SetMaxandMin(test.ymax(), test.ymin());
+      f.add(test);
+      f.setSize(1000, 1000);
+      f.setLocation(200,200);
+      f.setVisible(true);
+    }
+    else if (button == B4){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -178,11 +232,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setSize(1000, 1000);
       f.setLocation(200,200);
       f.setVisible(true);
-
-
-
-
     }
+
     }
 
     public static void main(String[]args){

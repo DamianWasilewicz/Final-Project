@@ -22,7 +22,7 @@ public class CreateArray{
     createY();
   }
   public double evaluate(double value){
-    double answer = (value + (value * X1) + (value * value * X2)
+    double answer = (C + (value * X1) + (value * value * X2)
     + (value * value * value * X3)) * .0001; //(value * value * value* value * X4)+
     //(value * value * value * value * value * X5) +
     //(value * value * value * value * value* value * X6)
