@@ -60,29 +60,29 @@ public class Function extends JPanel {
 
 
         for(int counter = -100; counter < 100; counter++){
-        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 79*counter, w/2 + 10, h/2 + 79* counter));
+        g2.draw(new Line2D.Double(w/2 - 10, h/2+ 79 * counter, w/2 + 10, h/2 + 79 * counter));
         }
 
         for(int counter = -100; counter < 100; counter++){
-        g2.draw(new Line2D.Double(w/2 + 79*counter, h/2 - 10, w/2 + 79*counter, h/2 + 10));
+        g2.draw(new Line2D.Double(w/2 + 79*counter, h/2 - 10, w/2 + 79 *counter, h/2 + 10));
         }
 
 
         createNumbers();
         for(int counter = 1; counter < 25; counter++){
-          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 79* counter));
+          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2+ 10, (h/2- (79* counter)));
         }
 	      for(int counter = 0; counter < 25; counter++){
-	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (79* counter)), h/2 + 20);
+	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (79 * counter)), h/2 + 20);
         }
 
 
         createNegNumbers();
         for(int counter = 0; counter < 25; counter++){
-         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 79* counter));
+         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + (79* counter)));
         }
         for(int counter = 0; counter < 25; counter++){
-	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (79* counter)), h/2 + 20);
+	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (79 * counter)), h/2 + 20);
         }
 
 
@@ -125,7 +125,7 @@ public class Function extends JPanel {
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= (counter * 10);
+	        ans+= (counter * C);
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -138,7 +138,7 @@ public class Function extends JPanel {
         for(int counter = 0; counter < 25; counter++){
           String ans = new String ("");
     	     char[] answer = new char[10];
- 	        ans+= (counter * -10);
+ 	        ans+= (counter * C);
            answer = ans.toCharArray();
  	        for(int count = 0; count < answer.length; count++){
  	           a[counter][count] = answer[count];

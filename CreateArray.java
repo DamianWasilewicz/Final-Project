@@ -14,9 +14,9 @@ public class CreateArray{
     X1 = X1i;
     X2 = X2i;
     X3 = X3i;
-    double[] X = new double[1010000];
+    double[] X = new double[10100000];
     for(int counter = 0; counter< X.length; counter++){
-      X[counter] = (counter * .0001)-50 ;
+      X[counter] = (counter * .0001) - 50 ;
     }
     xCoords = X;
     createY();
@@ -29,7 +29,7 @@ public class CreateArray{
     return answer;
   }
   public void createY(){
-    double[] Y = new double[1010000];
+    double[] Y = new double[(10100000)];
     for(int counter = 0; counter < Y.length; counter++){
       Y[counter] = evaluate(xCoords[counter]);
     }
