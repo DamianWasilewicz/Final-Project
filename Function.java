@@ -59,30 +59,30 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
 
 
-        for(int counter = -20; counter < 21; counter++){
-        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 50*counter, w/2 + 10, h/2 + 50* counter));
+        for(int counter = -100; counter < 100; counter++){
+        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 79*counter, w/2 + 10, h/2 + 79* counter));
         }
 
-        for(int counter = -24; counter < 25; counter++){
-        g2.draw(new Line2D.Double(w/2 + 50*counter, h/2 - 10, w/2 + 50*counter, h/2 + 10));
+        for(int counter = -100; counter < 100; counter++){
+        g2.draw(new Line2D.Double(w/2 + 79*counter, h/2 - 10, w/2 + 79*counter, h/2 + 10));
         }
 
 
         createNumbers();
         for(int counter = 1; counter < 25; counter++){
-          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter) + 15);
+          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 79* counter));
         }
 	      for(int counter = 0; counter < 25; counter++){
-	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (40* counter)), h/2 + 20);
+	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (79* counter)), h/2 + 20);
         }
 
 
         createNegNumbers();
         for(int counter = 0; counter < 25; counter++){
-         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 40* counter));
+         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 79* counter));
         }
         for(int counter = 0; counter < 25; counter++){
-	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (40* counter)), h/2 + 20);
+	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (79* counter)), h/2 + 20);
         }
 
 
@@ -121,11 +121,11 @@ public class Function extends JPanel {
        Roots = roots;
      }
    public void createNumbers(){
-       char[][] a = new char[25][10];
+       char[][] a = new char[100][10];
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= ((counter * 40)+15);
+	        ans+= (counter * 10);
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -134,11 +134,11 @@ public class Function extends JPanel {
          numbers = a;
     }
     public void createNegNumbers(){
-        char[][] a = new char[25][10];
+        char[][] a = new char[100][10];
         for(int counter = 0; counter < 25; counter++){
           String ans = new String ("");
     	     char[] answer = new char[10];
- 	        ans+= ((counter * -40)+15);
+ 	        ans+= (counter * -10);
            answer = ans.toCharArray();
  	        for(int count = 0; count < answer.length; count++){
  	           a[counter][count] = answer[count];
