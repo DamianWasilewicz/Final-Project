@@ -13,9 +13,10 @@ public class Function extends JPanel {
     private char[] Max;
     private char[] Min;
     private char[] Roots;
-    private boolean X1;
-    private boolean X2;
-    private boolean X3;
+    private double C;
+    private double X1;
+    private double X2;
+    private double X3;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -209,7 +210,41 @@ public class Function extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
-    public static void main() {
+    public void setC(double input){
+      C = input;
+    }
+    public void setX1(double input){
+      X1 = input;
+    }
+    public void setX2(double input){
+      X2 = input;
+    }
+    public void setX3(double input){
+      X3 = input;
+    }
+    public double getC(){
+      return C;
+    }
+    public double getX1(){
+      return X1;
+    }
+    public double getX2(){
+      return X2;
+    }
+    public double getX3(){
+      return X3;
+    }
+
+    /*public void setX4(String input){
+      X4 = Double.parseDouble(input);
+    }
+    public void setX5(String input){
+      X5 = Double.parseDouble(input);
+    }
+    public void setX6(String input){
+      X6 = Double.parseDouble(input);
+    }*/
+    /*public static void main() {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -223,5 +258,5 @@ public class Function extends JPanel {
         f.setSize(1000, 1000);
         f.setLocation(200,200);
         f.setVisible(true);
-    }
+    }*/
 }

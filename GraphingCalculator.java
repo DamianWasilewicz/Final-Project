@@ -37,16 +37,16 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     BG1 = new JButton("GRAPH IT");
 
-    TF1c = new JTextField(16);
-    TF1l = new JTextField(16);
-    TF1q = new JTextField(16);
-    TF1cu = new JTextField(16);
-    TF2l = new JTextField(16);
-    TF2q = new JTextField(16);
-    TF2cu = new JTextField(16);
-    TF3q = new JTextField(16);
-    TF3cu = new JTextField(16);
-    TF4cu = new JTextField(16);
+    TF1c = new JTextField(5);
+    TF1l = new JTextField(5);
+    TF1q = new JTextField(5);
+    TF1cu = new JTextField(5);
+    TF2l = new JTextField(5);
+    TF2q = new JTextField(5);
+    TF2cu = new JTextField(5);
+    TF3q = new JTextField(5);
+    TF3cu = new JTextField(5);
+    TF4cu = new JTextField(5);
 
     LH1 = new JLabel("You are on the Constant Tab");
     LH2 = new JLabel("You are on the Linear Tab");
@@ -161,11 +161,24 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     }
     else if (button == BG1){
- 	    frame.setContentPane(Fun);
-      frame.repaint();
-      frame.setVisible(true);
+      JFrame f = new JFrame();
+      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
-      test.main();
+      test.setC(Double.parseDouble(TF1cu.getText()));
+      test.setX1(Double.parseDouble(TF2cu.getText()));
+      test.setX2(Double.parseDouble(TF3cu.getText()));
+      test.setX3(Double.parseDouble(TF4cu.getText()));
+      CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3());
+      test.setRoots(check.getRoots());
+      test.setData(check.getX());
+      test.setData1(check.getY());
+      //test.setRoots(check.getRoots());
+//test.SetMaxandMin(test.ymax(), test.ymin());
+      f.add(test);
+      f.setSize(1000, 1000);
+      f.setLocation(200,200);
+      f.setVisible(true);
+
 
 
 
