@@ -30,10 +30,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B4 = new JButton("Graph Cubic Function");
 
 
-    BC1 = new JButton("Cycle To Linear");
-    BC2 = new JButton("Cycle To Quadratic");
-    BC3 = new JButton("Cycle To Cubic");
-    BC4 = new JButton("Cycle To Constant");
+    BC1 = new JButton("Linear");
+    BC2 = new JButton("Quadratic");
+    BC3 = new JButton("Cubic");
+    BC4 = new JButton("Constant");
 
     BG1 = new JButton("GRAPH IT");
 
@@ -90,12 +90,18 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     Constant.add(LH1);
     Constant.add(BC1);
+    //Constant.add(BC2);
+    //Constant.add(BC3);
+    //Constant.add(BC4);
     Constant.add(L1c);
     Constant.add(TF1c);
     Constant.add(B1);
 
     Linear.add(LH2);
+    //Linear.add(BC1);
     Linear.add(BC2);
+    Linear.add(BC3);
+    Linear.add(BC4);
     Linear.add(L1l);
     Linear.add(TF1l);
     Linear.add(L2l);
@@ -103,7 +109,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Linear.add(B2);
 
     Quadratic.add(LH3);
+    //Quadratic.add(BC1);
+    Quadratic.add(BC2);
     Quadratic.add(BC3);
+    Quadratic.add(BC4);
     Quadratic.add(L1q);
     Quadratic.add(TF1q);
     Quadratic.add(L2q);
@@ -113,6 +122,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Quadratic.add(B3);
 
     Cubic.add(LH4);
+    //Cubic.add(BC1);
+    Cubic.add(BC2);
+    Cubic.add(BC3);
     Cubic.add(BC4);
     Cubic.add(L1cu);
     Cubic.add(TF1cu);
@@ -174,6 +186,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     public static void main(String[]args){
 	GraphingCalculator g = new GraphingCalculator();
-	g.setVisible(true);
+	//g.setVisible(true);
     }
 }
