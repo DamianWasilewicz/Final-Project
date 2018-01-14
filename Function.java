@@ -124,7 +124,7 @@ public class Function extends JPanel {
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= (counter);
+	        ans+= ((counter * 40)+15);
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -137,7 +137,7 @@ public class Function extends JPanel {
         for(int counter = 0; counter < 25; counter++){
           String ans = new String ("");
     	     char[] answer = new char[10];
- 	        ans+= (counter * -1);
+ 	        ans+= ((counter * -40)+15);
            answer = ans.toCharArray();
  	        for(int count = 0; count < answer.length; count++){
  	           a[counter][count] = answer[count];

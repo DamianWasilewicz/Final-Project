@@ -1,4 +1,5 @@
 public class CreateArray{
+  private double C;
   private double X1;
   private double X2;
   private double X3;
@@ -9,28 +10,22 @@ public class CreateArray{
   private double[] yCoords;
   private char[] Roots;
   public CreateArray(){
-    X1 = 10;
-    X2 = 10;
-    X3 = 10;
-    X4 = 10;
-    X5 = 10;
-    X6 = -10;
-    double[] X = new double[10000000];
+    double[] X = new double[1000000];
     for(int counter = 0; counter< X.length; counter++){
-      X[counter] = (counter * .00001)-50 ;
+      X[counter] = (counter * .0001)-50 ;
     }
     xCoords = X;
     createY();
   }
   public double evaluate(double value){
-    double answer = ((value * X1) + (value * value * X2)
+    double answer = (value + (value * X1) + (value * value * X2)
     + (value * value * value * X3)+ (value * value * value* value * X4)+
     (value * value * value * value * value * X5) +
-    (value * value * value * value * value* value * X6)) * .00001;
+    (value * value * value * value * value* value * X6)) * .0001;
     return answer;
   }
   public void createY(){
-    double[] Y = new double[10000000];
+    double[] Y = new double[1000000];
     for(int counter = 0; counter < Y.length; counter++){
       Y[counter] = evaluate(xCoords[counter]);
     }
@@ -49,6 +44,27 @@ public class CreateArray{
   }
   public char[] getRoots(){
     return Roots;
+  }
+  public void setC(String input){
+    C = Double.parseDouble(input);
+  }
+  public void setX1(String input){
+    X1 = Double.parseDouble(input);
+  }
+  public void setX2(String input){
+    X2 = Double.parseDouble(input);
+  }
+  public void setX3(String input){
+    X3 = Double.parseDouble(input);
+  }
+  public void setX4(String input){
+    X4 = Double.parseDouble(input);
+  }
+  public void setX5(String input){
+    X5 = Double.parseDouble(input);
+  }
+  public void setX6(String input){
+    X6 = Double.parseDouble(input);
   }
   public double[] getX(){
     return xCoords;
