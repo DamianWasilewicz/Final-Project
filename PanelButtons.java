@@ -5,7 +5,7 @@ import java.awt.event.*;
 public class PanelButtons extends JFrame implements ActionListener{
     private JFrame frame;
     private JPanel panel0, panel1, panel2;
-    private JButton t1, t2, t3;
+    private JButton t1, t2;
     private JTextField tf1;
     private JLabel l1, l2, test;
 
@@ -22,7 +22,6 @@ public class PanelButtons extends JFrame implements ActionListener{
 
     t1 = new JButton("Button");
     t2 = new JButton("Other Button");
-    t3 = new JButton("Pray to God");
     tf1 = new JTextField(16);
     l1 = new JLabel("This is a label");
     l2 = new JLabel("This is also a label");
@@ -31,7 +30,6 @@ public class PanelButtons extends JFrame implements ActionListener{
     t1.addActionListener(this);
     tf1.addActionListener(this);
     t2.addActionListener(this);
-    t3.addActionListener(this);
 
     panel0.add(t1);
     panel0.add(tf1);
@@ -39,7 +37,6 @@ public class PanelButtons extends JFrame implements ActionListener{
     panel1.add(t2);
     panel1.add(l2);
     panel2.add(test);
-    panel2.add(t3);
 
     frame.setContentPane(panel0);
     frame.setSize(500,500);
@@ -61,19 +58,11 @@ public class PanelButtons extends JFrame implements ActionListener{
 	    //frame.remove(panel1);
 	    frame.setContentPane(panel2);
       frame.repaint();
+		frame.setVisible(true);
 	    }
-  else if (button == t3){
-    	 //frame.remove(panel1);
-    	  frame.setContentPane(panel0);
-        frame.repaint();
-    	}
-
-	    frame.setContentPane(panel0);
 	}
 
-    }
-
     public static void main(String[]args){
-	PanelButtons g = new PanelButtons();
+		PanelButtons g = new PanelButtons();
     }
 }
