@@ -13,9 +13,10 @@ public class Function extends JPanel {
     private char[] Max;
     private char[] Min;
     private char[] Roots;
-    private boolean X1;
-    private boolean X2;
-    private boolean X3;
+    private double C;
+    private double X1;
+    private double X2;
+    private double X3;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -58,30 +59,30 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
 
 
-        for(int counter = -20; counter < 21; counter++){
-        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 50*counter, w/2 + 10, h/2 + 50* counter));
+        for(int counter = -100; counter < 100; counter++){
+        g2.draw(new Line2D.Double(w/2 - 10, h/2 + 79*counter, w/2 + 10, h/2 + 79* counter));
         }
 
-        for(int counter = -24; counter < 25; counter++){
-        g2.draw(new Line2D.Double(w/2 + 50*counter, h/2 - 10, w/2 + 50*counter, h/2 + 10));
+        for(int counter = -100; counter < 100; counter++){
+        g2.draw(new Line2D.Double(w/2 + 79*counter, h/2 - 10, w/2 + 79*counter, h/2 + 10));
         }
 
 
         createNumbers();
         for(int counter = 1; counter < 25; counter++){
-          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 40* counter) + 15);
+          g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2 + 10, (h/2 - 79* counter));
         }
 	      for(int counter = 0; counter < 25; counter++){
-	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (40* counter)), h/2 + 20);
+	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (79* counter)), h/2 + 20);
         }
 
 
         createNegNumbers();
         for(int counter = 0; counter < 25; counter++){
-         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 40* counter));
+         g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, w/2 + 10, (h/2 + 79* counter));
         }
         for(int counter = 0; counter < 25; counter++){
-	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (40* counter)), h/2 + 20);
+	       g2.drawChars(negnumbers[counter], 0, negnumbers[counter].length, (w/2 - (79* counter)), h/2 + 20);
         }
 
 
@@ -120,11 +121,11 @@ public class Function extends JPanel {
        Roots = roots;
      }
    public void createNumbers(){
-       char[][] a = new char[25][10];
+       char[][] a = new char[100][10];
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= ((counter * 40)+15);
+	        ans+= (counter * 10);
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -133,11 +134,11 @@ public class Function extends JPanel {
          numbers = a;
     }
     public void createNegNumbers(){
-        char[][] a = new char[25][10];
+        char[][] a = new char[100][10];
         for(int counter = 0; counter < 25; counter++){
           String ans = new String ("");
     	     char[] answer = new char[10];
- 	        ans+= ((counter * -40)+15);
+ 	        ans+= (counter * -10);
            answer = ans.toCharArray();
  	        for(int count = 0; count < answer.length; count++){
  	           a[counter][count] = answer[count];
@@ -209,7 +210,41 @@ public class Function extends JPanel {
     public void setData1(double[] arg){
       data1 = arg;
     }
-    public static void main() {
+    public void setC(double input){
+      C = input;
+    }
+    public void setX1(double input){
+      X1 = input;
+    }
+    public void setX2(double input){
+      X2 = input;
+    }
+    public void setX3(double input){
+      X3 = input;
+    }
+    public double getC(){
+      return C;
+    }
+    public double getX1(){
+      return X1;
+    }
+    public double getX2(){
+      return X2;
+    }
+    public double getX3(){
+      return X3;
+    }
+
+    /*public void setX4(String input){
+      X4 = Double.parseDouble(input);
+    }
+    public void setX5(String input){
+      X5 = Double.parseDouble(input);
+    }
+    public void setX6(String input){
+      X6 = Double.parseDouble(input);
+    }*/
+    /*public static void main() {
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -223,5 +258,5 @@ public class Function extends JPanel {
         f.setSize(1000, 1000);
         f.setLocation(200,200);
         f.setVisible(true);
-    }
+    }*/
 }
