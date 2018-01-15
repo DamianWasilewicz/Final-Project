@@ -172,7 +172,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       //test.setRoots(check.getRoots());
 //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
-      f.setSize(1000, 1000);
+      f.setSize(800, 1000);
       f.setLocation(200,200);
       f.setVisible(true);
     }
@@ -191,7 +191,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         //test.setRoots(check.getRoots());
   //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
-        f.setSize(1000, 1000);
+        f.setSize(800, 1000);
         f.setLocation(200,200);
         f.setVisible(true);
       }
@@ -210,7 +210,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       //test.setRoots(check.getRoots());
 //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
-      f.setSize(1000, 1000);
+      f.setSize(800, 1000);
       f.setLocation(200,200);
       f.setVisible(true);
     }
@@ -229,7 +229,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       //test.setRoots(check.getRoots());
 //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
-      f.setSize(1000, 1000);
+      f.setSize(800, 1000);
       f.setLocation(200,200);
       f.setVisible(true);
     }
