@@ -4,13 +4,19 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth;
-    private JButton B1, B2, B3, B4, B5, B6, B7, BC1, BC2, BC3, BC4, BC5, BC6, BC7;
+    private JPanel Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel;
+    private JButton B1, B2, B3, B4, B5, B6, B7, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back;
     private JTextField TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
-    private JLabel L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu, L1fourth, L2fourth, L3fourth, L4fourth, L5fourth, L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth, L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,  LH1, LH2, LH3, LH4, LH5, LH6, LH7;
+    private JLabel L1c, L1l , L2l, L1q, L2q, L3q, 
+			L1cu, L2cu, L3cu, L4cu, 
+			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,
+			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,
+			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,
+			LH1, LH2, LH3, LH4, LH5, LH6, LH7, 
+			errorMessage;
 
     public GraphingCalculator() {
-    frame = new JFrame("Window");
+    frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     Constant = new JPanel();
@@ -20,6 +26,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fourth= new JPanel();
     Fifth= new JPanel();
     Sixth= new JPanel();
+	errorPanel = new JPanel();
 
     Constant.setLayout(new FlowLayout());
     Linear.setLayout(new FlowLayout());
@@ -28,6 +35,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fourth.setLayout(new FlowLayout());
     Fifth.setLayout(new FlowLayout());
     Sixth.setLayout(new FlowLayout());
+	errorPanel.setLayout(new FlowLayout());
+
+
+
 
     B1 = new JButton("Graph Constant Function");
     B2 = new JButton("Graph Linear Function");
@@ -45,6 +56,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC5= new JButton("Cycle To Fifth Degree");
     BC6 = new JButton("Cycle To Sixth Degree");
     BC7 = new JButton("Cycle To Constant");
+
+	back = new JButton("Back to function");
 
 
 
@@ -136,6 +149,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     L7sixth = new JLabel("Sixth Degree Coefficient");
 
+	errorMessage = new JLabel("Please input only numerical coefficients");
+
+
 
 
     B1.addActionListener(this);
@@ -192,6 +208,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     TF6sixth.addActionListener(this);
 
     TF7sixth.addActionListener(this);
+
+	back.addActionListener(this);
+
 
 
 
@@ -281,6 +300,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Sixth.add(TF7sixth);
     Sixth.add(B7);
 
+	errorPanel.add(errorMessage);
+	errorPanel.add(back);
 
 
 
@@ -337,8 +358,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
-      test.setC(Double.parseDouble(TF1c.getText()));
-      test.setX1(0);
+	  try {
+		test.setC(Double.parseDouble(TF1c.getText()));
+		 test.setX1(0);
       test.setX2(0);
       test.setX3(0);
       test.setX4(0);
@@ -354,6 +376,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setSize(800, 1000);
       f.setLocation(200,200);
       f.setVisible(true);
+	  }
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
     }
       else if (button == B2){
         JFrame f = new JFrame();
@@ -486,10 +514,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setLocation(200,200);
       f.setVisible(true);
     }
+
+	else if (button == back){
+		frame.setContentPane(Constant);
+		frame.repaint();
+		frame.setVisible(true);
+	}
     }
 
     public static void main(String[]args){
 	GraphingCalculator g = new GraphingCalculator();
-	g.setVisible(true);
     }
 }
