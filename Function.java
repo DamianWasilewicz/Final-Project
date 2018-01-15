@@ -42,9 +42,11 @@ public class Function extends JPanel {
         g2.drawString("of degree: ", 50, 65);
         g2.drawChars(labelchars,0, 1, 120, 65);
         ymax();
+        ymin();
         g2.drawString("The max of the function:", 50, 150);
         g2.drawChars(Max, 0, Max.length, 210, 150);
         g2.drawString("The min of the function:", 50, 165);
+        g2.drawChars(Min, 0, Min.length, 210, 165);
 	// g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
         g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
@@ -182,7 +184,7 @@ public class Function extends JPanel {
           answer= "" + findymax();
         }
         if(X2 > 0){
-          answer+= "∞";
+          answer= "∞";
         }
       }
       if(X3 != 0){
@@ -210,10 +212,60 @@ public class Function extends JPanel {
         Max = answer.toCharArray();
       }
 
+      public void ymin(){
+        String answer = new String("");
+       if(C!= 0){
+          answer= "" + C;
+        }
+        if(X1 != 0){
+          answer= "-∞";
+        }
+         if(X2 != 0){
+          if(X2 > 0){
+            answer= "" + findymin();
+          }
+          if(X2 < 0){
+            answer= "-∞";
+          }
+        }
+        if(X3 != 0){
+          answer= "-∞";
+        }
+         if(X4!= 0){
+          if(X4 > 0){
+           answer = "" +findymin();
+         }
+          else{
+            answer= "∞";
+          }
+        }
+       if(X5 != 0){
+              answer= "-∞";
+        }
+          if(X6 != 0){
+            if(X6 > 0){
+            answer= "" + findymin();
+          }
+          else{
+            answer= "-∞";
+            }
+          }
+          Min = answer.toCharArray();
+        }
+
     public double findymax(){
       double answer = -100000000;
       for(int counter = 0; counter < data1.length; counter++){
         if (data1[counter] > answer){
+        answer = data1[counter];
+      }
+    }
+      return answer;
+    }
+    public double findymin(){
+      double answer = 100000000;
+      for(int counter = 0; counter < data1.length; counter++){
+        if (data1[counter] < answer){
         answer = data1[counter];
       }
     }
