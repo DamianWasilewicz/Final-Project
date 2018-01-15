@@ -17,6 +17,9 @@ public class Function extends JPanel {
     private double X1;
     private double X2;
     private double X3;
+    private double X4;
+    private double X5;
+    private double X6;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -222,6 +225,16 @@ public class Function extends JPanel {
     public void setX3(double input){
       X3 = input;
     }
+    public void setX4(double input){
+      X4 = input;
+    }
+    public void setX5(double input){
+      X5 = input;
+    }
+    public void setX6(double input){
+      X6 = input;
+    }
+
     public double getC(){
       return C;
     }
@@ -234,6 +247,16 @@ public class Function extends JPanel {
     public double getX3(){
       return X3;
     }
+    public double getX4(){
+      return X4;
+    }
+    public double getX5(){
+      return X5;
+    }
+    public double getX6(){
+      return X6;
+    }
+
 
     /*public void setX4(String input){
       X4 = Double.parseDouble(input);
