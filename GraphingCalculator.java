@@ -383,11 +383,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		frame.setVisible(true);
 	  }
     }
+
       else if (button == B2){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-        test.setC(Double.parseDouble(TF1l.getText()));
+		try {
+		test.setC(Double.parseDouble(TF1l.getText()));
         test.setX1(Double.parseDouble(TF2l.getText()));
         test.setX2(0);
         test.setX3(0);
@@ -404,11 +406,19 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         f.setSize(800, 1000);
         f.setLocation(200,200);
         f.setVisible(true);
+		}
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
       }
+
     else if (button == B3){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
+	  try {
       test.setC(Double.parseDouble(TF1q.getText()));
       test.setX1(Double.parseDouble(TF2q.getText()));
       test.setX2(Double.parseDouble(TF3q.getText()));
@@ -427,10 +437,18 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setLocation(200,200);
       f.setVisible(true);
     }
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
+	}
+
     else if (button == B4){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
+	  try {
         test.setC(Double.parseDouble(TF1cu.getText()));
         test.setX1(Double.parseDouble(TF2cu.getText()));
         test.setX2(Double.parseDouble(TF3cu.getText()));
@@ -446,11 +464,18 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         f.setLocation(200,200);
         f.setVisible(true);
       }
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
+	}
 
     else if (button == B5){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
+	  try {
       test.setC(Double.parseDouble(TF1fourth.getText()));
       test.setX1(Double.parseDouble(TF2fourth.getText()));
       test.setX2(Double.parseDouble(TF3fourth.getText()));
@@ -469,10 +494,18 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setLocation(200,200);
       f.setVisible(true);
     }
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
+	}
+
     else if (button == B6){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
+	  try {
       test.setC(Double.parseDouble(TF1fifth.getText()));
       test.setX1(Double.parseDouble(TF2fifth.getText()));
       test.setX2(Double.parseDouble(TF3fifth.getText()));
@@ -491,11 +524,18 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setLocation(200,200);
       f.setVisible(true);
     }
+	  catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
+	}
 
     else if (button == B7){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
+	  try {
       test.setC(Double.parseDouble(TF1sixth.getText()));
       test.setX1(Double.parseDouble(TF2sixth.getText()));
       test.setX2(Double.parseDouble(TF3sixth.getText()));
@@ -514,6 +554,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setLocation(200,200);
       f.setVisible(true);
     }
+	catch (IllegalArgumentException error){
+		frame.setContentPane(errorPanel);
+		frame.repaint();
+		frame.setVisible(true);
+	  }
+	}
 
 	else if (button == back){
 		frame.setContentPane(Constant);
