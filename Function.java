@@ -274,38 +274,68 @@ public class Function extends JPanel {
     public void createFunctionName(){
       String answer = new String("y = ");
       if(X6 != 0.0){
-        answer+= (int)X6 + "x^6";
+        if(X6 == 1){
+          answer+= "x^6";
+        }
+        else{
+          answer+= X6 + "x^6";
+        }
         if(X5 != 0.0){
           answer+= " + ";
         }
       }
       if(X5 != 0.0){
-        answer+= X5 + "x^5";
+        if(X5 == 1){
+          answer+= "x^5";
+        }
+        else{
+          answer+= X5 + "x^5";
+        }
         if(X4 != 0.0){
           answer+= " + ";
         }
       }
       if(X4 != 0.0){
-        answer+= X4 + "x^4";
+        if(X4 == 1){
+          answer+= "x^4";
+        }
+        else{
+          answer+= X4 + "x^4";
+        }
         if(X3 != 0.0){
           answer+= " + ";
         }
       }
       if(X3 != 0.0){
-        answer+= X3 + "x^3";
+        if(X3 == 1){
+          answer+= "x^3";
+        }
+        else{
+          answer+= X3 + "x^3";
+        }
         if(X2 != 0.0){
           answer+= " + ";
         }
       }
       if(X2 != 0.0){
-        answer+= X2 + "x^2";
+        if(X2 == 1){
+          answer+= "x^2";
+        }
+        else{
+          answer+= X2 + "x^2";
+        }
         if(X1 != 0.0){
           answer+= " + ";
         }
       }
       if(X1 != 0.0){
-        answer+= X1 + "x";
-        if(C != 0.0){
+        if(X1 == 1){
+          answer+= "x";
+        }
+        else{
+          answer+= X1 + "x";
+        }
+        if(X1 != 0.0){
           answer+= " + ";
         }
       }
