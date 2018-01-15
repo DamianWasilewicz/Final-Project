@@ -345,7 +345,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setX5(0);
       test.setX6(0);
       CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      test.setRoots(check.getRoots());
+      //test.setRoots(check.getRoots());
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
@@ -367,7 +367,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX5(0);
         test.setX6(0);
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        test.setRoots(check.getRoots());
+        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
         //test.setRoots(check.getRoots());
@@ -389,7 +389,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setX5(0);
       test.setX6(0);
       CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      test.setRoots(check.getRoots());
+      //test.setRoots(check.getRoots());
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
@@ -408,7 +408,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX2(Double.parseDouble(TF3cu.getText()));
         test.setX3(Double.parseDouble(TF4cu.getText()));
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        test.setRoots(check.getRoots());
+        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
         //test.setRoots(check.getRoots());
@@ -431,7 +431,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setX5(0);
       test.setX6(0);
       CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      test.setRoots(check.getRoots());
+      //test.setRoots(check.getRoots());
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
@@ -453,7 +453,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setX5(Double.parseDouble(TF6fifth.getText()));
       test.setX6(0);
       CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      test.setRoots(check.getRoots());
+      //test.setRoots(check.getRoots());
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
@@ -476,7 +476,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setX5(Double.parseDouble(TF6sixth.getText()));
       test.setX6(Double.parseDouble(TF7sixth.getText()));
       CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      test.setRoots(check.getRoots());
+      //test.setRoots(check.getRoots());
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());

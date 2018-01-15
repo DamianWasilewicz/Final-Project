@@ -11,7 +11,7 @@ public class Function extends JPanel {
     private char[][] negnumbers;
     private char[] Max;
     private char[] Min;
-    private char[] Roots;
+    //private char[] Roots;
     private char[] FunctionName;
     private double C;
     private double X1;
@@ -41,7 +41,10 @@ public class Function extends JPanel {
         g2.drawString("You are viewing a function", 50, 50);
         g2.drawString("of degree: ", 50, 65);
         g2.drawChars(labelchars,0, 1, 120, 65);
-        g2.drawString("The roots of your function are:", 50, 150);
+        ymax();
+        g2.drawString("The max of the function:", 50, 150);
+        g2.drawChars(Max, 0, Max.length, 210, 150);
+        g2.drawString("The min of the function:", 50, 165);
 	// g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
         g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
@@ -135,15 +138,15 @@ public class Function extends JPanel {
           labelchars = answer;
        }
 
-     public void setRoots(char[] roots){
-       Roots = roots;
-     }
+     //public void setRoots(char[] roots){
+    //   Roots = roots;
+    // }
    public void createNumbers(){
        char[][] a = new char[100][10];
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= (counter * (C));
+	        ans+= (counter * 10);
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -156,7 +159,7 @@ public class Function extends JPanel {
         for(int counter = 0; counter < 25; counter++){
           String ans = new String ("");
     	     char[] answer = new char[10];
- 	        ans+= (counter * C);
+ 	        ans+= (counter * 10);
            answer = ans.toCharArray();
  	        for(int count = 0; count < answer.length; count++){
  	           a[counter][count] = answer[count];
@@ -166,47 +169,56 @@ public class Function extends JPanel {
      }
 
     //calculate max of y coordinates;
-    /*public String ymax(){
+    public void ymax(){
       String answer = new String("");
-      if(X6on){
-        if(X6 < 0){
-          answer+= C;
+     if(C!= 0){
+        answer= "" + C;
+      }
+      if(X1 != 0){
+        answer= "∞";
+      }
+       if(X2 != 0){
+        if(X2 < 0){
+          answer= "" + findymax();
         }
-        else{
+        if(X2 > 0){
           answer+= "∞";
         }
-        }
-        else if(X5on){
-            answer+= "∞";
       }
-      else if(X4on){
+      if(X3 != 0){
+        answer+= "∞";
+      }
+       if(X4!= 0){
         if(X4 < 0){
-          answer+= C;
-        }
+         answer = "" +findymax();
+       }
         else{
-          answer+= "∞";
+          answer= "∞";
         }
       }
-      else if(X3on){
-          answer+= "∞";
-        }
-        else if(X2on){
-          if(X2 < 0){
-            answer+= C;
-          }
-          else{
-            answer+= "∞";
-          }
-        }
-        else if(Xon){
-          answer+= "∞";
+     if(X5 != 0){
+            answer= "∞";
+      }
+        if(X6 != 0){
+          if(X6 < 0){
+          answer= "" + findymax();
         }
         else{
-          answer+= C;
+          answer= "∞";
+          }
         }
+        Max = answer.toCharArray();
       }
 
-*/
+    public double findymax(){
+      double answer = -100000000;
+      for(int counter = 0; counter < data1.length; counter++){
+        if (data1[counter] > answer){
+        answer = data1[counter];
+      }
+    }
+      return answer;
+    }
     public void createFunctionName(){
       String answer = new String("y = ");
       if(X6 != 0.0){
@@ -216,48 +228,39 @@ public class Function extends JPanel {
         }
       }
       if(X5 != 0.0){
-        answer+= (int)X5 + "x^5";
+        answer+= X5 + "x^5";
         if(X4 != 0.0){
           answer+= " + ";
         }
       }
       if(X4 != 0.0){
-        answer+= (int)X4 + "x^4";
+        answer+= X4 + "x^4";
         if(X3 != 0.0){
           answer+= " + ";
         }
       }
       if(X3 != 0.0){
-        answer+= (int)X3 + "x^3";
+        answer+= X3 + "x^3";
         if(X2 != 0.0){
           answer+= " + ";
         }
       }
       if(X2 != 0.0){
-        answer+= (int)X2 + "x^2";
+        answer+= X2 + "x^2";
         if(X1 != 0.0){
           answer+= " + ";
         }
       }
       if(X1 != 0.0){
-        answer+= (int)X1 + "x";
+        answer+= X1 + "x";
         if(C != 0.0){
           answer+= " + ";
         }
       }
       if(C != 0.0){
-        answer+= (int)C;
+        answer+= C;
       }
       FunctionName = answer.toCharArray();
-    }
-    public double ymin(){
-      double ymin = data1[0];
-      for(int counter = 1; counter < data1.length; counter++){
-        if(data1[counter] < ymin){
-          ymin = data1[counter];
-        }
-      }
-      return ymin;
     }
 
     //set xcoordinate array;
