@@ -6,13 +6,13 @@ import javax.swing.*;
 public class Function extends JPanel {
     private double[] data;
     private double[] data1;
-    private String label;
     private char[] labelchars;
     private char[][] numbers;
     private char[][] negnumbers;
     private char[] Max;
     private char[] Min;
     private char[] Roots;
+    private char[] FunctionName;
     private double C;
     private double X1;
     private double X2;
@@ -43,7 +43,7 @@ public class Function extends JPanel {
         g2.drawChars(labelchars,0, 1, 120, 65);
         g2.drawString("The roots of your function are:", 50, 150);
 	// g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
-        g2.drawString("X-Axis", 940, 405);
+        g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
 	//g2.drawChars(Min,0, Min.length, 50, 300);
 	//g2.drawChars(Max,0, Max.length, 50, 340);
@@ -60,6 +60,11 @@ public class Function extends JPanel {
         g2.draw(new Line2D.Double(w, h/2, w-20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, h, w/2 + 20, h-20));
         g2.draw(new Line2D.Double(w/2, h, w/2 - 20, h-20));
+
+        g2.drawString("Your function is:", 10, 180);
+
+        createFunctionName();
+        g2.drawChars(FunctionName, 0, FunctionName.length, 10, 200);
 
 
         for(int counter = -100; counter < 100; counter++){
@@ -103,23 +108,33 @@ public class Function extends JPanel {
     }
     //creates Header Label
     public void createLabel(){
-    char[] answer = new char[1];
-    answer[0] = '3';
-    labelchars= answer;
-       /*if(X1 != 0){
-         label+= "3";
+      char[] answer = new char[1];
+      String label = new String("");
+      if(C != 0){
+      label= "0";
+      }
+      if(X1 != 0){
+         label= "1";
        }
-       else if(X2 != 0){
-         label+= "2";
+      if(X2 != 0){
+         label= "2";
        }
-       else if(X3 != 0){
-         label+= "1";
+      if(X3 != 0){
+         label= "3";
        }
-       else{
-         label+= "0";
-       }*/
+       if(X4!= 0){
+          label= "4";
+        }
+        if(X5 != 0){
+           label= "5";
+         }
+         if(X6 != 0){
+            label= "6";
+          }
+          answer = label.toCharArray();
+          labelchars = answer;
+       }
 
-     }
      public void setRoots(char[] roots){
        Roots = roots;
      }
@@ -128,7 +143,7 @@ public class Function extends JPanel {
        for(int counter = 0; counter < 25; counter++){
          String ans = new String ("");
    	     char[] answer = new char[10];
-	        ans+= (counter * C);
+	        ans+= (counter * (C));
           answer = ans.toCharArray();
 	        for(int count = 0; count < answer.length; count++){
 	           a[counter][count] = answer[count];
@@ -148,9 +163,6 @@ public class Function extends JPanel {
             }
           }
           negnumbers = a;
-     }
-    public String getLabel(){
-       return label;
      }
 
     //calculate max of y coordinates;
@@ -195,7 +207,49 @@ public class Function extends JPanel {
       }
 
 */
-
+    public void createFunctionName(){
+      String answer = new String("y = ");
+      if(X6 != 0.0){
+        answer+= (int)X6 + "x^6";
+        if(X5 != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(X5 != 0.0){
+        answer+= (int)X5 + "x^5";
+        if(X4 != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(X4 != 0.0){
+        answer+= (int)X4 + "x^4";
+        if(X3 != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(X3 != 0.0){
+        answer+= (int)X3 + "x^3";
+        if(X2 != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(X2 != 0.0){
+        answer+= (int)X2 + "x^2";
+        if(X1 != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(X1 != 0.0){
+        answer+= (int)X1 + "x";
+        if(C != 0.0){
+          answer+= " + ";
+        }
+      }
+      if(C != 0.0){
+        answer+= (int)C;
+      }
+      FunctionName = answer.toCharArray();
+    }
     public double ymin(){
       double ymin = data1[0];
       for(int counter = 1; counter < data1.length; counter++){
