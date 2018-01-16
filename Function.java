@@ -177,36 +177,36 @@ public class Function extends JPanel {
         answer= "" + C;
       }
       if(X1 != 0){
-        answer= "∞";
+        answer= "Infinity";
       }
        if(X2 != 0){
         if(X2 < 0){
           answer= "" + findymax();
         }
         if(X2 > 0){
-          answer= "∞";
+          answer= "Infinity";
         }
       }
       if(X3 != 0){
-        answer+= "∞";
+        answer+= "Infinity";
       }
        if(X4!= 0){
         if(X4 < 0){
          answer = "" +findymax();
        }
         else{
-          answer= "∞";
+          answer= "Infinity";
         }
       }
      if(X5 != 0){
-            answer= "∞";
+            answer= "Infinity";
       }
         if(X6 != 0){
           if(X6 < 0){
           answer= "" + findymax();
         }
         else{
-          answer= "∞";
+          answer= "Infinity";
           }
         }
         Max = answer.toCharArray();
@@ -218,36 +218,36 @@ public class Function extends JPanel {
           answer= "" + C;
         }
         if(X1 != 0){
-          answer= "-∞";
+          answer= "Negative Infinity";
         }
          if(X2 != 0){
           if(X2 > 0){
             answer= "" + findymin();
           }
           if(X2 < 0){
-            answer= "-∞";
+            answer= "Negative Infinity";
           }
         }
         if(X3 != 0){
-          answer= "-∞";
+          answer= "Negative Infinity";
         }
          if(X4!= 0){
           if(X4 > 0){
            answer = "" +findymin();
          }
           else{
-            answer= "∞";
+            answer= "Negative Infinity";
           }
         }
        if(X5 != 0){
-              answer= "-∞";
+              answer= "Negative Infinity";
         }
           if(X6 != 0){
             if(X6 > 0){
             answer= "" + findymin();
           }
           else{
-            answer= "-∞";
+            answer= "Negative Infinity";
             }
           }
           Min = answer.toCharArray();
