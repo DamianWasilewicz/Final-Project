@@ -112,42 +112,42 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LH6 = new JLabel("You are on the Fifth Degree Tab");
     LH7 = new JLabel("You are on the Sixth Degree Tab");
 
-    L1c = new JLabel("Constant Coefficient");
-    L1l = new JLabel("Constant Coefficient");
-    L1q = new JLabel("Constant Coefficient");
-    L1cu = new JLabel("Constant Coefficient");
-    L1fourth = new JLabel("Constant Coefficient");
-    L1fifth = new JLabel("Constant Coefficient");
-    L1sixth = new JLabel("Constant Coefficient");
+    L1c = new JLabel("y =");
+    L1l = new JLabel("y =");
+    L1q = new JLabel("y =");
+    L1cu = new JLabel("y =");
+    L1fourth = new JLabel("y =");
+    L1fifth = new JLabel("y =");
+    L1sixth = new JLabel("y =");
 
-    L2l = new JLabel("Linear Coefficient");
-    L2q = new JLabel("Linear Coefficient");
-    L2cu = new JLabel("Linear Coefficient");
-    L2fourth = new JLabel("Linear Coefficient");
-    L2fifth = new JLabel("Linear Coefficient");
-    L2sixth = new JLabel("Linear Coefficient");
-
-
-    L3q = new JLabel("Quadratic Coefficient");
-    L3cu = new JLabel("Quadratic Coefficient");
-    L3fourth = new JLabel("Quadratic Coefficient");
-    L3fifth = new JLabel("Quadratic Coefficient");
-    L3sixth = new JLabel("Quadratic Coefficient");
-
-    L4cu = new JLabel("Cubic Coefficient");
-    L4fourth = new JLabel("Cubic Coefficient");
-    L4fifth = new JLabel("Cubic Coefficient");
-    L4sixth = new JLabel("Cubic Coefficient");
-
-    L5fourth = new JLabel("Fourth Degree Coefficient");
-    L5fifth = new JLabel("Fourth Degree Coefficient");
-    L5sixth = new JLabel("Fourth Degree Coefficient");
+    L2l = new JLabel("x + ");
+    L2q = new JLabel("x + ");
+    L2cu = new JLabel("x + ");
+    L2fourth = new JLabel("x + ");
+    L2fifth = new JLabel("x + ");
+    L2sixth = new JLabel("x + ");
 
 
-    L6fifth = new JLabel("Fifth Degree Coefficient");
-    L6sixth = new JLabel("Fifth Degree Coefficient");
+    L3q = new JLabel("x^2 + ");
+    L3cu = new JLabel("x^2 + ");
+    L3fourth = new JLabel("x^2 + ");
+    L3fifth = new JLabel("x^2 + ");
+    L3sixth = new JLabel("x^2 + ");
 
-    L7sixth = new JLabel("Sixth Degree Coefficient");
+    L4cu = new JLabel("x^3 + ");
+    L4fourth = new JLabel("x^3 + ");
+    L4fifth = new JLabel("x^3 + ");
+    L4sixth = new JLabel("x^3 + ");
+
+    L5fourth = new JLabel("x^4 + ");
+    L5fifth = new JLabel("x^4 + ");
+    L5sixth = new JLabel("x^4 + ");
+
+
+    L6fifth = new JLabel("x^5 + ");
+    L6sixth = new JLabel("x^5 + ");
+
+    L7sixth = new JLabel("x^6 + ");
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
@@ -232,9 +232,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Quadratic.add(BC3);
     Quadratic.add(L1q);
     Quadratic.add(TF1q);
-    Quadratic.add(L2q);
-    Quadratic.add(TF2q);
     Quadratic.add(L3q);
+    Quadratic.add(TF2q);
+    Quadratic.add(L2q);
     Quadratic.add(TF3q);
     Quadratic.add(B3);
 
@@ -242,11 +242,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Cubic.add(BC4);
     Cubic.add(L1cu);
     Cubic.add(TF1cu);
-    Cubic.add(L2cu);
+    Cubic.add(L4cu);
     Cubic.add(TF2cu);
     Cubic.add(L3cu);
     Cubic.add(TF3cu);
-    Cubic.add(L4cu);
+    Cubic.add(L2cu);
     Cubic.add(TF4cu);
     Cubic.add(B4);
 
@@ -255,13 +255,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fourth.add(BC5);
     Fourth.add(L1fourth);
     Fourth.add(TF1fourth);
-    Fourth.add(L2fourth);
-    Fourth.add(TF2fourth);
-    Fourth.add(L3fourth);
-    Fourth.add(TF3fourth);
-    Fourth.add(L4fourth);
-    Fourth.add(TF4fourth);
     Fourth.add(L5fourth);
+    Fourth.add(TF2fourth);
+    Fourth.add(L4fourth);
+    Fourth.add(TF3fourth);
+    Fourth.add(L3fourth);
+    Fourth.add(TF4fourth);
+    Fourth.add(L2fourth);
     Fourth.add(TF5fourth);
     Fourth.add(B5);
 
@@ -270,15 +270,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fifth.add(BC6);
     Fifth.add(L1fifth);
     Fifth.add(TF1fifth);
-    Fifth.add(L2fifth);
+    Fifth.add(L6fifth);
     Fifth.add(TF2fifth);
-    Fifth.add(L3fifth);
+    Fifth.add(L5fifth);
     Fifth.add(TF3fifth);
     Fifth.add(L4fifth);
     Fifth.add(TF4fifth);
-    Fifth.add(L5fifth);
+    Fifth.add(L3fifth);
     Fifth.add(TF5fifth);
-    Fifth.add(L6fifth);
+    Fifth.add(L2fifth);
     Fifth.add(TF6fifth);
     Fifth.add(B6);
 
@@ -286,17 +286,17 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Sixth.add(BC7);
     Sixth.add(L1sixth);
     Sixth.add(TF1sixth);
-    Sixth.add(L2sixth);
-    Sixth.add(TF2sixth);
-    Sixth.add(L3sixth);
-    Sixth.add(TF3sixth);
-    Sixth.add(L4sixth);
-    Sixth.add(TF4sixth);
-    Sixth.add(L5sixth);
-    Sixth.add(TF5sixth);
-    Sixth.add(L6sixth);
-    Sixth.add(TF6sixth);
     Sixth.add(L7sixth);
+    Sixth.add(TF2sixth);
+    Sixth.add(L6sixth);
+    Sixth.add(TF3sixth);
+    Sixth.add(L5sixth);
+    Sixth.add(TF4sixth);
+    Sixth.add(L4sixth);
+    Sixth.add(TF5sixth);
+    Sixth.add(L3sixth);
+    Sixth.add(TF6sixth);
+    Sixth.add(L2sixth);
     Sixth.add(TF7sixth);
     Sixth.add(B7);
 
