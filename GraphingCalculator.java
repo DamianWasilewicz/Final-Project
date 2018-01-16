@@ -375,6 +375,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
+	  f.repaint();
       f.setVisible(true);
 	  }
 	  catch (IllegalArgumentException error){
@@ -405,6 +406,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         f.add(test);
         f.setSize(800, 1000);
         f.setLocation(200,200);
+	  f.repaint();
         f.setVisible(true);
 		}
 	  catch (IllegalArgumentException error){
@@ -435,6 +437,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
+	  f.repaint();
       f.setVisible(true);
     }
 	  catch (IllegalArgumentException error){
@@ -462,6 +465,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         f.add(test);
         f.setSize(800, 1000);
         f.setLocation(200,200);
+	  f.repaint();
         f.setVisible(true);
       }
 	  catch (IllegalArgumentException error){
@@ -492,6 +496,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
+	  f.repaint();
       f.setVisible(true);
     }
 	  catch (IllegalArgumentException error){
@@ -522,6 +527,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
+	  f.repaint();
       f.setVisible(true);
     }
 	  catch (IllegalArgumentException error){
@@ -552,6 +558,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
+	  f.repaint();
       f.setVisible(true);
     }
 	catch (IllegalArgumentException error){
