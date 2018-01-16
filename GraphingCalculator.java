@@ -28,14 +28,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Sixth= new JPanel();
 	errorPanel = new JPanel();
 
-    Constant.setLayout(new FlowLayout());
-    Linear.setLayout(new FlowLayout());
-    Quadratic.setLayout(new FlowLayout());
-    Cubic.setLayout(new FlowLayout());
-    Fourth.setLayout(new FlowLayout());
-    Fifth.setLayout(new FlowLayout());
-    Sixth.setLayout(new FlowLayout());
-	errorPanel.setLayout(new FlowLayout());
+    Constant.setLayout(new BoxLayout(Constant, BoxLayout.Y_AXIS));
+    Linear.setLayout(new BoxLayout(Linear, BoxLayout.Y_AXIS));
+    Quadratic.setLayout(new BoxLayout(Quadratic, BoxLayout.Y_AXIS));
+    Cubic.setLayout(new BoxLayout(Cubic, BoxLayout.Y_AXIS));
+    Fourth.setLayout(new BoxLayout(Fourth, BoxLayout.Y_AXIS));
+    Fifth.setLayout(new BoxLayout(Fifth, BoxLayout.Y_AXIS));
+    Sixth.setLayout(new BoxLayout(Sixth, BoxLayout.Y_AXIS));
+	errorPanel.setLayout(new BoxLayout(errorPanel, BoxLayout.Y_AXIS));
 
 
 
@@ -60,7 +60,23 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	back = new JButton("Back to function");
 
 
+    /*B2.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B2.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B3.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B4.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B5.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B6.setAlignmentX(Component.CENTER_ALIGNMENT);
+    B7.setAlignmentX(Component.CENTER_ALIGNMENT);
 
+    BC1.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC2.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC3.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC4.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC5.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC6.setAlignmentX(Component.CENTER_ALIGNMENT);
+    BC7.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+    back.setAlignmentX(Component.CENTER_ALIGNMENT);*/
 
     TF1c = new JTextField(5);
     TF1l = new JTextField(5);
@@ -306,7 +322,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     frame.setContentPane(Constant);
-    frame.setSize(1400,400);
+    frame.setSize(400,400);
     frame.setLocation(100,100);
     frame.setVisible(true);
     }
