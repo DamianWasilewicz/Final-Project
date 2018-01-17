@@ -38,14 +38,28 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B7 = new JButton("Graph Sixth Degree Function");
 
 
-    BC1 = new JButton("Cycle To Linear");
+    /*BC1 = new JButton("Cycle To Linear");
     BC2 = new JButton("Cycle To Quadratic");
     BC3 = new JButton("Cycle To Cubic");
     BC4 = new JButton("Cycle To Fourth Degree");
     BC5= new JButton("Cycle To Fifth Degree");
     BC6 = new JButton("Cycle To Sixth Degree");
-    BC7 = new JButton("Cycle To Constant");
+    BC7 = new JButton("Cycle To Constant");*/
 
+
+
+
+    String[] typesOfFunctions = {"Constant", "Linear", "Quadratic",
+				 "Cubic", "Quartic", "Quintic", "Sextic"};
+
+
+    JComboBox boxCons = new JComboBox(typesOfFunctions);
+    JComboBox boxLine = new JComboBox(typesOfFunctions);
+    JComboBox boxQuad = new JComboBox(typesOfFunctions);
+    JComboBox boxCube = new JComboBox(typesOfFunctions);
+    JComboBox boxQuar = new JComboBox(typesOfFunctions);
+    JComboBox boxQuin = new JComboBox(typesOfFunctions);
+    JComboBox boxSext = new JComboBox(typesOfFunctions);
 
 
 
@@ -146,13 +160,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B6.addActionListener(this);
     B7.addActionListener(this);
 
-    BC1.addActionListener(this);
+    /*BC1.addActionListener(this);
     BC2.addActionListener(this);
     BC3.addActionListener(this);
     BC4.addActionListener(this);
     BC5.addActionListener(this);
     BC6.addActionListener(this);
-    BC7.addActionListener(this);
+    BC7.addActionListener(this);*/
 
     TF1c.addActionListener(this);
     TF1l.addActionListener(this);
@@ -196,13 +210,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Constant.add(LH1);
-    Constant.add(BC1);
+    //Constant.add(BC1);
     Constant.add(L1c);
     Constant.add(TF1c);
     Constant.add(B1);
 
     Linear.add(LH2);
-    Linear.add(BC2);
+    //Linear.add(BC2);
     Linear.add(L1l);
     Linear.add(TF1l);
     Linear.add(L2l);
@@ -210,7 +224,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Linear.add(B2);
 
     Quadratic.add(LH3);
-    Quadratic.add(BC3);
+    //Quadratic.add(BC3);
     Quadratic.add(L1q);
     Quadratic.add(TF1q);
     Quadratic.add(L2q);
@@ -220,7 +234,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Quadratic.add(B3);
 
     Cubic.add(LH4);
-    Cubic.add(BC4);
+    //Cubic.add(BC4);
     Cubic.add(L1cu);
     Cubic.add(TF1cu);
     Cubic.add(L2cu);
@@ -233,7 +247,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Fourth.add(LH5);
-    Fourth.add(BC5);
+    //Fourth.add(BC5);
     Fourth.add(L1fourth);
     Fourth.add(TF1fourth);
     Fourth.add(L2fourth);
@@ -248,7 +262,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Fifth.add(LH6);
-    Fifth.add(BC6);
+    //Fifth.add(BC6);
     Fifth.add(L1fifth);
     Fifth.add(TF1fifth);
     Fifth.add(L2fifth);
@@ -264,7 +278,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fifth.add(B6);
 
     Sixth.add(LH7);
-    Sixth.add(BC7);
+    //Sixth.add(BC7);
     Sixth.add(L1sixth);
     Sixth.add(TF1sixth);
     Sixth.add(L2sixth);
