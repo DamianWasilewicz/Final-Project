@@ -5,7 +5,8 @@ import java.awt.event.*;
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
     private JPanel Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth;
-    private JButton B1, B2, B3, B4, B5, B6, B7, BC1, BC2, BC3, BC4, BC5, BC6, BC7;
+    private JButton B1, B2, B3, B4, B5, B6, B7;
+    private JComboBox boxCons, boxLine, boxQuad, boxCube, boxQuar, boxQuin, boxSext;
     private JTextField TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
     private JLabel L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu, L1fourth, L2fourth, L3fourth, L4fourth, L5fourth, L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth, L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,  LH1, LH2, LH3, LH4, LH5, LH6, LH7;
 
@@ -160,13 +161,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B6.addActionListener(this);
     B7.addActionListener(this);
 
-    /*BC1.addActionListener(this);
-    BC2.addActionListener(this);
-    BC3.addActionListener(this);
-    BC4.addActionListener(this);
-    BC5.addActionListener(this);
-    BC6.addActionListener(this);
-    BC7.addActionListener(this);*/
+    boxCons.addActionListener(this);
+    boxLine.addActionListener(this);
+    boxQuad.addActionListener(this);
+    boxCube.addActionListener(this);
+    boxQuar.addActionListener(this);
+    boxQuin.addActionListener(this);
+    boxSext.addActionListener(this);
 
     TF1c.addActionListener(this);
     TF1l.addActionListener(this);
@@ -210,13 +211,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Constant.add(LH1);
-    //Constant.add(BC1);
+    Constant.add(boxCons);
     Constant.add(L1c);
     Constant.add(TF1c);
     Constant.add(B1);
 
     Linear.add(LH2);
-    //Linear.add(BC2);
+    Linear.add(boxLine);
     Linear.add(L1l);
     Linear.add(TF1l);
     Linear.add(L2l);
@@ -224,7 +225,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Linear.add(B2);
 
     Quadratic.add(LH3);
-    //Quadratic.add(BC3);
+    Quadratic.add(boxQuad);
     Quadratic.add(L1q);
     Quadratic.add(TF1q);
     Quadratic.add(L2q);
@@ -234,7 +235,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Quadratic.add(B3);
 
     Cubic.add(LH4);
-    //Cubic.add(BC4);
+    Cubic.add(boxCube);
     Cubic.add(L1cu);
     Cubic.add(TF1cu);
     Cubic.add(L2cu);
@@ -247,7 +248,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Fourth.add(LH5);
-    //Fourth.add(BC5);
+    Fourth.add(boxQuar);
     Fourth.add(L1fourth);
     Fourth.add(TF1fourth);
     Fourth.add(L2fourth);
@@ -262,7 +263,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     Fifth.add(LH6);
-    //Fifth.add(BC6);
+    Fifth.add(boxQuin);
     Fifth.add(L1fifth);
     Fifth.add(TF1fifth);
     Fifth.add(L2fifth);
@@ -278,7 +279,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fifth.add(B6);
 
     Sixth.add(LH7);
-    //Sixth.add(BC7);
+    Sixth.add(boxSext);
     Sixth.add(L1sixth);
     Sixth.add(TF1sixth);
     Sixth.add(L2sixth);
@@ -305,44 +306,45 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     }
 
   public void actionPerformed(ActionEvent e) {
-	   JButton button = (JButton) e.getSource();
-     if (button == BC1){
+	   JComboBox box = (JComboBox) e.getSource();
+	JButton button = (JButton) e.getSource();
+     if (box == boxCons){
 		     frame.setContentPane(Linear);
 		     frame.repaint();
          frame.setVisible(true);
 	   }
 
-	   else if (button == BC2){
+	   else if (box == boxLine){
 	    frame.setContentPane(Quadratic);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (button == BC3){
+    else if (box == boxQuad){
  	    frame.setContentPane(Cubic);
       frame.repaint();
       frame.setVisible(true);
       }
 
-    else if (button == BC4){
+    else if (box == boxCube){
  	    frame.setContentPane(Fourth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (button == BC5){
+    else if (box == boxQuar){
  	    frame.setContentPane(Fifth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (button == BC6){
+    else if (box == boxQuin){
  	    frame.setContentPane(Sixth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (button == BC7){
+    else if (box == boxSext){
  	    frame.setContentPane(Constant);
       frame.repaint();
       frame.setVisible(true);
