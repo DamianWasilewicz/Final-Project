@@ -20,6 +20,7 @@ public class Function extends JPanel {
     private double X4;
     private double X5;
     private double X6;
+    private double XHyp;
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -136,6 +137,9 @@ public class Function extends JPanel {
          if(X6 != 0){
             label= "6";
           }
+          if(XHyp != 0){
+            label = "Hyperbolic";
+          }
           answer = label.toCharArray();
           labelchars = answer;
        }
@@ -173,6 +177,9 @@ public class Function extends JPanel {
     //calculate max of y coordinates;
     public void ymax(){
       String answer = new String("");
+      if(XHyp != 0){
+        answer = "Infinity";
+      }
      if(C!= 0){
         answer= "" + C;
       }
@@ -188,7 +195,7 @@ public class Function extends JPanel {
         }
       }
       if(X3 != 0){
-        answer+= "Infinity";
+        answer= "Infinity";
       }
        if(X4!= 0){
         if(X4 < 0){
@@ -214,6 +221,9 @@ public class Function extends JPanel {
 
       public void ymin(){
         String answer = new String("");
+        if(XHyp != 0){
+          answer = "Negative Infinity";
+        }
        if(C!= 0){
           answer= "" + C;
         }
@@ -273,6 +283,9 @@ public class Function extends JPanel {
     }
     public void createFunctionName(){
       String answer = new String("y = ");
+      if(XHyp != 0.0){
+        answer+= XHyp + "/x";
+      }
       if(X6 != 0.0){
         if(X6 == 1){
           answer+= "x^6";
@@ -373,6 +386,9 @@ public class Function extends JPanel {
     public void setX6(double input){
       X6 = input;
     }
+    public void setXHyp(double input){
+      XHyp = input;
+    }
 
     public double getC(){
       return C;
@@ -394,6 +410,9 @@ public class Function extends JPanel {
     }
     public double getX6(){
       return X6;
+    }
+    public double getXHyp(){
+      return XHyp;
     }
 
 

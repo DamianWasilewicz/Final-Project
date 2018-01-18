@@ -4,15 +4,15 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel;
-    private JButton B1, B2, B3, B4, B5, B6, B7, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back;
-    private JTextField TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
-    private JLabel L1c, L1l , L2l, L1q, L2q, L3q, 
-			L1cu, L2cu, L3cu, L4cu, 
+    private JPanel Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
+    private JButton B1, B2, B3, B4, B5, B6, B7, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
+    private JTextField TFHyp,TF1c, TF1l , TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
+    private JLabel L1c, L1l , L2l, L1q, L2q, L3q,
+			L1cu, L2cu, L3cu, L4cu,
 			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,
 			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,
 			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,
-			LH1, LH2, LH3, LH4, LH5, LH6, LH7, 
+			LH1, LH2, LH3, LH4, LH5, LH6, LH7, LHyp, LHypx, LHyp1x,
 			errorMessage;
 
     public GraphingCalculator() {
@@ -27,6 +27,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fifth= new JPanel();
     Sixth= new JPanel();
 	errorPanel = new JPanel();
+   Hyperbola = new JPanel();
 
     Constant.setLayout(new BoxLayout(Constant, BoxLayout.Y_AXIS));
     Linear.setLayout(new BoxLayout(Linear, BoxLayout.Y_AXIS));
@@ -36,6 +37,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Fifth.setLayout(new BoxLayout(Fifth, BoxLayout.Y_AXIS));
     Sixth.setLayout(new BoxLayout(Sixth, BoxLayout.Y_AXIS));
 	errorPanel.setLayout(new BoxLayout(errorPanel, BoxLayout.Y_AXIS));
+ Hyperbola.setLayout(new BoxLayout(Hyperbola, BoxLayout.Y_AXIS));
 
 
 
@@ -47,6 +49,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B5 = new JButton("Graph Fourth Degree Function");
     B6 = new JButton("Graph Fifth Degree Function");
     B7 = new JButton("Graph Sixth Degree Function");
+    BGHyp = new JButton("Graph Hyperbolic Function");
 
 
     BC1 = new JButton("Cycle To Linear");
@@ -55,9 +58,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC4 = new JButton("Cycle To Fourth Degree");
     BC5= new JButton("Cycle To Fifth Degree");
     BC6 = new JButton("Cycle To Sixth Degree");
-    BC7 = new JButton("Cycle To Constant");
+    BC7 = new JButton("Cycle To 1/x");
 
-	back = new JButton("Back to function");
+	  back = new JButton("Back to function");
+
+    BHyp = new JButton("Cycle to Constant");
 
 
     /*B2.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -77,6 +82,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC7.setAlignmentX(Component.CENTER_ALIGNMENT);
 
     back.setAlignmentX(Component.CENTER_ALIGNMENT);*/
+
+    TFHyp = new JTextField(5);
 
     TF1c = new JTextField(5);
     TF1l = new JTextField(5);
@@ -127,6 +134,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LH5 = new JLabel("You are on the Fourth Degree Tab");
     LH6 = new JLabel("You are on the Fifth Degree Tab");
     LH7 = new JLabel("You are on the Sixth Degree Tab");
+    LHyp = new JLabel("You are on the 1/x Tab");
 
     L1c = new JLabel("y =");
     L1l = new JLabel("y =");
@@ -135,6 +143,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     L1fourth = new JLabel("y =");
     L1fifth = new JLabel("y =");
     L1sixth = new JLabel("y =");
+    LHypx = new JLabel("y =");
+    LHyp1x = new JLabel("1/x");
 
     L2l = new JLabel("x + ");
     L2q = new JLabel("x + ");
@@ -177,6 +187,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B5.addActionListener(this);
     B6.addActionListener(this);
     B7.addActionListener(this);
+    BGHyp.addActionListener(this);
 
     BC1.addActionListener(this);
     BC2.addActionListener(this);
@@ -185,6 +196,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC5.addActionListener(this);
     BC6.addActionListener(this);
     BC7.addActionListener(this);
+    BHyp.addActionListener(this);
 
     TF1c.addActionListener(this);
     TF1l.addActionListener(this);
@@ -226,6 +238,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     TF7sixth.addActionListener(this);
 
 	back.addActionListener(this);
+  TFHyp.addActionListener(this);
 
 
 
@@ -316,6 +329,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Sixth.add(TF1sixth);
     Sixth.add(B7);
 
+
+    Hyperbola.add(LHyp);
+    Hyperbola.add(LHypx);
+    Hyperbola.add(TFHyp);
+    Hyperbola.add(LHyp1x);
+    Hyperbola.add(BGHyp);
+    Hyperbola.add(BHyp);
+
+
 	errorPanel.add(errorMessage);
 	errorPanel.add(back);
 
@@ -366,7 +388,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     }
 
     else if (button == BC7){
- 	    frame.setContentPane(Constant);
+ 	    frame.setContentPane(Hyperbola);
+      frame.repaint();
+      frame.setVisible(true);
+    }
+    else if (button == BHyp){
+      frame.setContentPane(Constant);
       frame.repaint();
       frame.setVisible(true);
     }
@@ -583,6 +610,30 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		frame.setVisible(true);
 	  }
 	}
+  else if (button == BGHyp){
+    JFrame f = new JFrame();
+    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    Function test = new Function();
+  try {
+    test.setXHyp(Double.parseDouble(TFHyp.getText()));
+    CreateArray check = new CreateArray(test.getXHyp());
+    //test.setRoots(check.getRoots());
+    test.setData(check.getX());
+    test.setData1(check.getY());
+    //test.setRoots(check.getRoots());
+//test.SetMaxandMin(test.ymax(), test.ymin());
+    f.add(test);
+    f.setSize(800, 1000);
+    f.setLocation(200,200);
+  f.repaint();
+    f.setVisible(true);
+  }
+  catch (IllegalArgumentException error){
+  frame.setContentPane(errorPanel);
+  frame.repaint();
+  frame.setVisible(true);
+  }
+}
 
 	else if (button == back){
 		frame.setContentPane(Constant);

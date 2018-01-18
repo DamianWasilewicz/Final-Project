@@ -6,6 +6,7 @@ public class CreateArray{
   private double X4;
   private double X5;
   private double X6;
+  private double XHyp;
   private double[] xCoords;
   private double[] yCoords;
   private char[] Roots;
@@ -23,6 +24,28 @@ public class CreateArray{
     }
     xCoords = X;
     createY();
+  }
+  public CreateArray(double XHypi){
+    XHyp = XHypi;
+    double[] X = new double[10100000];
+    for(int counter = 0; counter< X.length; counter++){
+      X[counter] = (counter * .00001) - 50 ;
+    }
+    xCoords = X;
+    createYH();
+  }
+  public double evaluateH(double value){
+    double answer = (XHyp * (1/value));
+    return answer;
+  }
+  public void createYH(){
+    double[] Y = new double[(10100000)];
+    for(int counter = 0; counter < Y.length; counter++){
+      if(xCoords[counter] != 0){
+      Y[counter] = evaluateH(xCoords[counter]);
+    }
+  }
+    yCoords = Y;
   }
   public double evaluate(double value){
     double answer = (C + (value * X1) + (value * value * X2)
