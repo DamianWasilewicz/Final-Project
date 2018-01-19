@@ -306,8 +306,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     }
 
   public void actionPerformed(ActionEvent e) {
+     if (e.getSource() == JComboBox){
 	   JComboBox box = (JComboBox) e.getSource();
-	JButton button = (JButton) e.getSource();
      if (box == boxCons){
 		     frame.setContentPane(Linear);
 		     frame.repaint();
@@ -349,7 +349,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       frame.repaint();
       frame.setVisible(true);
     }
-    else if (button == B1){
+    }
+    if (e.getSource() == JButton){
+    JButton button = (JButton) e.getSource();
+    if (button == B1){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -503,9 +506,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       f.setVisible(true);
     }
     }
+    }
 
     public static void main(String[]args){
 	GraphingCalculator g = new GraphingCalculator();
-	g.setVisible(true);
     }
 }
