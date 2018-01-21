@@ -310,10 +310,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	JComboBox box = (JComboBox) e.getSource();
 	System.out.println(((String)box.getSelectedItem()));
     if (((String)box.getSelectedItem()).equals("Linear")){
-			TF1c.setText("42");
-		     /*frame.setContentPane(Linear);
-		     frame.repaint();
-         frame.setVisible(true);*/
+			//TF1c.setText("42");
+		    frame.setContentPane(Linear);
+		    frame.repaint();
+            frame.setVisible(true);
 	   }
 
     else if (((String)box.getSelectedItem()).equals("Quadratic")){
