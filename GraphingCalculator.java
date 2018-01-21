@@ -4,8 +4,9 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel CalculationInputMain, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
-			Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
+    private JPanel CalculationInputMain, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
+			ConstantMain, ConstantHeader, ConstantBody, ConstantFooter,
+			Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
     private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
     private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, 
@@ -16,7 +17,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
+
+
+
     CalculationInputMain = new JPanel();
+	CalculationInputHeader = new JPanel();
 	AddPanel = new JPanel();
 	SubtractPanel = new JPanel();
 	MultiplyPanel = new JPanel();
@@ -24,7 +30,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ExponentPanel = new JPanel();
 	LogPanel = new JPanel();
 
-    Constant = new JPanel();
+    ConstantMain = new JPanel();
+	ConstantHeader = new JPanel();
+	ConstantBody = new JPanel();
+	ConstantFooter = new JPanel();
+
     Linear = new JPanel();
     Quadratic = new JPanel();
     Cubic = new JPanel();
@@ -34,7 +44,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	errorPanel = new JPanel();
     Hyperbola = new JPanel();
 
+
+
+
+
     CalculationInputMain.setLayout(new BoxLayout(CalculationInputMain, BoxLayout.Y_AXIS));
+	CalculationInputHeader.setLayout(new FlowLayout());
 	AddPanel.setLayout(new FlowLayout());
 	SubtractPanel.setLayout(new FlowLayout());
 	MultiplyPanel.setLayout(new FlowLayout());
@@ -42,7 +57,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ExponentPanel.setLayout(new FlowLayout());
 	LogPanel.setLayout(new FlowLayout());
 
-    Constant.setLayout(new BoxLayout(Constant, BoxLayout.Y_AXIS));
+    ConstantMain.setLayout(new BoxLayout(ConstantMain, BoxLayout.Y_AXIS));
+	ConstantHeader.setLayout(new FlowLayout());
+	ConstantBody.setLayout(new FlowLayout());
+	ConstantFooter.setLayout(new FlowLayout());
+
     Linear.setLayout(new BoxLayout(Linear, BoxLayout.Y_AXIS));
     Quadratic.setLayout(new BoxLayout(Quadratic, BoxLayout.Y_AXIS));
     Cubic.setLayout(new BoxLayout(Cubic, BoxLayout.Y_AXIS));
@@ -278,8 +297,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogBase.addActionListener(this);
 
 
-    CalculationInputMain.add(LCalc);
-    CalculationInputMain.add(BC0);
+    CalculationInputHeader.add(LCalc);
+    CalculationInputHeader.add(BC0);
 	
     AddPanel.add(Calc1);
     AddPanel.add(AddButton);
@@ -301,6 +320,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LogPanel.add(LCalc2);
     LogPanel.add(Calc6);
 
+	CalculationInputMain.add(CalculationInputHeader);
     CalculationInputMain.add(AddPanel);
     CalculationInputMain.add(SubtractPanel);
     CalculationInputMain.add(MultiplyPanel);
@@ -310,11 +330,17 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-    Constant.add(LH1);
-    Constant.add(BC1);
-    Constant.add(L1c);
-    Constant.add(TF1c);
-    Constant.add(B1);
+	ConstantHeader.add(LH1);
+	ConstantHeader.add(BC1);
+	ConstantBody.add(L1c);
+	ConstantBody.add(TF1c);
+	ConstantFooter.add(B1);
+
+    ConstantMain.add(ConstantHeader);
+    ConstantMain.add(ConstantBody);
+    ConstantMain.add(ConstantFooter);
+
+
 
     Linear.add(LH2);
     Linear.add(BC2);
@@ -421,7 +447,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
   	   JButton button = (JButton) e.getSource();
        if (button == BC0){
-  		    frame.setContentPane(Constant);
+  		    frame.setContentPane(ConstantMain);
   		    frame.repaint();
             frame.setVisible(true);
   	   }
@@ -833,7 +859,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
   }
 
   	else if (button == back){
-  		frame.setContentPane(Constant);
+  		frame.setContentPane(ConstantMain);
   		frame.repaint();
   		frame.setVisible(true);
   	}
