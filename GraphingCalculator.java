@@ -402,64 +402,68 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     frame.setVisible(true);
     }
 
+
+
+
+
+    //ACTION PERFORMED
   public void actionPerformed(ActionEvent e) {
-    String event = e.getActionCommand();
-    System.out.println(event);
+    JButton button = (JButton) e.getSource();
 
 
 
 
 
 	//'CYCLE TO' BUTTONS
-    if (event.equals("Cycle to Constant")){
+    if (button == BC0){
 		frame.setContentPane(Constant);
 		frame.repaint();
         frame.setVisible(true);
 	}
 
-    else if (event.equals("Cycle to Linear")){
+    else if (button == BC1){
 		frame.setContentPane(Linear);
 		frame.repaint();
         frame.setVisible(true);
 	}
 
-	else if (event.equals("Cycle to Quadratic")){
+	else if (button == BC2){
 	    frame.setContentPane(Quadratic);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Cubic")){
+	else if (button == BC3){
  	    frame.setContentPane(Cubic);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Fourth Degree")){
+	else if (button == BC4){
  	    frame.setContentPane(Fourth);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Fifth Degree")){
+	else if (button == BC5){
  	    frame.setContentPane(Fifth);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Sixth Degree")){
+	else if (button == BC6){
  	    frame.setContentPane(Sixth);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Hyperbola")){
+	else if (button == BC7){
  	    frame.setContentPane(Hyperbola);
         frame.repaint();
         frame.setVisible(true);
     }
 
-    else if (event.equals("Cycle to Constant")){
+	else if (button == BC0){
         frame.setContentPane(Constant);
         frame.repaint();
         frame.setVisible(true);
@@ -470,7 +474,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//'CALCULATE'/'GRAPH' BUTTONS
-    else if(event.equals("Calculate your expression")){
+	else if (button == BCalc){
         if(Add.isSelected()){
             double inp1 = Double.parseDouble(TFCalc1.getText());
             double inp2 = Double.parseDouble(TFCalc2.getText());
@@ -484,7 +488,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         }
     }
 
-    else if (event.equals("Graph Constant Function")){
+	else if (button == B1){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -515,7 +519,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	    }
     }
 
-    else if (event.equals("Graph Linear Function")){
+	else if (button == B2){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -546,7 +550,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	    }
     }
 
-    else if (event.equals("Graph Quadratic Function")){
+	else if (button == B3){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -577,7 +581,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  }
 	}
 
-    else if (event.equals("Graph Cubic Function")){
+	else if (button == B4){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -605,7 +609,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  }
 	}
 
-    else if (event.equals("Graph Fourth Degree Function")){
+	else if (button == B5){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -636,7 +640,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  }
 	}
 
-    else if (event.equals("Graph Fifth Degree Function")){
+	else if (button == B6){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -667,7 +671,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  }
 	}
 
-    else if (event.equals("Graph Sixth Degree Function")){
+	else if (button == B7){
       JFrame f = new JFrame();
       f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       Function test = new Function();
@@ -698,7 +702,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  }
 	}
 
-    else if (event.equals("Graph Hyperbolic Function")){
+	else if (button == BGHyp){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
@@ -723,7 +727,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         }
     }
 
-	else if (event.equals("Back to functions")){
+	else if (button == back){
 		frame.setContentPane(Constant);
 		frame.repaint();
 		frame.setVisible(true);
