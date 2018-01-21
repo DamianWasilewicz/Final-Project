@@ -6,7 +6,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
     private JPanel CalculationInputMain, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
 			ConstantMain, ConstantHeader, ConstantBody, ConstantFooter,
-			Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
+			LinearMain, LinearHeader, LinearBody, LinearFooter,
+			QuadraticMain, QuadraticHeader, QuadraticBody, QuadraticFooter,
+			CubicMain, CubicHeader, CubicBody, CubicFooter,
+			FourthMain, FourthHeader, FourthBody, FourthFooter,
+			FifthMain, FifthHeader, FifthBody, FifthFooter,
+			SixthMain, SixthHeader, SixthBody, SixthFooter,
+			HyperbolaMain, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
+			errorPanel;
     private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
     private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, 
@@ -35,14 +42,42 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ConstantBody = new JPanel();
 	ConstantFooter = new JPanel();
 
-    Linear = new JPanel();
-    Quadratic = new JPanel();
-    Cubic = new JPanel();
-    Fourth= new JPanel();
-    Fifth= new JPanel();
-    Sixth= new JPanel();
+    LinearMain = new JPanel();
+	LinearHeader = new JPanel();
+	LinearBody = new JPanel();
+	LinearFooter = new JPanel();
+
+    QuadraticMain = new JPanel();
+    QuadraticHeader = new JPanel();
+    QuadraticBody = new JPanel();
+    QuadraticFooter = new JPanel();
+
+    CubicMain = new JPanel();
+    CubicHeader = new JPanel();
+    CubicBody = new JPanel();
+    CubicFooter = new JPanel();
+
+    FourthMain = new JPanel();
+    FourthHeader = new JPanel();
+    FourthBody = new JPanel();
+    FourthFooter = new JPanel();
+
+    FifthMain = new JPanel();
+    FifthHeader = new JPanel();
+    FifthBody = new JPanel();
+    FifthFooter = new JPanel();
+
+    SixthMain = new JPanel();
+    SixthHeader = new JPanel();
+    SixthBody = new JPanel();
+    SixthFooter = new JPanel();
+
+    HyperbolaMain = new JPanel();
+	HyperbolaHeader = new JPanel();
+	HyperbolaBody = new JPanel();
+	HyperbolaFooter = new JPanel();
+
 	errorPanel = new JPanel();
-    Hyperbola = new JPanel();
 
 
 
@@ -62,14 +97,42 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ConstantBody.setLayout(new FlowLayout());
 	ConstantFooter.setLayout(new FlowLayout());
 
-    Linear.setLayout(new BoxLayout(Linear, BoxLayout.Y_AXIS));
-    Quadratic.setLayout(new BoxLayout(Quadratic, BoxLayout.Y_AXIS));
-    Cubic.setLayout(new BoxLayout(Cubic, BoxLayout.Y_AXIS));
-    Fourth.setLayout(new BoxLayout(Fourth, BoxLayout.Y_AXIS));
-    Fifth.setLayout(new BoxLayout(Fifth, BoxLayout.Y_AXIS));
-    Sixth.setLayout(new BoxLayout(Sixth, BoxLayout.Y_AXIS));
+    LinearMain.setLayout(new BoxLayout(LinearMain, BoxLayout.Y_AXIS));
+	LinearHeader.setLayout(new FlowLayout());
+	LinearBody.setLayout(new FlowLayout());
+	LinearFooter.setLayout(new FlowLayout());
+
+    QuadraticMain.setLayout(new BoxLayout(QuadraticMain, BoxLayout.Y_AXIS));
+    QuadraticHeader.setLayout(new FlowLayout());
+    QuadraticBody.setLayout(new FlowLayout());
+    QuadraticFooter.setLayout(new FlowLayout());
+
+    CubicMain.setLayout(new BoxLayout(CubicMain, BoxLayout.Y_AXIS));
+    CubicHeader.setLayout(new FlowLayout());
+    CubicBody.setLayout(new FlowLayout());
+    CubicFooter.setLayout(new FlowLayout());
+
+    FourthMain.setLayout(new BoxLayout(FourthMain, BoxLayout.Y_AXIS));
+    FourthHeader.setLayout(new FlowLayout());
+    FourthBody.setLayout(new FlowLayout());
+    FourthFooter.setLayout(new FlowLayout());
+
+    FifthMain.setLayout(new BoxLayout(FifthMain, BoxLayout.Y_AXIS));
+    FifthHeader.setLayout(new FlowLayout());
+    FifthBody.setLayout(new FlowLayout());
+    FifthFooter.setLayout(new FlowLayout());
+
+    SixthMain.setLayout(new BoxLayout(SixthMain, BoxLayout.Y_AXIS));
+    SixthHeader.setLayout(new FlowLayout());
+    SixthBody.setLayout(new FlowLayout());
+    SixthFooter.setLayout(new FlowLayout());
+
+    HyperbolaMain.setLayout(new BoxLayout(HyperbolaMain, BoxLayout.Y_AXIS));
+	HyperbolaHeader.setLayout(new FlowLayout());
+	HyperbolaBody.setLayout(new FlowLayout());
+	HyperbolaFooter.setLayout(new FlowLayout());
+
 	errorPanel.setLayout(new BoxLayout(errorPanel, BoxLayout.Y_AXIS));
-    Hyperbola.setLayout(new BoxLayout(Hyperbola, BoxLayout.Y_AXIS));
 
 
 
@@ -297,6 +360,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogBase.addActionListener(this);
 
 
+
+
+
     CalculationInputHeader.add(LCalc);
     CalculationInputHeader.add(BC0);
 	
@@ -342,92 +408,131 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-    Linear.add(LH2);
-    Linear.add(BC2);
-    Linear.add(L1l);
-    Linear.add(TF2l);
-    Linear.add(L2l);
-    Linear.add(TF1l);
-    Linear.add(B2);
+    LinearHeader.add(LH2);
+    LinearHeader.add(BC2);
+    LinearBody.add(L1l);
+    LinearBody.add(TF2l);
+    LinearBody.add(L2l);
+    LinearBody.add(TF1l);
+    LinearFooter.add(B2);
 
-    Quadratic.add(LH3);
-    Quadratic.add(BC3);
-    Quadratic.add(L1q);
-    Quadratic.add(TF3q);
-    Quadratic.add(L3q);
-    Quadratic.add(TF2q);
-    Quadratic.add(L2q);
-    Quadratic.add(TF1q);
-    Quadratic.add(B3);
-
-    Cubic.add(LH4);
-    Cubic.add(BC4);
-    Cubic.add(L1cu);
-    Cubic.add(TF4cu);
-    Cubic.add(L4cu);
-    Cubic.add(TF3cu);
-    Cubic.add(L3cu);
-    Cubic.add(TF2cu);
-    Cubic.add(L2cu);
-    Cubic.add(TF1cu);
-    Cubic.add(B4);
+	LinearMain.add(LinearHeader);
+	LinearMain.add(LinearBody);
+	LinearMain.add(LinearFooter);
 
 
-    Fourth.add(LH5);
-    Fourth.add(BC5);
-    Fourth.add(L1fourth);
-    Fourth.add(TF5fourth);
-    Fourth.add(L5fourth);
-    Fourth.add(TF4fourth);
-    Fourth.add(L4fourth);
-    Fourth.add(TF3fourth);
-    Fourth.add(L3fourth);
-    Fourth.add(TF2fourth);
-    Fourth.add(L2fourth);
-    Fourth.add(TF1fourth);
-    Fourth.add(B5);
+
+    QuadraticHeader.add(LH3);
+    QuadraticHeader.add(BC3);
+    QuadraticBody.add(L1q);
+    QuadraticBody.add(TF3q);
+    QuadraticBody.add(L3q);
+    QuadraticBody.add(TF2q);
+    QuadraticBody.add(L2q);
+    QuadraticBody.add(TF1q);
+    QuadraticFooter.add(B3);
+
+	QuadraticMain.add(QuadraticHeader);
+	QuadraticMain.add(QuadraticBody);
+	QuadraticMain.add(QuadraticFooter);
 
 
-    Fifth.add(LH6);
-    Fifth.add(BC6);
-    Fifth.add(L1fifth);
-    Fifth.add(TF6fifth);
-    Fifth.add(L6fifth);
-    Fifth.add(TF5fifth);
-    Fifth.add(L5fifth);
-    Fifth.add(TF4fifth);
-    Fifth.add(L4fifth);
-    Fifth.add(TF3fifth);
-    Fifth.add(L3fifth);
-    Fifth.add(TF2fifth);
-    Fifth.add(L2fifth);
-    Fifth.add(TF1fifth);
-    Fifth.add(B6);
 
-    Sixth.add(LH7);
-    Sixth.add(BC7);
-    Sixth.add(L1sixth);
-    Sixth.add(TF7sixth);
-    Sixth.add(L7sixth);
-    Sixth.add(TF6sixth);
-    Sixth.add(L6sixth);
-    Sixth.add(TF5sixth);
-    Sixth.add(L5sixth);
-    Sixth.add(TF4sixth);
-    Sixth.add(L4sixth);
-    Sixth.add(TF3sixth);
-    Sixth.add(L3sixth);
-    Sixth.add(TF2sixth);
-    Sixth.add(L2sixth);
-    Sixth.add(TF1sixth);
-    Sixth.add(B7);
+    CubicHeader.add(LH4);
+    CubicHeader.add(BC4);
+    CubicBody.add(L1cu);
+    CubicBody.add(TF4cu);
+    CubicBody.add(L4cu);
+    CubicBody.add(TF3cu);
+    CubicBody.add(L3cu);
+    CubicBody.add(TF2cu);
+    CubicBody.add(L2cu);
+    CubicBody.add(TF1cu);
+    CubicFooter.add(B4);
 
-    Hyperbola.add(LHyp);
-    Hyperbola.add(BHyp);
-    Hyperbola.add(LHypx);
-    Hyperbola.add(TFHyp);
-    Hyperbola.add(LHyp1x);
-    Hyperbola.add(BGHyp);
+	CubicMain.add(CubicHeader);
+	CubicMain.add(CubicBody);
+	CubicMain.add(CubicFooter);
+
+
+
+    FourthHeader.add(LH5);
+    FourthHeader.add(BC5);
+    FourthBody.add(L1fourth);
+    FourthBody.add(TF5fourth);
+    FourthBody.add(L5fourth);
+    FourthBody.add(TF4fourth);
+    FourthBody.add(L4fourth);
+    FourthBody.add(TF3fourth);
+    FourthBody.add(L3fourth);
+    FourthBody.add(TF2fourth);
+    FourthBody.add(L2fourth);
+    FourthBody.add(TF1fourth);
+    FourthFooter.add(B5);
+
+	FourthMain.add(FourthHeader);
+	FourthMain.add(FourthBody);
+	FourthMain.add(FourthFooter);
+
+
+
+    FifthHeader.add(LH6);
+    FifthHeader.add(BC6);
+    FifthBody.add(L1fifth);
+    FifthBody.add(TF6fifth);
+    FifthBody.add(L6fifth);
+    FifthBody.add(TF5fifth);
+    FifthBody.add(L5fifth);
+    FifthBody.add(TF4fifth);
+    FifthBody.add(L4fifth);
+    FifthBody.add(TF3fifth);
+    FifthBody.add(L3fifth);
+    FifthBody.add(TF2fifth);
+    FifthBody.add(L2fifth);
+    FifthBody.add(TF1fifth);
+    FifthFooter.add(B6);
+
+	FifthMain.add(FifthHeader);
+	FifthMain.add(FifthBody);
+	FifthMain.add(FifthFooter);
+
+
+
+    SixthHeader.add(LH7);
+    SixthHeader.add(BC7);
+    SixthBody.add(L1sixth);
+    SixthBody.add(TF7sixth);
+    SixthBody.add(L7sixth);
+    SixthBody.add(TF6sixth);
+    SixthBody.add(L6sixth);
+    SixthBody.add(TF5sixth);
+    SixthBody.add(L5sixth);
+    SixthBody.add(TF4sixth);
+    SixthBody.add(L4sixth);
+    SixthBody.add(TF3sixth);
+    SixthBody.add(L3sixth);
+    SixthBody.add(TF2sixth);
+    SixthBody.add(L2sixth);
+    SixthBody.add(TF1sixth);
+    SixthFooter.add(B7);
+
+	SixthMain.add(SixthHeader);
+	SixthMain.add(SixthBody);
+	SixthMain.add(SixthFooter);
+
+
+
+    HyperbolaHeader.add(LHyp);
+    HyperbolaHeader.add(BHyp);
+    HyperbolaBody.add(LHypx);
+    HyperbolaBody.add(TFHyp);
+    HyperbolaBody.add(LHyp1x);
+    HyperbolaFooter.add(BGHyp);
+
+	HyperbolaMain.add(HyperbolaHeader);
+	HyperbolaMain.add(HyperbolaBody);
+	HyperbolaMain.add(HyperbolaFooter);
+
 
 
 	errorPanel.add(errorMessage);
@@ -435,8 +540,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+
     frame.setContentPane(CalculationInputMain);
-    frame.setSize(800,800);
+    frame.setSize(1100,400);
     frame.setLocation(100,100);
     frame.setVisible(true);
     }
@@ -453,43 +560,43 @@ public class GraphingCalculator extends JFrame implements ActionListener{
   	   }
 
        else if (button == BC1){
-  		     frame.setContentPane(Linear);
+  		     frame.setContentPane(LinearMain);
   		     frame.repaint();
            frame.setVisible(true);
   	   }
 
   	   else if (button == BC2){
-  	    frame.setContentPane(Quadratic);
+  	    frame.setContentPane(QuadraticMain);
         frame.repaint();
         frame.setVisible(true);
       }
 
       else if (button == BC3){
-   	    frame.setContentPane(Cubic);
+   	    frame.setContentPane(CubicMain);
         frame.repaint();
         frame.setVisible(true);
         }
 
       else if (button == BC4){
-   	    frame.setContentPane(Fourth);
+   	    frame.setContentPane(FourthMain);
         frame.repaint();
         frame.setVisible(true);
       }
 
       else if (button == BC5){
-   	    frame.setContentPane(Fifth);
+   	    frame.setContentPane(FifthMain);
         frame.repaint();
         frame.setVisible(true);
       }
 
       else if (button == BC6){
-   	    frame.setContentPane(Sixth);
+   	    frame.setContentPane(SixthMain);
         frame.repaint();
         frame.setVisible(true);
       }
 
       else if (button == BC7){
-   	    frame.setContentPane(Hyperbola);
+   	    frame.setContentPane(HyperbolaMain);
         frame.repaint();
         frame.setVisible(true);
       }
