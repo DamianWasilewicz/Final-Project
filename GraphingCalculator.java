@@ -306,51 +306,55 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     }
 
   public void actionPerformed(ActionEvent e) {
-     if (e.getSource() == JComboBox){
-	   JComboBox box = (JComboBox) e.getSource();
-     if (box == boxCons){
-		     frame.setContentPane(Linear);
+	try{   
+	JComboBox box = (JComboBox) e.getSource();
+	System.out.println(((String)box.getSelectedItem()));
+    if (((String)box.getSelectedItem()).equals("Linear")){
+			TF1c.setText("42");
+		     /*frame.setContentPane(Linear);
 		     frame.repaint();
-         frame.setVisible(true);
+         frame.setVisible(true);*/
 	   }
 
-	   else if (box == boxLine){
+    else if (((String)box.getSelectedItem()).equals("Quadratic")){
 	    frame.setContentPane(Quadratic);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (box == boxQuad){
+    else if (((String)box.getSelectedItem()).equals("Cubic")){
  	    frame.setContentPane(Cubic);
       frame.repaint();
       frame.setVisible(true);
       }
 
-    else if (box == boxCube){
+    else if (((String)box.getSelectedItem()).equals("Quartic")){
  	    frame.setContentPane(Fourth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (box == boxQuar){
+    else if (((String)box.getSelectedItem()).equals("Quintic")){
  	    frame.setContentPane(Fifth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (box == boxQuin){
+    else if (((String)box.getSelectedItem()).equals("Sextic")){
  	    frame.setContentPane(Sixth);
       frame.repaint();
       frame.setVisible(true);
     }
 
-    else if (box == boxSext){
+    else if (((String)box.getSelectedItem()).equals("Constant")){
  	    frame.setContentPane(Constant);
       frame.repaint();
       frame.setVisible(true);
     }
     }
-    if (e.getSource() == JButton){
+
+
+	catch (java.lang.ClassCastException error){
     JButton button = (JButton) e.getSource();
     if (button == B1){
       JFrame f = new JFrame();
