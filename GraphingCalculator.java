@@ -14,6 +14,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
+
+
+
+	//NEW PANELS
     CalculationInput = new JPanel();
     CalculationOutput = new JPanel();
     Constant = new JPanel();
@@ -26,6 +31,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	  errorPanel = new JPanel();
     Hyperbola = new JPanel();
 
+
+
+
+
+	//SET LAYOUT OF PANELS
     CalculationInput.setLayout(new FlowLayout());
     CalculationOutput.setLayout(new FlowLayout());
     Constant.setLayout(new BoxLayout(Constant, BoxLayout.Y_AXIS));
@@ -39,6 +49,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     Hyperbola.setLayout(new BoxLayout(Hyperbola, BoxLayout.Y_AXIS));
 
 
+
+
+
+	//NEW CHECKBOXES
     Add = new JCheckBox("Add");
     Subtract = new JCheckBox("Subtract");
     Multiply = new JCheckBox("Multiply");
@@ -46,6 +60,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     //Log = new JCheckBox("Log");
     //Log10 = new JCheckBox("Log10");
 
+
+
+
+
+	//NEW BUTTONS
     BCalc = new JButton("Calculate your expression");
     B1 = new JButton("Graph Constant Function");
     B2 = new JButton("Graph Linear Function");
@@ -70,24 +89,10 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BHyp = new JButton("Cycle to Calculation");
 
 
-    /*B2.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B2.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B3.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B4.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B5.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B6.setAlignmentX(Component.CENTER_ALIGNMENT);
-    B7.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-    BC1.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC2.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC3.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC4.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC5.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC6.setAlignmentX(Component.CENTER_ALIGNMENT);
-    BC7.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-    back.setAlignmentX(Component.CENTER_ALIGNMENT);*/
 
+	//NEW TEXT FIELDS
     TFHyp = new JTextField(5);
 
     TFCalc1 = new JTextField(5);
@@ -140,6 +145,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+	//NEW LABELS
     LCalc = new JLabel("You are on the Calculations Input Tab");
     LCalc2 = new JLabel("You are on the Calculations Output Tab");
     Equals = new JLabel("=");
@@ -195,6 +202,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+
+	//ADD ACTION LISTENERS
     Add.addActionListener(this);
     Subtract.addActionListener(this);
     Multiply.addActionListener(this);
@@ -264,6 +274,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+	//ADD TO PANELS
     CalculationInput.add(LCalc);
     CalculationInput.add(TFCalc1);
     CalculationInput.add(Add);
@@ -382,6 +394,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+
     frame.setContentPane(CalculationInput);
     frame.setSize(800,400);
     frame.setLocation(100,100);
@@ -392,132 +406,145 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     String event = e.getActionCommand();
     System.out.println(event);
 
-     if (event.equals("Cycle to Constant")){
-		     frame.setContentPane(Constant);
-		     frame.repaint();
-         frame.setVisible(true);
-	   }
 
-     else if (event.equals("Cycle to Linear")){
-		     frame.setContentPane(Linear);
-		     frame.repaint();
-         frame.setVisible(true);
-	   }
 
-	   else if (event.equals("Cycle to Quadratic")){
+
+
+	//'CYCLE TO' BUTTONS
+    if (event.equals("Cycle to Constant")){
+		frame.setContentPane(Constant);
+		frame.repaint();
+        frame.setVisible(true);
+	}
+
+    else if (event.equals("Cycle to Linear")){
+		frame.setContentPane(Linear);
+		frame.repaint();
+        frame.setVisible(true);
+	}
+
+	else if (event.equals("Cycle to Quadratic")){
 	    frame.setContentPane(Quadratic);
-      frame.repaint();
-      frame.setVisible(true);
+        frame.repaint();
+        frame.setVisible(true);
     }
 
     else if (event.equals("Cycle to Cubic")){
  	    frame.setContentPane(Cubic);
-      frame.repaint();
-      frame.setVisible(true);
-      }
+        frame.repaint();
+        frame.setVisible(true);
+    }
 
     else if (event.equals("Cycle to Fourth Degree")){
  	    frame.setContentPane(Fourth);
-      frame.repaint();
-      frame.setVisible(true);
+        frame.repaint();
+        frame.setVisible(true);
     }
 
     else if (event.equals("Cycle to Fifth Degree")){
  	    frame.setContentPane(Fifth);
-      frame.repaint();
-      frame.setVisible(true);
+        frame.repaint();
+        frame.setVisible(true);
     }
 
     else if (event.equals("Cycle to Sixth Degree")){
  	    frame.setContentPane(Sixth);
-      frame.repaint();
-      frame.setVisible(true);
+        frame.repaint();
+        frame.setVisible(true);
     }
 
     else if (event.equals("Cycle to Hyperbola")){
  	    frame.setContentPane(Hyperbola);
-      frame.repaint();
-      frame.setVisible(true);
-    }
-    else if (event.equals("Cycle to Constant")){
-      frame.setContentPane(Constant);
-      frame.repaint();
-      frame.setVisible(true);
-    }
-    else if(event.equals("Calculate your expression")){
-     if(Add.isSelected()){
-       double inp1 = Double.parseDouble(TFCalc1.getText());
-       double inp2 = Double.parseDouble(TFCalc2.getText());
-       frame.setContentPane(CalculationOutput);
-       frame.repaint();
-       frame.setVisible(true);
-       CalcInp1.setText("" + inp1);
-       CalcInp2.setText("" + inp2);
-       CalcOperation.setText("+");
-       Output.setText(inp1 + inp2 + "");
-     }
-    }
-    else if (event.equals("Graph Constant Function")){
-      JFrame f = new JFrame();
-      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      Function test = new Function();
-	  try {
-		test.setC(Double.parseDouble(TF1c.getText()));
-		 test.setX1(0);
-      test.setX2(0);
-      test.setX3(0);
-      test.setX4(0);
-      test.setX5(0);
-      test.setX6(0);
-      CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-      //test.setRoots(check.getRoots());
-      test.setData(check.getX());
-      test.setData1(check.getY());
-      //test.setRoots(check.getRoots());
-//test.SetMaxandMin(test.ymax(), test.ymin());
-      f.add(test);
-      f.setSize(800, 1000);
-      f.setLocation(200,200);
-	  f.repaint();
-      f.setVisible(true);
-	  }
-	  catch (IllegalArgumentException error){
-		frame.setContentPane(errorPanel);
-		frame.repaint();
-		frame.setVisible(true);
-	  }
+        frame.repaint();
+        frame.setVisible(true);
     }
 
-      else if (event.equals("Graph Linear Function")){
+    else if (event.equals("Cycle to Constant")){
+        frame.setContentPane(Constant);
+        frame.repaint();
+        frame.setVisible(true);
+    }
+
+
+
+
+
+	//'CALCULATE'/'GRAPH' BUTTONS
+    else if(event.equals("Calculate your expression")){
+        if(Add.isSelected()){
+            double inp1 = Double.parseDouble(TFCalc1.getText());
+            double inp2 = Double.parseDouble(TFCalc2.getText());
+            frame.setContentPane(CalculationOutput);
+            frame.repaint();
+            frame.setVisible(true);
+            CalcInp1.setText("" + inp1);
+            CalcInp2.setText("" + inp2);
+            CalcOperation.setText("+");
+            Output.setText(inp1 + inp2 + "");
+        }
+    }
+
+    else if (event.equals("Graph Constant Function")){
+        JFrame f = new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Function test = new Function();
+	    try {
+		    test.setC(Double.parseDouble(TF1c.getText()));
+		    test.setX1(0);
+            test.setX2(0);
+            test.setX3(0);
+            test.setX4(0);
+            test.setX5(0);
+            test.setX6(0);
+            CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
+            //test.setRoots(check.getRoots());
+            test.setData(check.getX());
+            test.setData1(check.getY());
+            //test.setRoots(check.getRoots());
+            //test.SetMaxandMin(test.ymax(), test.ymin());
+            f.add(test);
+            f.setSize(800, 1000);
+            f.setLocation(200,200);
+	        f.repaint();
+            f.setVisible(true);
+	    }
+	    catch (IllegalArgumentException error){
+		    frame.setContentPane(errorPanel);
+		    frame.repaint();
+		    frame.setVisible(true);
+	    }
+    }
+
+    else if (event.equals("Graph Linear Function")){
         JFrame f = new JFrame();
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
 		try {
-		test.setC(Double.parseDouble(TF1l.getText()));
-        test.setX1(Double.parseDouble(TF2l.getText()));
-        test.setX2(0);
-        test.setX3(0);
-        test.setX4(0);
-        test.setX5(0);
-        test.setX6(0);
-        CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
-        test.setData(check.getX());
-        test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
-        f.add(test);
-        f.setSize(800, 1000);
-        f.setLocation(200,200);
-	  f.repaint();
-        f.setVisible(true);
+		    test.setC(Double.parseDouble(TF1l.getText()));
+            test.setX1(Double.parseDouble(TF2l.getText()));
+            test.setX2(0);
+            test.setX3(0);
+            test.setX4(0);
+            test.setX5(0);
+            test.setX6(0);
+            CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
+            //test.setRoots(check.getRoots());
+            test.setData(check.getX());
+            test.setData1(check.getY());
+            //test.setRoots(check.getRoots());
+            //test.SetMaxandMin(test.ymax(), test.ymin());
+            f.add(test);
+            f.setSize(800, 1000);
+            f.setLocation(200,200);
+	        f.repaint();
+            f.setVisible(true);
 		}
-	  catch (IllegalArgumentException error){
-		frame.setContentPane(errorPanel);
-		frame.repaint();
-		frame.setVisible(true);
-	  }
-      }
+	    catch (IllegalArgumentException error){
+            frame.setContentPane(errorPanel);
+            frame.repaint();
+            frame.setVisible(true);
+	    }
+    }
 
     else if (event.equals("Graph Quadratic Function")){
       JFrame f = new JFrame();
@@ -536,7 +563,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
-//test.SetMaxandMin(test.ymax(), test.ymin());
+      //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
@@ -564,11 +591,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setData(check.getX());
         test.setData1(check.getY());
         //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
+        //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 1000);
         f.setLocation(200,200);
-	  f.repaint();
+	    f.repaint();
         f.setVisible(true);
       }
 	  catch (IllegalArgumentException error){
@@ -595,7 +622,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
+      //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
@@ -626,7 +653,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
+      //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
@@ -657,7 +684,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       test.setData(check.getX());
       test.setData1(check.getY());
       //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
+      //test.SetMaxandMin(test.ymax(), test.ymin());
       f.add(test);
       f.setSize(800, 1000);
       f.setLocation(200,200);
@@ -670,30 +697,31 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		frame.setVisible(true);
 	  }
 	}
-  else if (event.equals("Graph Hyperbolic Function")){
-    JFrame f = new JFrame();
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Function test = new Function();
-  try {
-    test.setXHyp(Double.parseDouble(TFHyp.getText()));
-    CreateArray check = new CreateArray(test.getXHyp());
-    //test.setRoots(check.getRoots());
-    test.setData(check.getX());
-    test.setData1(check.getY());
-    //test.setRoots(check.getRoots());
-//test.SetMaxandMin(test.ymax(), test.ymin());
-    f.add(test);
-    f.setSize(800, 1000);
-    f.setLocation(200,200);
-  f.repaint();
-    f.setVisible(true);
-  }
-  catch (IllegalArgumentException error){
-  frame.setContentPane(errorPanel);
-  frame.repaint();
-  frame.setVisible(true);
-  }
-}
+
+    else if (event.equals("Graph Hyperbolic Function")){
+        JFrame f = new JFrame();
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Function test = new Function();
+        try {
+            test.setXHyp(Double.parseDouble(TFHyp.getText()));
+            CreateArray check = new CreateArray(test.getXHyp());
+            //test.setRoots(check.getRoots());
+            test.setData(check.getX());
+            test.setData1(check.getY());
+            //test.setRoots(check.getRoots());
+            //test.SetMaxandMin(test.ymax(), test.ymin());
+            f.add(test);
+            f.setSize(800, 1000);
+            f.setLocation(200,200);
+            f.repaint();
+            f.setVisible(true);
+        }
+        catch (IllegalArgumentException error){
+            frame.setContentPane(errorPanel);
+            frame.repaint();
+            frame.setVisible(true);
+        }
+    }
 
 	else if (event.equals("Back to functions")){
 		frame.setContentPane(Constant);
