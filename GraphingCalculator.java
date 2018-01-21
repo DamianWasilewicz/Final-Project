@@ -4,16 +4,26 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel CalculationInput, Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
-    private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
-    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, TFHyp, TF1c, TF1l, TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
+    private JPanel CalculationInputMain, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
+			Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
+    private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
+			B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
+    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, 
+			TFHyp, TF1c, TF1l, TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
     private JLabel LCalc, LCalc2, L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu,L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,LH1, LH2, LH3, LH4, LH5, LH6, LH7, LHyp, LHypx, LHyp1x,errorMessage;
 
     public GraphingCalculator() {
     frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    CalculationInput = new JPanel();
+    CalculationInputMain = new JPanel();
+	AddPanel = new JPanel();
+	SubtractPanel = new JPanel();
+	MultiplyPanel = new JPanel();
+	DividePanel = new JPanel();
+	ExponentPanel = new JPanel();
+	LogPanel = new JPanel();
+
     Constant = new JPanel();
     Linear = new JPanel();
     Quadratic = new JPanel();
@@ -24,7 +34,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	errorPanel = new JPanel();
     Hyperbola = new JPanel();
 
-    CalculationInput.setLayout(new BoxLayout(CalculationInput, BoxLayout.Y_AXIS));
+    CalculationInputMain.setLayout(new BoxLayout(CalculationInputMain, BoxLayout.Y_AXIS));
+	AddPanel.setLayout(new FlowLayout());
+	SubtractPanel.setLayout(new FlowLayout());
+	MultiplyPanel.setLayout(new FlowLayout());
+	DividePanel.setLayout(new FlowLayout());
+	ExponentPanel.setLayout(new FlowLayout());
+	LogPanel.setLayout(new FlowLayout());
+
     Constant.setLayout(new BoxLayout(Constant, BoxLayout.Y_AXIS));
     Linear.setLayout(new BoxLayout(Linear, BoxLayout.Y_AXIS));
     Quadratic.setLayout(new BoxLayout(Quadratic, BoxLayout.Y_AXIS));
@@ -261,27 +278,37 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogBase.addActionListener(this);
 
 
-    CalculationInput.add(LCalc);
-    CalculationInput.add(BC0);
-    CalculationInput.add(Calc1);
-    CalculationInput.add(AddButton);
-    CalculationInput.add(Add);
-    CalculationInput.add(Calc2);
-    CalculationInput.add(SubtractButton);
-    CalculationInput.add(Subtract);
-    CalculationInput.add(Calc3);
-    CalculationInput.add(MultiplyButton);
-    CalculationInput.add(Multiply);
-    CalculationInput.add(Calc4);
-    CalculationInput.add(DivideButton);
-    CalculationInput.add(Divide);
-    CalculationInput.add(Calc5);
-    CalculationInput.add(ExponentButton);
-    CalculationInput.add(Exponent);
-    CalculationInput.add(LogButton);
-    CalculationInput.add(LogBase);
-    CalculationInput.add(LCalc2);
-    CalculationInput.add(Calc6);
+    CalculationInputMain.add(LCalc);
+    CalculationInputMain.add(BC0);
+	
+    AddPanel.add(Calc1);
+    AddPanel.add(AddButton);
+    AddPanel.add(Add);
+    SubtractPanel.add(Calc2);
+    SubtractPanel.add(SubtractButton);
+    SubtractPanel.add(Subtract);
+    MultiplyPanel.add(Calc3);
+    MultiplyPanel.add(MultiplyButton);
+    MultiplyPanel.add(Multiply);
+    DividePanel.add(Calc4);
+    DividePanel.add(DivideButton);
+    DividePanel.add(Divide);
+    ExponentPanel.add(Calc5);
+    ExponentPanel.add(ExponentButton);
+    ExponentPanel.add(Exponent);
+    LogPanel.add(LogButton);
+    LogPanel.add(LogBase);
+    LogPanel.add(LCalc2);
+    LogPanel.add(Calc6);
+
+    CalculationInputMain.add(AddPanel);
+    CalculationInputMain.add(SubtractPanel);
+    CalculationInputMain.add(MultiplyPanel);
+    CalculationInputMain.add(DividePanel);
+    CalculationInputMain.add(ExponentPanel);
+    CalculationInputMain.add(LogPanel);
+
+
 
     Constant.add(LH1);
     Constant.add(BC1);
@@ -382,7 +409,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-    frame.setContentPane(CalculationInput);
+    frame.setContentPane(CalculationInputMain);
     frame.setSize(800,800);
     frame.setLocation(100,100);
     frame.setVisible(true);
@@ -441,7 +468,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         frame.setVisible(true);
       }
       else if (button == BHyp){
-        frame.setContentPane(CalculationInput);
+        frame.setContentPane(CalculationInputMain);
         frame.repaint();
         frame.setVisible(true);
       }
