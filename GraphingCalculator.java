@@ -4,15 +4,15 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel CalculationInputMain, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
-			ConstantMain, ConstantHeader, ConstantBody, ConstantFooter,
-			LinearMain, LinearHeader, LinearBody, LinearFooter,
-			QuadraticMain, QuadraticHeader, QuadraticBody, QuadraticFooter,
-			CubicMain, CubicHeader, CubicBody, CubicFooter,
-			FourthMain, FourthHeader, FourthBody, FourthFooter,
-			FifthMain, FifthHeader, FifthBody, FifthFooter,
-			SixthMain, SixthHeader, SixthBody, SixthFooter,
-			HyperbolaMain, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
+    private JPanel CalculationInputMain, CalculationInputTitle, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
+			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter,
+			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter,
+			QuadraticMain, QuadraticTitle, QuadraticHeader, QuadraticBody, QuadraticFooter,
+			CubicMain, CubicTitle, CubicHeader, CubicBody, CubicFooter,
+			FourthMain, FourthTitle, FourthHeader, FourthBody, FourthFooter,
+			FifthMain, FifthTitle, FifthHeader, FifthBody, FifthFooter,
+			SixthMain, SixthTitle, SixthHeader, SixthBody, SixthFooter,
+			HyperbolaMain, HyperbolaTitle, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
 			errorPanel;
     private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
@@ -24,11 +24,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-
+	Font myFont = new Font("Serif", Font.BOLD, 12);
+    Font newFont = myFont.deriveFont(40F);
 
 
 
     CalculationInputMain = new JPanel();
+	CalculationInputTitle = new JPanel();
 	CalculationInputHeader = new JPanel();
 	AddPanel = new JPanel();
 	SubtractPanel = new JPanel();
@@ -38,41 +40,49 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogPanel = new JPanel();
 
     ConstantMain = new JPanel();
+	ConstantTitle = new JPanel();
 	ConstantHeader = new JPanel();
 	ConstantBody = new JPanel();
 	ConstantFooter = new JPanel();
 
     LinearMain = new JPanel();
+	LinearTitle = new JPanel();
 	LinearHeader = new JPanel();
 	LinearBody = new JPanel();
 	LinearFooter = new JPanel();
 
     QuadraticMain = new JPanel();
+	QuadraticTitle = new JPanel();
     QuadraticHeader = new JPanel();
     QuadraticBody = new JPanel();
     QuadraticFooter = new JPanel();
 
     CubicMain = new JPanel();
+	CubicTitle = new JPanel();
     CubicHeader = new JPanel();
     CubicBody = new JPanel();
     CubicFooter = new JPanel();
 
     FourthMain = new JPanel();
+	FourthTitle = new JPanel();
     FourthHeader = new JPanel();
     FourthBody = new JPanel();
     FourthFooter = new JPanel();
 
     FifthMain = new JPanel();
+	FifthTitle = new JPanel();
     FifthHeader = new JPanel();
     FifthBody = new JPanel();
     FifthFooter = new JPanel();
 
     SixthMain = new JPanel();
+	SixthTitle = new JPanel();
     SixthHeader = new JPanel();
     SixthBody = new JPanel();
     SixthFooter = new JPanel();
 
     HyperbolaMain = new JPanel();
+	HyperbolaTitle = new JPanel();
 	HyperbolaHeader = new JPanel();
 	HyperbolaBody = new JPanel();
 	HyperbolaFooter = new JPanel();
@@ -84,6 +94,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     CalculationInputMain.setLayout(new BoxLayout(CalculationInputMain, BoxLayout.Y_AXIS));
+	CalculationInputTitle.setLayout(new FlowLayout());
 	CalculationInputHeader.setLayout(new FlowLayout());
 	AddPanel.setLayout(new FlowLayout());
 	SubtractPanel.setLayout(new FlowLayout());
@@ -93,41 +104,49 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogPanel.setLayout(new FlowLayout());
 
     ConstantMain.setLayout(new BoxLayout(ConstantMain, BoxLayout.Y_AXIS));
+	ConstantTitle.setLayout(new FlowLayout());
 	ConstantHeader.setLayout(new FlowLayout());
 	ConstantBody.setLayout(new FlowLayout());
 	ConstantFooter.setLayout(new FlowLayout());
 
     LinearMain.setLayout(new BoxLayout(LinearMain, BoxLayout.Y_AXIS));
+	LinearTitle.setLayout(new FlowLayout());
 	LinearHeader.setLayout(new FlowLayout());
 	LinearBody.setLayout(new FlowLayout());
 	LinearFooter.setLayout(new FlowLayout());
 
     QuadraticMain.setLayout(new BoxLayout(QuadraticMain, BoxLayout.Y_AXIS));
+	QuadraticTitle.setLayout(new FlowLayout());
     QuadraticHeader.setLayout(new FlowLayout());
     QuadraticBody.setLayout(new FlowLayout());
     QuadraticFooter.setLayout(new FlowLayout());
 
     CubicMain.setLayout(new BoxLayout(CubicMain, BoxLayout.Y_AXIS));
+	CubicTitle.setLayout(new FlowLayout());
     CubicHeader.setLayout(new FlowLayout());
     CubicBody.setLayout(new FlowLayout());
     CubicFooter.setLayout(new FlowLayout());
 
     FourthMain.setLayout(new BoxLayout(FourthMain, BoxLayout.Y_AXIS));
+	FourthTitle.setLayout(new FlowLayout());
     FourthHeader.setLayout(new FlowLayout());
     FourthBody.setLayout(new FlowLayout());
     FourthFooter.setLayout(new FlowLayout());
 
     FifthMain.setLayout(new BoxLayout(FifthMain, BoxLayout.Y_AXIS));
+	FifthTitle.setLayout(new FlowLayout());
     FifthHeader.setLayout(new FlowLayout());
     FifthBody.setLayout(new FlowLayout());
     FifthFooter.setLayout(new FlowLayout());
 
     SixthMain.setLayout(new BoxLayout(SixthMain, BoxLayout.Y_AXIS));
+	SixthTitle.setLayout(new FlowLayout());
     SixthHeader.setLayout(new FlowLayout());
     SixthBody.setLayout(new FlowLayout());
     SixthFooter.setLayout(new FlowLayout());
 
     HyperbolaMain.setLayout(new BoxLayout(HyperbolaMain, BoxLayout.Y_AXIS));
+	HyperbolaTitle.setLayout(new FlowLayout());
 	HyperbolaHeader.setLayout(new FlowLayout());
 	HyperbolaBody.setLayout(new FlowLayout());
 	HyperbolaFooter.setLayout(new FlowLayout());
@@ -224,15 +243,27 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogBase = new JTextField(10);
 
 
-    LCalc = new JLabel("You are on the Calculations Input Tab");
-    LH1 = new JLabel("You are on the Constant Tab");
-    LH2 = new JLabel("You are on the Linear Tab");
-    LH3 = new JLabel("You are on the Quadratic Tab");
-    LH4 = new JLabel("You are on the Cubic Tab");
-    LH5 = new JLabel("You are on the Fourth Degree Tab");
-    LH6 = new JLabel("You are on the Fifth Degree Tab");
-    LH7 = new JLabel("You are on the Sixth Degree Tab");
-    LHyp = new JLabel("You are on the 1/x Tab");
+    LCalc = new JLabel("Calculations Tab");
+    LH1 = new JLabel("Constant Tab");
+    LH2 = new JLabel("Linear Tab");
+    LH3 = new JLabel("Quadratic Tab");
+    LH4 = new JLabel("Cubic Tab");
+    LH5 = new JLabel("Quartic Tab");
+    LH6 = new JLabel("Quintic Tab");
+    LH7 = new JLabel("Sextic Tab");
+    LHyp = new JLabel("Hyperbola Tab");
+
+	LCalc.setFont(newFont);
+    LH1.setFont(newFont);
+    LH2.setFont(newFont);
+    LH3.setFont(newFont);
+    LH4.setFont(newFont);
+    LH5.setFont(newFont);
+    LH6.setFont(newFont);
+    LH7.setFont(newFont);
+    LHyp.setFont(newFont);
+
+
 
 	LCalc2 = new JLabel(" of ");
     L1c = new JLabel("y =");
@@ -363,7 +394,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-    CalculationInputHeader.add(LCalc);
+    CalculationInputTitle.add(LCalc);
     CalculationInputHeader.add(BC0);
 	
     AddPanel.add(Calc1);
@@ -386,6 +417,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LogPanel.add(LCalc2);
     LogPanel.add(Calc6);
 
+	CalculationInputMain.add(CalculationInputTitle);
 	CalculationInputMain.add(CalculationInputHeader);
     CalculationInputMain.add(AddPanel);
     CalculationInputMain.add(SubtractPanel);
@@ -396,19 +428,20 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-	ConstantHeader.add(LH1);
+	ConstantTitle.add(LH1);
 	ConstantHeader.add(BC1);
 	ConstantBody.add(L1c);
 	ConstantBody.add(TF1c);
 	ConstantFooter.add(B1);
 
+    ConstantMain.add(ConstantTitle);
     ConstantMain.add(ConstantHeader);
     ConstantMain.add(ConstantBody);
     ConstantMain.add(ConstantFooter);
 
 
 
-    LinearHeader.add(LH2);
+    LinearTitle.add(LH2);
     LinearHeader.add(BC2);
     LinearBody.add(L1l);
     LinearBody.add(TF2l);
@@ -416,13 +449,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LinearBody.add(TF1l);
     LinearFooter.add(B2);
 
+	LinearMain.add(LinearTitle);
 	LinearMain.add(LinearHeader);
 	LinearMain.add(LinearBody);
 	LinearMain.add(LinearFooter);
 
 
 
-    QuadraticHeader.add(LH3);
+    QuadraticTitle.add(LH3);
     QuadraticHeader.add(BC3);
     QuadraticBody.add(L1q);
     QuadraticBody.add(TF3q);
@@ -432,13 +466,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     QuadraticBody.add(TF1q);
     QuadraticFooter.add(B3);
 
+	QuadraticMain.add(QuadraticTitle);
 	QuadraticMain.add(QuadraticHeader);
 	QuadraticMain.add(QuadraticBody);
 	QuadraticMain.add(QuadraticFooter);
 
 
 
-    CubicHeader.add(LH4);
+    CubicTitle.add(LH4);
     CubicHeader.add(BC4);
     CubicBody.add(L1cu);
     CubicBody.add(TF4cu);
@@ -450,13 +485,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     CubicBody.add(TF1cu);
     CubicFooter.add(B4);
 
+	CubicMain.add(CubicTitle);
 	CubicMain.add(CubicHeader);
 	CubicMain.add(CubicBody);
 	CubicMain.add(CubicFooter);
 
 
 
-    FourthHeader.add(LH5);
+    FourthTitle.add(LH5);
     FourthHeader.add(BC5);
     FourthBody.add(L1fourth);
     FourthBody.add(TF5fourth);
@@ -470,13 +506,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     FourthBody.add(TF1fourth);
     FourthFooter.add(B5);
 
+	FourthMain.add(FourthTitle);
 	FourthMain.add(FourthHeader);
 	FourthMain.add(FourthBody);
 	FourthMain.add(FourthFooter);
 
 
 
-    FifthHeader.add(LH6);
+    FifthTitle.add(LH6);
     FifthHeader.add(BC6);
     FifthBody.add(L1fifth);
     FifthBody.add(TF6fifth);
@@ -492,13 +529,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     FifthBody.add(TF1fifth);
     FifthFooter.add(B6);
 
+	FifthMain.add(FifthTitle);
 	FifthMain.add(FifthHeader);
 	FifthMain.add(FifthBody);
 	FifthMain.add(FifthFooter);
 
 
 
-    SixthHeader.add(LH7);
+    SixthTitle.add(LH7);
     SixthHeader.add(BC7);
     SixthBody.add(L1sixth);
     SixthBody.add(TF7sixth);
@@ -516,19 +554,21 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     SixthBody.add(TF1sixth);
     SixthFooter.add(B7);
 
+	SixthMain.add(SixthTitle);
 	SixthMain.add(SixthHeader);
 	SixthMain.add(SixthBody);
 	SixthMain.add(SixthFooter);
 
 
 
-    HyperbolaHeader.add(LHyp);
+    HyperbolaTitle.add(LHyp);
     HyperbolaHeader.add(BHyp);
     HyperbolaBody.add(LHypx);
     HyperbolaBody.add(TFHyp);
     HyperbolaBody.add(LHyp1x);
     HyperbolaFooter.add(BGHyp);
 
+	HyperbolaMain.add(HyperbolaTitle);
 	HyperbolaMain.add(HyperbolaHeader);
 	HyperbolaMain.add(HyperbolaBody);
 	HyperbolaMain.add(HyperbolaFooter);
