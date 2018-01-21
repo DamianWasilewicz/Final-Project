@@ -39,15 +39,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B7 = new JButton("Graph Sixth Degree Function");
 
 
-    /*BC1 = new JButton("Cycle To Linear");
-    BC2 = new JButton("Cycle To Quadratic");
-    BC3 = new JButton("Cycle To Cubic");
-    BC4 = new JButton("Cycle To Fourth Degree");
-    BC5= new JButton("Cycle To Fifth Degree");
-    BC6 = new JButton("Cycle To Sixth Degree");
-    BC7 = new JButton("Cycle To Constant");*/
-
-
 
 
     String[] typesOfFunctions = {"Constant", "Linear", "Quadratic",
@@ -311,9 +302,17 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	System.out.println(((String)box.getSelectedItem()));
     if (((String)box.getSelectedItem()).equals("Linear")){
 			//TF1c.setText("42");
+			try {
 		    frame.setContentPane(Linear);
 		    frame.repaint();
             frame.setVisible(true);
+			}
+			catch (java.lang.IndexOutOfBoundsException error){
+			frame.remove(Constant);
+		    frame.setContentPane(Linear);
+		    frame.repaint();
+            frame.setVisible(true);
+			}
 	   }
 
     else if (((String)box.getSelectedItem()).equals("Quadratic")){
