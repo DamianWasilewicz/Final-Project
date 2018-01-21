@@ -12,7 +12,7 @@ public class Function extends JPanel {
     private char[] Max;
     private char[] Min;
     private char[] FunctionName;
-    private char[] Roots;
+    private char[] TurningPoints;
     private char[] YIntercepts;
     private double C;
     private double X1;
@@ -50,12 +50,12 @@ public class Function extends JPanel {
         g2.drawString("The min of the function:", 50, 165);
         g2.drawChars(Min, 0, Min.length, 210, 165);
 
-        findRoots();
         findYIntercepts();
-        g2.drawString("The roots of the function:", 50, 220);
-        g2.drawChars(Roots, 0, Roots.length, 210, 220);
-        g2.drawString("The y-intercepts of the function:", 50, 235);
-        g2.drawChars(YIntercepts, 0, YIntercepts.length, 280, 235);
+        FindTurningPoints();
+        g2.drawString("The turning points of the function:", 1, 220);
+        g2.drawChars(TurningPoints, 0, TurningPoints.length, 1, 240);
+        g2.drawString("The y-intercepts of the function:", 1, 260);
+        g2.drawChars(YIntercepts, 0, YIntercepts.length, 210, 260);
 
 
         g2.drawString("X-Axis", 750, 435);
@@ -294,7 +294,20 @@ public class Function extends JPanel {
         answer+= XHyp + "/x";
       }
       if(X6 != 0.0){
-        if(X6 == 1){
+        if(X6%1 == 0){
+          int x6 = (int)X6;
+          if(x6 == 1){
+            answer+= "x^6";
+          }
+          else{
+            answer+= x6 + "x^6";
+          }
+          if(X5 != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X6 == 1){
           answer+= "x^6";
         }
         else{
@@ -304,8 +317,22 @@ public class Function extends JPanel {
           answer+= " + ";
         }
       }
+    }
       if(X5 != 0.0){
-        if(X5 == 1){
+        if(X5%1 == 0){
+          int x5 = (int)X5;
+          if(x5 == 1){
+            answer+= "x^5";
+          }
+          else{
+            answer+= x5 + "x^5";
+          }
+          if(X4 != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X5 == 1){
           answer+= "x^5";
         }
         else{
@@ -315,8 +342,22 @@ public class Function extends JPanel {
           answer+= " + ";
         }
       }
+    }
       if(X4 != 0.0){
-        if(X4 == 1){
+        if(X4%1 == 0){
+          int x4 = (int)X4;
+          if(x4 == 1){
+            answer+= "x^4";
+          }
+          else{
+            answer+= x4 + "x^4";
+          }
+          if(X3 != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X4 == 1){
           answer+= "x^4";
         }
         else{
@@ -326,8 +367,22 @@ public class Function extends JPanel {
           answer+= " + ";
         }
       }
+    }
       if(X3 != 0.0){
-        if(X3 == 1){
+        if(X3%1 == 0){
+          int x3 = (int)X3;
+          if(x3 == 1){
+            answer+= "x^3";
+          }
+          else{
+            answer+= x3 + "x^3";
+          }
+          if(X2 != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X3 == 1){
           answer+= "x^3";
         }
         else{
@@ -337,8 +392,22 @@ public class Function extends JPanel {
           answer+= " + ";
         }
       }
+    }
       if(X2 != 0.0){
-        if(X2 == 1){
+        if(X2%1 == 0){
+          int x2 = (int)X2;
+          if(x2 == 1){
+            answer+= "x^2";
+          }
+          else{
+            answer+= x2 + "x^2";
+          }
+          if(X1 != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X2 == 1){
           answer+= "x^2";
         }
         else{
@@ -348,19 +417,45 @@ public class Function extends JPanel {
           answer+= " + ";
         }
       }
+    }
       if(X1 != 0.0){
-        if(X1 == 1){
+        if(X1%1 == 0){
+          int x1 = (int)X1;
+          if(x1 == 1){
+            answer+= "x";
+          }
+          else{
+            answer+= x1 + "x";
+          }
+          if(C != 0.0){
+            answer+= " + ";
+          }
+        }
+        else {
+          if(X1 == 1){
           answer+= "x";
         }
         else{
           answer+= X1 + "x";
         }
-        if(X1 != 0.0){
+        if(C != 0.0){
           answer+= " + ";
         }
       }
+    }
       if(C != 0.0){
-        answer+= C;
+        if(C%1 == 0){
+          int c = (int)C;
+          if(c == 1){
+            answer+= c;
+          }
+          else{
+            answer+= c;
+          }
+        }
+        else{
+          answer+= C;
+        }
       }
       FunctionName = answer.toCharArray();
     }
@@ -421,13 +516,22 @@ public class Function extends JPanel {
     public double getXHyp(){
       return XHyp;
     }
-    public void findRoots(){
+    public void FindTurningPoints(){
+      String answer = new String("");
+      for(int counter = 1; counter< data.length - 1; counter++){
+        if(Math.signum(data1[counter] - data1[counter - 1]) != Math.signum(data1[counter + 1] -  data1[counter])){
+          answer+= "(" + String.format("%.2f",data[counter]) + "," + String.format("%.2f",data1[counter])  + ")  ";
+        }
+      }
+      TurningPoints = answer.toCharArray();
+    }
+    /*public void findRoots(){
       String answer = new String("");
       if(X1!= 0){
         answer += (-1 * C)/X1;
       }
         Roots = answer.toCharArray();
-      }
+      }*/
     public void findYIntercepts(){
       String answer = new String("");
       answer+= C;
