@@ -447,6 +447,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
       }
 
 
+
+
+
 	else if (button == AddButton){
   	    try {
   		double input = Double.parseDouble(Calc1.getText());
@@ -455,6 +458,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		Calc1.setText("" + (input + addend));
 		Calc2.setText("" + (input + addend));
 		Calc3.setText("" + (input + addend));
+		Calc4.setText("" + (input + addend));
+		Calc5.setText("" + (input + addend));
+		Calc6.setText("" + (input + addend));
   	    }
   	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
@@ -471,6 +477,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		Calc1.setText("" + (input - subtrahend));
 		Calc2.setText("" + (input - subtrahend));
 		Calc3.setText("" + (input - subtrahend));
+		Calc4.setText("" + (input - subtrahend));
+		Calc5.setText("" + (input - subtrahend));
+		Calc6.setText("" + (input - subtrahend));
   	    }
   	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
@@ -487,6 +496,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 		Calc1.setText("" + (input * factor));
 		Calc2.setText("" + (input * factor));
 		Calc3.setText("" + (input * factor));
+		Calc4.setText("" + (input * factor));
+		Calc5.setText("" + (input * factor));
+		Calc6.setText("" + (input * factor));
   	    }
   	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
@@ -494,6 +506,64 @@ public class GraphingCalculator extends JFrame implements ActionListener{
   		frame.setVisible(true);
   	    }
     }
+
+	else if (button == DivideButton){
+  	    try {
+  		double input = Double.parseDouble(Calc4.getText());
+		double divisor = Double.parseDouble(Divide.getText());
+
+		Calc1.setText("" + (input / divisor));
+		Calc2.setText("" + (input / divisor));
+		Calc3.setText("" + (input / divisor));
+		Calc4.setText("" + (input / divisor));
+		Calc5.setText("" + (input / divisor));
+		Calc6.setText("" + (input / divisor));
+  	    }
+  	    catch (IllegalArgumentException error){
+  		frame.setContentPane(errorPanel);
+  		frame.repaint();
+  		frame.setVisible(true);
+  	    }
+    }
+
+	else if (button == ExponentButton){
+  	    try {
+  		double input = Double.parseDouble(Calc5.getText());
+		double power = Double.parseDouble(Exponent.getText());
+
+		Calc1.setText("" + (Math.pow(input, power)));
+		Calc2.setText("" + (Math.pow(input, power)));
+		Calc3.setText("" + (Math.pow(input, power)));
+		Calc4.setText("" + (Math.pow(input, power)));
+		Calc5.setText("" + (Math.pow(input, power)));
+		Calc6.setText("" + (Math.pow(input, power)));
+  	    }
+  	    catch (IllegalArgumentException error){
+  		frame.setContentPane(errorPanel);
+  		frame.repaint();
+  		frame.setVisible(true);
+  	    }
+    }
+
+	else if (button == LogButton){
+  	    try {
+  		double input = Double.parseDouble(Calc6.getText());
+		double base = Double.parseDouble(LogBase.getText());
+
+		Calc1.setText("" + (Math.log(input) / Math.log(base)));
+		Calc2.setText("" + (Math.log(input) / Math.log(base)));
+		Calc3.setText("" + (Math.log(input) / Math.log(base)));
+		Calc4.setText("" + (Math.log(input) / Math.log(base)));
+		Calc5.setText("" + (Math.log(input) / Math.log(base)));
+		Calc6.setText("" + (Math.log(input) / Math.log(base)));
+  	    }
+  	    catch (IllegalArgumentException error){
+  		frame.setContentPane(errorPanel);
+  		frame.repaint();
+  		frame.setVisible(true);
+  	    }
+    }
+
 
 
 
