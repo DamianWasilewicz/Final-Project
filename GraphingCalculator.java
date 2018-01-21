@@ -84,62 +84,62 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogButton = new JButton (" Log base ");
 
 
-    TFHyp = new JTextField(5);
+    TFHyp = new JTextField(10);
 
 
-    TF1c = new JTextField(5);
-    TF1l = new JTextField(5);
-    TF1q = new JTextField(5);
-    TF1cu = new JTextField(5);
-    TF1fourth = new JTextField(5);
-    TF1fifth = new JTextField(5);
-    TF1sixth = new JTextField(5);
+    TF1c = new JTextField(10);
+    TF1l = new JTextField(10);
+    TF1q = new JTextField(10);
+    TF1cu = new JTextField(10);
+    TF1fourth = new JTextField(10);
+    TF1fifth = new JTextField(10);
+    TF1sixth = new JTextField(10);
 
-    TF2l = new JTextField(5);
-    TF2q = new JTextField(5);
-    TF2cu = new JTextField(5);
-    TF2fourth = new JTextField(5);
-    TF2fifth = new JTextField(5);
-    TF2sixth = new JTextField(5);
-
-
-    TF3q = new JTextField(5);
-    TF3cu = new JTextField(5);
-    TF3fourth = new JTextField(5);
-    TF3fifth = new JTextField(5);
-    TF3sixth = new JTextField(5);
+    TF2l = new JTextField(10);
+    TF2q = new JTextField(10);
+    TF2cu = new JTextField(10);
+    TF2fourth = new JTextField(10);
+    TF2fifth = new JTextField(10);
+    TF2sixth = new JTextField(10);
 
 
-    TF4cu = new JTextField(5);
-    TF4fourth = new JTextField(5);
-    TF4fifth = new JTextField(5);
-    TF4sixth = new JTextField(5);
+    TF3q = new JTextField(10);
+    TF3cu = new JTextField(10);
+    TF3fourth = new JTextField(10);
+    TF3fifth = new JTextField(10);
+    TF3sixth = new JTextField(10);
 
 
-    TF5fourth = new JTextField(5);
-    TF5fifth = new JTextField(5);
-    TF5sixth = new JTextField(5);
+    TF4cu = new JTextField(10);
+    TF4fourth = new JTextField(10);
+    TF4fifth = new JTextField(10);
+    TF4sixth = new JTextField(10);
 
 
-    TF6fifth = new JTextField(5);
-    TF6sixth = new JTextField(5);
+    TF5fourth = new JTextField(10);
+    TF5fifth = new JTextField(10);
+    TF5sixth = new JTextField(10);
 
-    TF7sixth = new JTextField(5);
+
+    TF6fifth = new JTextField(10);
+    TF6sixth = new JTextField(10);
+
+    TF7sixth = new JTextField(10);
 
 
-	Calc1 = new JTextField(5);
-	Calc2 = new JTextField(5);
-	Calc3 = new JTextField(5);
-	Calc4 = new JTextField(5);
-	Calc5 = new JTextField(5);
-	Calc6 = new JTextField(5);
+	Calc1 = new JTextField(10);
+	Calc2 = new JTextField(10);
+	Calc3 = new JTextField(10);
+	Calc4 = new JTextField(10);
+	Calc5 = new JTextField(10);
+	Calc6 = new JTextField(10);
 
-	Add = new JTextField(5);
-	Subtract = new JTextField(5);
-	Multiply = new JTextField(5);
-	Divide = new JTextField(5);
-	Exponent = new JTextField(5);
-	LogBase = new JTextField(5);
+	Add = new JTextField(10);
+	Subtract = new JTextField(10);
+	Multiply = new JTextField(10);
+	Divide = new JTextField(10);
+	Exponent = new JTextField(10);
+	LogBase = new JTextField(10);
 
 
     LCalc = new JLabel("You are on the Calculations Input Tab");
