@@ -183,6 +183,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     B7.addActionListener(this);
     BGHyp.addActionListener(this);
 
+	BC0.addActionListener(this);
     BC1.addActionListener(this);
     BC2.addActionListener(this);
     BC3.addActionListener(this);
