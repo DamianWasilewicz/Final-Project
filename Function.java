@@ -11,8 +11,9 @@ public class Function extends JPanel {
     private char[][] negnumbers;
     private char[] Max;
     private char[] Min;
-    //private char[] Roots;
     private char[] FunctionName;
+    private char[] Roots;
+    private char[] YIntercepts;
     private double C;
     private double X1;
     private double X2;
@@ -29,7 +30,7 @@ public class Function extends JPanel {
         int w = getWidth();
         int h = getHeight();
           // Set color of axes
-	g2.setBackground(Color.BLACK);
+	      g2.setBackground(Color.BLACK);
         g2.setPaint(Color.BLUE);
         // Draw x axis
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
@@ -48,11 +49,17 @@ public class Function extends JPanel {
         g2.drawChars(Max, 0, Max.length, 210, 150);
         g2.drawString("The min of the function:", 50, 165);
         g2.drawChars(Min, 0, Min.length, 210, 165);
-	// g2.drawChars(Roots, 0, Roots.length - 1, 50, 170);
+
+        findRoots();
+        findYIntercepts();
+        g2.drawString("The roots of the function:", 50, 220);
+        g2.drawChars(Roots, 0, Roots.length, 210, 220);
+        g2.drawString("The y-intercepts of the function:", 50, 235);
+        g2.drawChars(YIntercepts, 0, YIntercepts.length, 280, 235);
+
+
         g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
-	//g2.drawChars(Min,0, Min.length, 50, 300);
-	//g2.drawChars(Max,0, Max.length, 50, 340);
 	//	g2.drawString(XIntercepts, 940, 405);
 	//	g2.drawString(YIntercepts, 940, 405);
         //add labels for axes;
@@ -414,7 +421,18 @@ public class Function extends JPanel {
     public double getXHyp(){
       return XHyp;
     }
-
+    public void findRoots(){
+      String answer = new String("");
+      if(X1!= 0){
+        answer += (-1 * C)/X1;
+      }
+        Roots = answer.toCharArray();
+      }
+    public void findYIntercepts(){
+      String answer = new String("");
+      answer+= C;
+      YIntercepts = answer.toCharArray();
+    }
 
     /*public void setX4(String input){
       X4 = Double.parseDouble(input);
