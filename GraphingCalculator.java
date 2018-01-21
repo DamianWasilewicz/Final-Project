@@ -5,9 +5,9 @@ import java.awt.event.*;
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
     private JPanel CalculationInput, Constant, Linear, Quadratic, Cubic, Fourth, Fifth, Sixth, errorPanel, Hyperbola;
-    private JButton AddButton, SubtractButton, MultiplyButton, B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
-    private JTextField Calc1, Calc2, Calc3, Add, Subtract, Multiply, TFHyp, TF1c, TF1l, TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
-    private JLabel breakLine1, breakLine2, breakLine3, LCalc, L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu,L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,LH1, LH2, LH3, LH4, LH5, LH6, LH7, LHyp, LHypx, LHyp1x,errorMessage;
+    private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
+    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, TFHyp, TF1c, TF1l, TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
+    private JLabel LCalc, LCalc2, L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu,L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,LH1, LH2, LH3, LH4, LH5, LH6, LH7, LHyp, LHypx, LHyp1x,errorMessage;
 
     public GraphingCalculator() {
     frame = new JFrame("Graphic Calculator");
@@ -62,7 +62,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	AddButton = new JButton(" + ");
 	SubtractButton = new JButton (" - ");
 	MultiplyButton = new JButton (" * ");
-
+	DivideButton = new JButton (" / ");
+	ExponentButton = new JButton (" to the power of ");
+	LogButton = new JButton (" Log base ");
 
 
     TFHyp = new JTextField(5);
@@ -111,11 +113,16 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	Calc1 = new JTextField(5);
 	Calc2 = new JTextField(5);
 	Calc3 = new JTextField(5);
+	Calc4 = new JTextField(5);
+	Calc5 = new JTextField(5);
+	Calc6 = new JTextField(5);
 
 	Add = new JTextField(5);
 	Subtract = new JTextField(5);
 	Multiply = new JTextField(5);
-
+	Divide = new JTextField(5);
+	Exponent = new JTextField(5);
+	LogBase = new JTextField(5);
 
 
     LCalc = new JLabel("You are on the Calculations Input Tab");
@@ -128,6 +135,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LH7 = new JLabel("You are on the Sixth Degree Tab");
     LHyp = new JLabel("You are on the 1/x Tab");
 
+	LCalc2 = new JLabel(" of ");
     L1c = new JLabel("y =");
     L1l = new JLabel("y =");
     L1q = new JLabel("y =");
@@ -168,10 +176,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     L7sixth = new JLabel("x^6 + ");
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
-
-	breakLine1 = new JLabel("\n");
-	breakLine2 = new JLabel("\n");
-	breakLine3 = new JLabel("\n");
 
 
     B1.addActionListener(this);
@@ -238,15 +242,23 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	AddButton.addActionListener(this);
 	SubtractButton.addActionListener(this);
 	MultiplyButton.addActionListener(this);
+	DivideButton.addActionListener(this);
+	ExponentButton.addActionListener(this);
+	LogButton.addActionListener(this);
 
 	Calc1.addActionListener(this);
 	Calc2.addActionListener(this);
 	Calc3.addActionListener(this);
+	Calc4.addActionListener(this);
+	Calc5.addActionListener(this);
+	Calc6.addActionListener(this);
 
 	Add.addActionListener(this);
 	Subtract.addActionListener(this);
 	Multiply.addActionListener(this);
-
+	Divide.addActionListener(this);
+	Exponent.addActionListener(this);
+	LogBase.addActionListener(this);
 
 
     CalculationInput.add(LCalc);
@@ -254,15 +266,22 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     CalculationInput.add(Calc1);
     CalculationInput.add(AddButton);
     CalculationInput.add(Add);
-    CalculationInput.add(breakLine1);
     CalculationInput.add(Calc2);
     CalculationInput.add(SubtractButton);
     CalculationInput.add(Subtract);
-    CalculationInput.add(breakLine2);
     CalculationInput.add(Calc3);
     CalculationInput.add(MultiplyButton);
     CalculationInput.add(Multiply);
-    CalculationInput.add(breakLine3);
+    CalculationInput.add(Calc4);
+    CalculationInput.add(DivideButton);
+    CalculationInput.add(Divide);
+    CalculationInput.add(Calc5);
+    CalculationInput.add(ExponentButton);
+    CalculationInput.add(Exponent);
+    CalculationInput.add(LogButton);
+    CalculationInput.add(LogBase);
+    CalculationInput.add(LCalc2);
+    CalculationInput.add(Calc6);
 
     Constant.add(LH1);
     Constant.add(BC1);
@@ -364,7 +383,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
     frame.setContentPane(CalculationInput);
-    frame.setSize(800,400);
+    frame.setSize(800,800);
     frame.setLocation(100,100);
     frame.setVisible(true);
     }
