@@ -5,7 +5,9 @@ import java.awt.event.*;
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
 
-    private JPanel CalculationInputMain, CalculationInputTitle, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
+    private JPanel CoverMain, CoverTitle, CoverHeader, CoverBody,
+			CalculationInputMain, CalculationInputTitle, CalculationInputHeader, 
+			AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
 			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter,
 			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter,
 			QuadraticMain, QuadraticTitle, QuadraticHeader, QuadraticBody, QuadraticFooter,
@@ -16,11 +18,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			HyperbolaMain, HyperbolaTitle, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
 			errorPanel;
 
-    private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
+    private JButton CovToCalc,
+			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7, BGHyp,
 			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, back;
 
-    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, 
+    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, 
+			Add, Subtract, Multiply, Divide, Exponent, LogBase, 
 			TFHyp, 
 			TF1c,
 			TF1l, TF2l,
@@ -30,7 +34,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth,
 			TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
 
-    private JLabel LCalc, LCalc2,
+    private JLabel CovTitle, Intro,
+			LCalc, LCalc2,
 			L1c,
 			L1l, L2l, 
 			L1q, L2q, L3q, 
@@ -63,6 +68,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//JPANEL INITIALIZATION
+	CoverMain = new JPanel();
+	CoverTitle = new JPanel();
+	CoverHeader = new JPanel();
+	CoverBody = new JPanel();
+
     CalculationInputMain = new JPanel();
 	CalculationInputTitle = new JPanel();
 	CalculationInputHeader = new JPanel();
@@ -128,6 +138,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//SETTING JPANEL LAYOUT
+	CoverMain.setLayout(new BoxLayout(CoverMain, BoxLayout.Y_AXIS));
+	CoverTitle.setLayout(new FlowLayout());
+	CoverHeader.setLayout(new FlowLayout());
+	CoverBody.setLayout(new FlowLayout());
+
     CalculationInputMain.setLayout(new BoxLayout(CalculationInputMain, BoxLayout.Y_AXIS));
 	CalculationInputTitle.setLayout(new FlowLayout());
 	CalculationInputHeader.setLayout(new FlowLayout());
@@ -193,6 +208,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//JBUTTON INITIALIZATION
+	CovToCalc = new JButton("To Calculations Tab");
+
     B1 = new JButton("Graph Constant Function");
     B2 = new JButton("Graph Linear Function");
     B3 = new JButton("Graph Quadratic Function");
@@ -284,6 +301,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//JLABEL INITIALIZATION
+	CovTitle = new JLabel("Welcome To The Graphing Calculator");
+	Intro = new JLabel("This is a graphing calculator.");
+
+	CovTitle.setFont(newFont);
+
+
+
     LCalc = new JLabel("Calculations Tab");
     LH1 = new JLabel("Constant Tab");
     LH2 = new JLabel("Linear Tab");
@@ -351,6 +375,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//ADD ACTION LISTENER
+	CovToCalc.addActionListener(this);
+
     B1.addActionListener(this);
     B2.addActionListener(this);
     B3.addActionListener(this);
@@ -438,6 +464,17 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//ADD ITEMS TO PANELS
+
+	//Cover Panel
+	CoverTitle.add(CovTitle);
+	CoverHeader.add(CovToCalc);
+	CoverBody.add(Intro);
+
+	CoverMain.add(CoverTitle);
+	CoverMain.add(CoverHeader);
+	CoverMain.add(CoverBody);
+
+
 
 	//Calculation Panel
     CalculationInputTitle.add(LCalc);
@@ -638,7 +675,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//CREATE WINDOW
-    frame.setContentPane(CalculationInputMain);
+    frame.setContentPane(CoverMain);
     frame.setSize(1100,400);
     frame.setLocation(100,100);
     frame.setVisible(true);
@@ -656,7 +693,13 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 	//SWITCH PANEL BUTTONS
-       if (button == BC0){
+	   if (button == CovToCalc){
+  		    frame.setContentPane(CalculationInputMain);
+  		    frame.repaint();
+            frame.setVisible(true);
+       }
+
+       else if (button == BC0){
   		    frame.setContentPane(ConstantMain);
   		    frame.repaint();
             frame.setVisible(true);
