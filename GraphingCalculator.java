@@ -336,10 +336,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	CovTitle = new JLabel("Welcome To The Graphing Calculator");
 	Intro = new JLabel("<html><p style=\"text-align:center\">Do you like doing math?<br>" +
 					   "Of course not!<br>" +
-					   "Finding vertices, minimums, maximums, asymptotes, etc. is all a bore.<br>" +
+					   "Finding vertices, minimums, maximums, etc. is all a bore.<br>" +
 					   "And why take your time to open a browser, look up Wolfram Alpha or Geogebra, and take years typing in your function when you can do it in a few simple steps here!<br>" +
-					   "Use this free and easy Graphing Calculator for all your graphing needs!<br>" +
-					   "(except large values, please dont put in large values)</p></html>");
+					   "Use this free and easy Graphing Calculator for all your graphing needs!</p></html>");
 
 	CovTitle.setFont(newFont);
 
@@ -413,14 +412,30 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 							   "Press the operation button, in this case +, to perform the calculation.<br>" +
 							   "The result of this operation will become the input of the other functions automatically, allowing you to string together successive operations.<br>" + 
 							   "For log and exponent, simply input the information needed to raise an inputted value to a certain power or to find the log of a desired base of a desired number.</p></html>");
-	HelpConsLabel = new JLabel("help for the calculations panel");
-	HelpLineLabel = new JLabel("help for the calculations panel");
-	HelpQuadLabel = new JLabel("help for the calculations panel");
-	HelpCubeLabel = new JLabel("help for the calculations panel");
-	HelpQuarLabel = new JLabel("help for the calculations panel");
-	HelpQuinLabel = new JLabel("help for the calculations panel");
-	HelpSextLabel = new JLabel("help for the calculations panel");
-	HelpHypeLabel = new JLabel("help for the calculations panel");
+	HelpConsLabel = new JLabel("<html><p style=\"text-align:center\">Enter a constant into the text box.<br>" +
+							   "Press \"Graph Constant Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpLineLabel = new JLabel("<html><p style=\"text-align:center\">Enter the x coefficient and a constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Linear Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpQuadLabel = new JLabel("<html><p style=\"text-align:center\">Enter the x squared coefficient, x coefficient, and constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Quadratic Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpCubeLabel = new JLabel("<html><p style=\"text-align:center\">Enter the coefficients and constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Cubic Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpQuarLabel = new JLabel("<html><p style=\"text-align:center\">Enter the coefficients and constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Fourth Degree Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpQuinLabel = new JLabel("<html><p style=\"text-align:center\">Enter the coefficients and constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Fifth Degree Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpSextLabel = new JLabel("<html><p style=\"text-align:center\">Enter the coefficients and constant into their appropriate textboxes.<br>" +
+							   "Press \"Graph Sixth Degree Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
+	HelpHypeLabel = new JLabel("<html><p style=\"text-align:center\">Enter the coefficient for the hyperbolic function in the textbox.<br>" +
+							   "Press \"Graph Hyperbolic Function\" to view the resulting graph.<br>" +
+							   "You do not need to resize the graph window, just wait a little for it to load.</p></html>");
 
 
 
