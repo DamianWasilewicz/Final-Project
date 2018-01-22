@@ -4,41 +4,48 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 public class Function extends JPanel {
-    private double[] data;
-    private double[] data1;
+    private double[] data, data1;
+
     private char[] labelchars;
-    private char[][] numbers;
-    private char[][] negnumbers;
-    private char[] Max;
-    private char[] Min;
-    private char[] FunctionName;
-    private char[] TurningPoints;
-    private char[] YIntercepts;
-    private double C;
-    private double X1;
-    private double X2;
-    private double X3;
-    private double X4;
-    private double X5;
-    private double X6;
-    private double XHyp;
+
+    private char[][] numbers, negnumbers;
+
+    private char[] Max, Min, FunctionName, TurningPoints, YIntercepts;
+
+    private double C, X1, X2, X3, X4, X5, X6, XHyp;
+
+
+
+
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        //set variables for size of graph screen;
+
+
+        //Set variables for size of graph screen
         int w = getWidth();
         int h = getHeight();
-          // Set color of axes
-	      g2.setBackground(Color.BLACK);
+
+
+        //Set color of axes
+	    g2.setBackground(Color.BLACK);
         g2.setPaint(Color.BLUE);
-        // Draw x axis
+
+
+        //Draw x axis
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
-        // Draw y axis
+
+        //Draw y axis
         g2.draw(new Line2D.Double(.5 * w, 0, .5 * w, h));
-        // Draw lines.
+
+
+        //Draw lines
         createLabel();
-        //Add Header;
+
+
+
+        //Add Header
         g2.setPaint(Color.MAGENTA);
         g2.drawString("You are viewing a function", 50, 50);
         g2.drawString("of degree: ", 50, 65);
@@ -50,6 +57,7 @@ public class Function extends JPanel {
         g2.drawString("The min of the function:", 50, 165);
         g2.drawChars(Min, 0, Min.length, 210, 165);
 
+
         findYIntercepts();
         FindTurningPoints();
         g2.drawString("The turning points of the function:", 1, 220);
@@ -60,11 +68,13 @@ public class Function extends JPanel {
 
         g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
-	//	g2.drawString(XIntercepts, 940, 405);
-	//	g2.drawString(YIntercepts, 940, 405);
-        //add labels for axes;
+
+
+
+        //Add labels for axes
         g2.setPaint(Color.BLUE);
-        //construct arrows;
+
+        //Construct arrows;
         g2.draw(new Line2D.Double(0, h/2, 20, h/2 + 20));
         g2.draw(new Line2D.Double(0, h/2, 20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, 0, w/2 + 20, 20));
@@ -89,6 +99,8 @@ public class Function extends JPanel {
         }
 
 
+
+
         createNumbers();
         for(int counter = 1; counter < 25; counter++){
           g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2+ 10, (h/2- (79* counter)));
@@ -96,6 +108,8 @@ public class Function extends JPanel {
 	      for(int counter = 0; counter < 25; counter++){
 	         g2.drawChars(numbers[counter], 0, numbers[counter].length, (w/2 + (79 * counter)), h/2 + 20);
         }
+
+
 
 
         createNegNumbers();
@@ -107,6 +121,8 @@ public class Function extends JPanel {
         }
 
 
+
+
         g2.setPaint(Color.RED);
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
@@ -115,11 +131,13 @@ public class Function extends JPanel {
             double y2 = h/2 +data1[i+ 1] * -1 * h/100;
             g2.draw(new Line2D.Double(x1, y1, x2, y2));
 	    }
-      //for(int counter = -20; counter < 21; counter++){
-
-    //  }
     }
-    //creates Header Label
+
+
+
+
+
+    //Creates Header Label
     public void createLabel(){
       char[] answer = new char[1];
       String label = new String("");
@@ -151,9 +169,10 @@ public class Function extends JPanel {
           labelchars = answer;
        }
 
-     //public void setRoots(char[] roots){
-    //   Roots = roots;
-    // }
+
+
+
+
    public void createNumbers(){
        char[][] a = new char[100][10];
        for(int counter = 0; counter < 25; counter++){
@@ -167,6 +186,11 @@ public class Function extends JPanel {
          }
          numbers = a;
     }
+
+
+
+
+
     public void createNegNumbers(){
         char[][] a = new char[100][10];
         for(int counter = 0; counter < 25; counter++){
@@ -181,7 +205,11 @@ public class Function extends JPanel {
           negnumbers = a;
      }
 
-    //calculate max of y coordinates;
+
+
+
+
+    //Calculate max of y coordinates
     public void ymax(){
       String answer = new String("");
       if(XHyp != 0){
@@ -226,6 +254,11 @@ public class Function extends JPanel {
         Max = answer.toCharArray();
       }
 
+
+
+
+
+	//Calculate min of y coordinates
       public void ymin(){
         String answer = new String("");
         if(XHyp != 0){
@@ -270,6 +303,10 @@ public class Function extends JPanel {
           Min = answer.toCharArray();
         }
 
+
+
+
+
     public double findymax(){
       double answer = -100000000;
       for(int counter = 0; counter < data1.length; counter++){
@@ -279,6 +316,11 @@ public class Function extends JPanel {
     }
       return answer;
     }
+
+
+
+
+
     public double findymin(){
       double answer = 100000000;
       for(int counter = 0; counter < data1.length; counter++){
@@ -288,6 +330,11 @@ public class Function extends JPanel {
     }
       return answer;
     }
+
+
+
+
+
     public void createFunctionName(){
       String answer = new String("y = ");
       if(XHyp != 0.0){
@@ -460,7 +507,11 @@ public class Function extends JPanel {
       FunctionName = answer.toCharArray();
     }
 
-    //set xcoordinate array;
+
+
+
+
+    //Set xcoordinate array;
     public void setData(double[] arg){
       data = arg;
     }
@@ -492,6 +543,10 @@ public class Function extends JPanel {
       XHyp = input;
     }
 
+
+
+
+
     public double getC(){
       return C;
     }
@@ -516,6 +571,11 @@ public class Function extends JPanel {
     public double getXHyp(){
       return XHyp;
     }
+
+
+
+
+
     public void FindTurningPoints(){
       String answer = new String("");
       for(int counter = 1; counter< data.length - 1; counter++){
@@ -525,41 +585,14 @@ public class Function extends JPanel {
       }
       TurningPoints = answer.toCharArray();
     }
-    /*public void findRoots(){
-      String answer = new String("");
-      if(X1!= 0){
-        answer += (-1 * C)/X1;
-      }
-        Roots = answer.toCharArray();
-      }*/
+
+
+
+
+
     public void findYIntercepts(){
       String answer = new String("");
       answer+= C;
       YIntercepts = answer.toCharArray();
     }
-
-    /*public void setX4(String input){
-      X4 = Double.parseDouble(input);
-    }
-    public void setX5(String input){
-      X5 = Double.parseDouble(input);
-    }
-    public void setX6(String input){
-      X6 = Double.parseDouble(input);
-    }*/
-    /*public static void main() {
-        JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Function test = new Function();
-        CreateArray check = new CreateArray();
-        test.setRoots(check.getRoots());
-        test.setData(check.getX());
-        test.setData1(check.getY());
-        test.setRoots(check.getRoots());
-	//test.SetMaxandMin(test.ymax(), test.ymin());
-        f.add(test);
-        f.setSize(1000, 1000);
-        f.setLocation(200,200);
-        f.setVisible(true);
-    }*/
 }

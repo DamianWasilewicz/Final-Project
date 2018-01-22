@@ -4,7 +4,10 @@ import java.awt.event.*;
 
 public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
-    private JPanel CalculationInputMain, CalculationInputTitle, CalculationInputHeader, AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
+
+    private JPanel CoverMain, CoverTitle, CoverHeader, CoverBody,
+			CalculationInputMain, CalculationInputTitle, CalculationInputHeader, CalculationInputFooter, HelpCalcPane,
+			AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
 			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter,
 			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter,
 			QuadraticMain, QuadraticTitle, QuadraticHeader, QuadraticBody, QuadraticFooter,
@@ -14,20 +17,63 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			SixthMain, SixthTitle, SixthHeader, SixthBody, SixthFooter,
 			HyperbolaMain, HyperbolaTitle, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
 			errorPanel;
-    private JButton AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
-			B1, B2, B3, B4, B5, B6, B7,BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, back, BGHyp, BHyp;
-    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, Add, Subtract, Multiply, Divide, Exponent, LogBase, 
-			TFHyp, TF1c, TF1l, TF2l, TF1q, TF2q, TF3q, TF1cu, TF2cu, TF3cu, TF4cu, TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth, TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth, TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
-    private JLabel LCalc, LCalc2, L1c, L1l , L2l, L1q, L2q, L3q, L1cu, L2cu, L3cu, L4cu,L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,LH1, LH2, LH3, LH4, LH5, LH6, LH7, LHyp, LHypx, LHyp1x,errorMessage;
+
+    private JButton CovToCalc,
+			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
+			B1, B2, B3, B4, B5, B6, B7, BGHyp,
+			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, 
+			HelpCalc,
+			back;
+
+    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, 
+			Add, Subtract, Multiply, Divide, Exponent, LogBase, 
+			TFHyp, 
+			TF1c,
+			TF1l, TF2l,
+			TF1q, TF2q, TF3q,
+			TF1cu, TF2cu, TF3cu, TF4cu,
+			TF1fourth, TF2fourth, TF3fourth, TF4fourth, TF5fourth,
+			TF1fifth, TF2fifth, TF3fifth, TF4fifth, TF5fifth, TF6fifth,
+			TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
+
+    private JLabel CovTitle, Intro,
+			LCalc, LCalc2, HelpCalcLabel,
+			L1c,
+			L1l, L2l, 
+			L1q, L2q, L3q, 
+			L1cu, L2cu, L3cu, L4cu,
+			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,
+			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,
+			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,
+			LH1, LH2, LH3, LH4, LH5, LH6, LH7, 
+			LHyp, LHypx, LHyp1x, 
+			errorMessage;
+
+
+
+
 
     public GraphingCalculator() {
     frame = new JFrame("Graphic Calculator");
     frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
+
+
+
+	//FONT INITIALIZATION
 	Font myFont = new Font("Serif", Font.BOLD, 12);
     Font newFont = myFont.deriveFont(40F);
 
 
+
+
+
+	//JPANEL INITIALIZATION
+	CoverMain = new JPanel();
+	CoverTitle = new JPanel();
+	CoverHeader = new JPanel();
+	CoverBody = new JPanel();
 
     CalculationInputMain = new JPanel();
 	CalculationInputTitle = new JPanel();
@@ -38,6 +84,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	DividePanel = new JPanel();
 	ExponentPanel = new JPanel();
 	LogPanel = new JPanel();
+	CalculationInputFooter = new JPanel();
+	HelpCalcPane = new JPanel();
 
     ConstantMain = new JPanel();
 	ConstantTitle = new JPanel();
@@ -93,6 +141,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//SETTING JPANEL LAYOUT
+	CoverMain.setLayout(new BoxLayout(CoverMain, BoxLayout.Y_AXIS));
+	CoverTitle.setLayout(new FlowLayout());
+	CoverHeader.setLayout(new FlowLayout());
+	CoverBody.setLayout(new FlowLayout());
+
     CalculationInputMain.setLayout(new BoxLayout(CalculationInputMain, BoxLayout.Y_AXIS));
 	CalculationInputTitle.setLayout(new FlowLayout());
 	CalculationInputHeader.setLayout(new FlowLayout());
@@ -102,6 +156,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	DividePanel.setLayout(new FlowLayout());
 	ExponentPanel.setLayout(new FlowLayout());
 	LogPanel.setLayout(new FlowLayout());
+	CalculationInputFooter.setLayout(new FlowLayout());
+	HelpCalcPane.setLayout(new FlowLayout());
 
     ConstantMain.setLayout(new BoxLayout(ConstantMain, BoxLayout.Y_AXIS));
 	ConstantTitle.setLayout(new FlowLayout());
@@ -155,6 +211,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
+
+	//JBUTTON INITIALIZATION
+	CovToCalc = new JButton("To Calculations Tab");
+
     B1 = new JButton("Graph Constant Function");
     B2 = new JButton("Graph Linear Function");
     B3 = new JButton("Graph Quadratic Function");
@@ -184,9 +245,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ExponentButton = new JButton (" to the power of ");
 	LogButton = new JButton (" Log base ");
 
+	HelpCalc = new JButton ("How To Use");
 
+
+
+
+
+	//JTEXTFIELD INITIALIZATION
     TFHyp = new JTextField(10);
-
 
     TF1c = new JTextField(10);
     TF1l = new JTextField(10);
@@ -203,24 +269,20 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     TF2fifth = new JTextField(10);
     TF2sixth = new JTextField(10);
 
-
     TF3q = new JTextField(10);
     TF3cu = new JTextField(10);
     TF3fourth = new JTextField(10);
     TF3fifth = new JTextField(10);
     TF3sixth = new JTextField(10);
 
-
     TF4cu = new JTextField(10);
     TF4fourth = new JTextField(10);
     TF4fifth = new JTextField(10);
     TF4sixth = new JTextField(10);
 
-
     TF5fourth = new JTextField(10);
     TF5fifth = new JTextField(10);
     TF5sixth = new JTextField(10);
-
 
     TF6fifth = new JTextField(10);
     TF6sixth = new JTextField(10);
@@ -241,6 +303,17 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	Divide = new JTextField(10);
 	Exponent = new JTextField(10);
 	LogBase = new JTextField(10);
+
+
+
+
+
+	//JLABEL INITIALIZATION
+	CovTitle = new JLabel("Welcome To The Graphing Calculator");
+	Intro = new JLabel("This is a graphing calculator.");
+
+	CovTitle.setFont(newFont);
+
 
 
     LCalc = new JLabel("Calculations Tab");
@@ -283,7 +356,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     L2fifth = new JLabel("x + ");
     L2sixth = new JLabel("x + ");
 
-
     L3q = new JLabel("x^2 + ");
     L3cu = new JLabel("x^2 + ");
     L3fourth = new JLabel("x^2 + ");
@@ -299,7 +371,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     L5fifth = new JLabel("x^4 + ");
     L5sixth = new JLabel("x^4 + ");
 
-
     L6fifth = new JLabel("x^5 + ");
     L6sixth = new JLabel("x^5 + ");
 
@@ -307,6 +378,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
+	HelpCalcLabel = new JLabel("help for the calculations panel");
+
+
+
+
+
+	//ADD ACTION LISTENER
+	CovToCalc.addActionListener(this);
 
     B1.addActionListener(this);
     B2.addActionListener(this);
@@ -342,24 +421,20 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     TF2fifth.addActionListener(this);
     TF2sixth.addActionListener(this);
 
-
     TF3q.addActionListener(this);
     TF3cu.addActionListener(this);
     TF3fourth.addActionListener(this);
     TF3fifth.addActionListener(this);
     TF3sixth.addActionListener(this);
 
-
     TF4cu.addActionListener(this);
     TF4fourth.addActionListener(this);
     TF4fifth.addActionListener(this);
     TF4sixth.addActionListener(this);
 
-
     TF5fourth.addActionListener(this);
     TF5fifth.addActionListener(this);
     TF5sixth.addActionListener(this);
-
 
     TF6fifth.addActionListener(this);
     TF6sixth.addActionListener(this);
@@ -390,10 +465,26 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	Exponent.addActionListener(this);
 	LogBase.addActionListener(this);
 
+	HelpCalc.addActionListener(this);
 
 
 
 
+
+	//ADD ITEMS TO PANELS
+
+	//Cover Panel
+	CoverTitle.add(CovTitle);
+	CoverHeader.add(CovToCalc);
+	CoverBody.add(Intro);
+
+	CoverMain.add(CoverTitle);
+	CoverMain.add(CoverHeader);
+	CoverMain.add(CoverBody);
+
+
+
+	//Calculation Panel
     CalculationInputTitle.add(LCalc);
     CalculationInputHeader.add(BC0);
 	
@@ -417,6 +508,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LogPanel.add(LCalc2);
     LogPanel.add(Calc6);
 
+	HelpCalcPane.add(HelpCalcLabel);
+	CalculationInputFooter.add(HelpCalc);
+
 	CalculationInputMain.add(CalculationInputTitle);
 	CalculationInputMain.add(CalculationInputHeader);
     CalculationInputMain.add(AddPanel);
@@ -425,9 +519,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     CalculationInputMain.add(DividePanel);
     CalculationInputMain.add(ExponentPanel);
     CalculationInputMain.add(LogPanel);
+	CalculationInputMain.add(CalculationInputFooter);
 
 
-
+	
+	//Constant Panel
 	ConstantTitle.add(LH1);
 	ConstantHeader.add(BC1);
 	ConstantBody.add(L1c);
@@ -441,6 +537,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Linear Panel
     LinearTitle.add(LH2);
     LinearHeader.add(BC2);
     LinearBody.add(L1l);
@@ -456,6 +553,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Quadratic Panel
     QuadraticTitle.add(LH3);
     QuadraticHeader.add(BC3);
     QuadraticBody.add(L1q);
@@ -473,6 +571,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Cubic Panel
     CubicTitle.add(LH4);
     CubicHeader.add(BC4);
     CubicBody.add(L1cu);
@@ -492,6 +591,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Quartic Panel
     FourthTitle.add(LH5);
     FourthHeader.add(BC5);
     FourthBody.add(L1fourth);
@@ -513,6 +613,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Quintic Panel
     FifthTitle.add(LH6);
     FifthHeader.add(BC6);
     FifthBody.add(L1fifth);
@@ -536,6 +637,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Sextic Panel
     SixthTitle.add(LH7);
     SixthHeader.add(BC7);
     SixthBody.add(L1sixth);
@@ -561,6 +663,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//Hyperbola Panel
     HyperbolaTitle.add(LHyp);
     HyperbolaHeader.add(BHyp);
     HyperbolaBody.add(LHypx);
@@ -574,7 +677,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	HyperbolaMain.add(HyperbolaFooter);
 
 
-
+	
+	//Error Panel
 	errorPanel.add(errorMessage);
 	errorPanel.add(back);
 
@@ -582,7 +686,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-    frame.setContentPane(CalculationInputMain);
+	//CREATE WINDOW
+    frame.setContentPane(CoverMain);
     frame.setSize(1100,400);
     frame.setLocation(100,100);
     frame.setVisible(true);
@@ -591,9 +696,22 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+
     public void actionPerformed(ActionEvent e) {
   	   JButton button = (JButton) e.getSource();
-       if (button == BC0){
+
+	
+
+
+
+	//SWITCH PANEL BUTTONS
+	   if (button == CovToCalc){
+  		    frame.setContentPane(CalculationInputMain);
+  		    frame.repaint();
+            frame.setVisible(true);
+       }
+
+       else if (button == BC0){
   		    frame.setContentPane(ConstantMain);
   		    frame.repaint();
             frame.setVisible(true);
@@ -650,6 +768,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
+	//CALCULATIONS PANEL BUTTONS
 	else if (button == AddButton){
   	    try {
   		double input = Double.parseDouble(Calc1.getText());
@@ -767,43 +886,45 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-      else if (button == B1){
+
+	//CONSTANT PANEL
+    else if (button == B1){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-  	  try {
+  	    try {
   		test.setC(Double.parseDouble(TF1c.getText()));
-  		 test.setX1(0);
+  		test.setX1(0);
         test.setX2(0);
         test.setX3(0);
         test.setX4(0);
         test.setX5(0);
         test.setX6(0);
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 800);
         f.setLocation(200,200);
-  	  f.repaint();
+  	    f.repaint();
         f.setVisible(true);
-  	  }
-  	  catch (IllegalArgumentException error){
+  	    }
+  	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
   		frame.repaint();
   		frame.setVisible(true);
-  	  }
-      }
+  	    }
+    }
 
-        else if (button == B2){
-          JFrame f = new JFrame();
-          f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          Function test = new Function();
+
+
+
+
+	//LINEAR PANEL
+    else if (button == B2){
+        JFrame f = new JFrame();
+        Function test = new Function();
   		try {
-  		test.setC(Double.parseDouble(TF1l.getText()));
+  		  test.setC(Double.parseDouble(TF1l.getText()));
           test.setX1(Double.parseDouble(TF2l.getText()));
           test.setX2(0);
           test.setX3(0);
@@ -811,29 +932,30 @@ public class GraphingCalculator extends JFrame implements ActionListener{
           test.setX5(0);
           test.setX6(0);
           CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-          //test.setRoots(check.getRoots());
           test.setData(check.getX());
           test.setData1(check.getY());
-          //test.setRoots(check.getRoots());
-    //test.SetMaxandMin(test.ymax(), test.ymin());
           f.add(test);
           f.setSize(800, 800);
           f.setLocation(200,200);
-  	  f.repaint();
+  	      f.repaint();
           f.setVisible(true);
   		}
-  	  catch (IllegalArgumentException error){
-  		frame.setContentPane(errorPanel);
-  		frame.repaint();
-  		frame.setVisible(true);
-  	  }
-        }
+  	    catch (IllegalArgumentException error){
+  		  frame.setContentPane(errorPanel);
+  		  frame.repaint();
+  		  frame.setVisible(true);
+  	    }
+	}
 
-      else if (button == B3){
+
+
+
+
+	//QUADRATIC PANEL
+    else if (button == B3){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-  	  try {
+  	    try {
         test.setC(Double.parseDouble(TF1q.getText()));
         test.setX1(Double.parseDouble(TF2q.getText()));
         test.setX2(Double.parseDouble(TF3q.getText()));
@@ -842,57 +964,59 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX5(0);
         test.setX6(0);
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 800);
         f.setLocation(200,200);
-  	  f.repaint();
+  	    f.repaint();
         f.setVisible(true);
-      }
-  	  catch (IllegalArgumentException error){
+        }
+  	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
   		frame.repaint();
   		frame.setVisible(true);
-  	  }
+  	    }
   	}
 
-      else if (button == B4){
-          JFrame f = new JFrame();
-          f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-          Function test = new Function();
-  	  try {
+
+
+
+
+	//CUBIC PANEL
+    else if (button == B4){
+        JFrame f = new JFrame();
+        Function test = new Function();
+  	    try {
           test.setC(Double.parseDouble(TF1cu.getText()));
           test.setX1(Double.parseDouble(TF2cu.getText()));
           test.setX2(Double.parseDouble(TF3cu.getText()));
           test.setX3(Double.parseDouble(TF4cu.getText()));
           CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-          //test.setRoots(check.getRoots());
           test.setData(check.getX());
           test.setData1(check.getY());
-          //test.setRoots(check.getRoots());
-    //test.SetMaxandMin(test.ymax(), test.ymin());
           f.add(test);
           f.setSize(800, 800);
           f.setLocation(200,200);
-  	  f.repaint();
+  	      f.repaint();
           f.setVisible(true);
         }
-  	  catch (IllegalArgumentException error){
-  		frame.setContentPane(errorPanel);
-  		frame.repaint();
-  		frame.setVisible(true);
-  	  }
+  	    catch (IllegalArgumentException error){
+  		  frame.setContentPane(errorPanel);
+  		  frame.repaint();
+  		  frame.setVisible(true);
+  	    }
   	}
 
-      else if (button == B5){
+
+
+
+
+	//QUARTIC PANEL
+    else if (button == B5){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-  	  try {
+  	    try {
         test.setC(Double.parseDouble(TF1fourth.getText()));
         test.setX1(Double.parseDouble(TF2fourth.getText()));
         test.setX2(Double.parseDouble(TF3fourth.getText()));
@@ -901,29 +1025,30 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX5(0);
         test.setX6(0);
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-    //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 800);
         f.setLocation(200,200);
-  	  f.repaint();
+  	    f.repaint();
         f.setVisible(true);
-      }
-  	  catch (IllegalArgumentException error){
+        }
+  	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
   		frame.repaint();
   		frame.setVisible(true);
-  	  }
+  	    }
   	}
 
-      else if (button == B6){
+
+
+
+
+	//QUINTIC PANEL
+    else if (button == B6){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-  	  try {
+  	    try {
         test.setC(Double.parseDouble(TF1fifth.getText()));
         test.setX1(Double.parseDouble(TF2fifth.getText()));
         test.setX2(Double.parseDouble(TF3fifth.getText()));
@@ -932,29 +1057,30 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX5(Double.parseDouble(TF6fifth.getText()));
         test.setX6(0);
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-    //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 800);
         f.setLocation(200,200);
-  	  f.repaint();
+  	    f.repaint();
         f.setVisible(true);
-      }
-  	  catch (IllegalArgumentException error){
+        }
+  	    catch (IllegalArgumentException error){
   		frame.setContentPane(errorPanel);
   		frame.repaint();
   		frame.setVisible(true);
-  	  }
+  	    }
   	}
 
-      else if (button == B7){
+
+
+
+
+    //SEXTIC PANEL
+    else if (button == B7){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
-  	  try {
+  	    try {
         test.setC(Double.parseDouble(TF1sixth.getText()));
         test.setX1(Double.parseDouble(TF2sixth.getText()));
         test.setX2(Double.parseDouble(TF3sixth.getText()));
@@ -963,56 +1089,79 @@ public class GraphingCalculator extends JFrame implements ActionListener{
         test.setX5(Double.parseDouble(TF6sixth.getText()));
         test.setX6(Double.parseDouble(TF7sixth.getText()));
         CreateArray check = new CreateArray(test.getC(), test.getX1(), test.getX2(), test.getX3(), test.getX4(), test.getX5(), test.getX6());
-        //test.setRoots(check.getRoots());
         test.setData(check.getX());
         test.setData1(check.getY());
-        //test.setRoots(check.getRoots());
-    //test.SetMaxandMin(test.ymax(), test.ymin());
         f.add(test);
         f.setSize(800, 800);
         f.setLocation(200,200);
-  	  f.repaint();
+  	    f.repaint();
         f.setVisible(true);
-      }
-  	catch (IllegalArgumentException error){
-  		frame.setContentPane(errorPanel);
-  		frame.repaint();
-  		frame.setVisible(true);
-  	  }
+        }
+  	    catch (IllegalArgumentException error){
+  	        frame.setContentPane(errorPanel);
+  		    frame.repaint();
+  		    frame.setVisible(true);
+  	    }
   	}
-    else if (button == BGHyp){
-      JFrame f = new JFrame();
-      f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      Function test = new Function();
-    try {
-      test.setXHyp(Double.parseDouble(TFHyp.getText()));
-      CreateArray check = new CreateArray(test.getXHyp());
-      //test.setRoots(check.getRoots());
-      test.setData(check.getX());
-      test.setData1(check.getY());
-      //test.setRoots(check.getRoots());
-  //test.SetMaxandMin(test.ymax(), test.ymin());
-      f.add(test);
-      f.setSize(800, 800);
-      f.setLocation(200,200);
-    f.repaint();
-      f.setVisible(true);
-    }
-    catch (IllegalArgumentException error){
-    frame.setContentPane(errorPanel);
-    frame.repaint();
-    frame.setVisible(true);
-    }
-  }
 
+
+
+
+
+    //HYPERBOLA PANEL
+    else if (button == BGHyp){
+        JFrame f = new JFrame();
+        Function test = new Function();
+        try {
+            test.setXHyp(Double.parseDouble(TFHyp.getText()));
+            CreateArray check = new CreateArray(test.getXHyp());
+            test.setData(check.getX());
+            test.setData1(check.getY());
+            f.add(test);
+            f.setSize(800, 800);
+            f.setLocation(200,200);
+            f.repaint();
+            f.setVisible(true);
+        }
+        catch (IllegalArgumentException error){
+            frame.setContentPane(errorPanel);
+            frame.repaint();
+            frame.setVisible(true);
+        }
+    }
+
+
+
+
+
+	//ERROR PANEL
   	else if (button == back){
   		frame.setContentPane(ConstantMain);
   		frame.repaint();
   		frame.setVisible(true);
   	}
-      }
 
-      public static void main(String[]args){
-  	GraphingCalculator g = new GraphingCalculator();
-      }
+
+
+
+	
+	//HELP PANELS
+	else if (button == HelpCalc){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpCalcPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+	}
+
+
+
+
+
+	//MAIN
+    public static void main(String[]args){
+  	    GraphingCalculator g = new GraphingCalculator();
+    }
   }
