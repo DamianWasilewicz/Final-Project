@@ -19,15 +19,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			errorPanel;
 
     private JButton CovToCalc,
-			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
+			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton,
 			B1, B2, B3, B4, B5, B6, B7, BGHyp,
-			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, 
+			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp,
 			HelpCalc, HelpCons, HelpLine, HelpQuad, HelpCube, HelpQuar, HelpQuin, HelpSext, HelpHype,
 			back;
 
-    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, 
-			Add, Subtract, Multiply, Divide, Exponent, LogBase, 
-			TFHyp, 
+    private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6,
+			Add, Subtract, Multiply, Divide, Exponent, LogBase,
+			TFHyp,
 			TF1c,
 			TF1l, TF2l,
 			TF1q, TF2q, TF3q,
@@ -45,7 +45,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth, HelpQuarLabel,
 			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth, HelpQuinLabel,
 			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth, HelpSextLabel,
-			LH1, LH2, LH3, LH4, LH5, LH6, LH7, 
+			LH1, LH2, LH3, LH4, LH5, LH6, LH7,
 			LHyp, LHypx, LHyp1x, HelpHypeLabel,
 			errorMessage;
 
@@ -250,7 +250,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     BC6 = new JButton("Cycle To Sixth Degree");
     BC7 = new JButton("Cycle To 1/x");
 
-	back = new JButton("Back to function");
+	back = new JButton("Back to menu");
 
     BHyp = new JButton("Cycle to Calculation");
 
@@ -338,6 +338,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 					   "Of course not!<br>" +
 					   "Finding vertices, minimums, maximums, etc. is all a bore.<br>" +
 					   "And why take your time to open a browser, look up Wolfram Alpha or Geogebra, and take years typing in your function when you can do it in a few simple steps here!<br>" +
+             "Warning: Using big coefficients for the constant value may push your graph out of the observable window; correct information will still be displayed<br>" +
 					   "Use this free and easy Graphing Calculator for all your graphing needs!</p></html>");
 
 	CovTitle.setFont(newFont);
@@ -406,11 +407,11 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
-	HelpCalcLabel = new JLabel("<html><p style=\"text-align:center\">Enter numbers that you wish to perform operations on on opposite sides of an operator.<br>" + 
+	HelpCalcLabel = new JLabel("<html><p style=\"text-align:center\">Enter numbers that you wish to perform operations on on opposite sides of an operator.<br>" +
 							   "for example:<br>" +
 							   "5 + 10<br>" +
 							   "Press the operation button, in this case +, to perform the calculation.<br>" +
-							   "The result of this operation will become the input of the other functions automatically, allowing you to string together successive operations.<br>" + 
+							   "The result of this operation will become the input of the other functions automatically, allowing you to string together successive operations.<br>" +
 							   "For log and exponent, simply input the information needed to raise an inputted value to a certain power or to find the log of a desired base of a desired number.</p></html>");
 	HelpConsLabel = new JLabel("<html><p style=\"text-align:center\">Enter a constant into the text box.<br>" +
 							   "Press \"Graph Constant Function\" to view the resulting graph.<br>" +
@@ -562,7 +563,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//Calculation Panel
     CalculationInputTitle.add(LCalc);
     CalculationInputHeader.add(BC0);
-	
+
     AddPanel.add(Calc1);
     AddPanel.add(AddButton);
     AddPanel.add(Add);
@@ -596,7 +597,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	CalculationInputMain.add(CalculationInputFooter);
 
 
-	
+
 	//Constant Panel
 	ConstantTitle.add(LH1);
 	ConstantHeader.add(BC1);
@@ -759,7 +760,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	HyperbolaMain.add(HyperbolaFooter);
 
 
-	
+
 	//Error Panel
 	errorPanel.add(errorMessage);
 	errorPanel.add(back);
@@ -782,7 +783,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
   	   JButton button = (JButton) e.getSource();
 
-	
+
 
 
 
@@ -1218,7 +1219,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//ERROR PANEL
   	else if (button == back){
-  		frame.setContentPane(ConstantMain);
+  		frame.setContentPane(CoverMain);
   		frame.repaint();
   		frame.setVisible(true);
   	}
@@ -1226,7 +1227,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 
 
-	
+
 	//HELP PANELS
 	else if (button == HelpCalc){
         JFrame f = new JFrame("Help");
