@@ -334,7 +334,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//JLABEL INITIALIZATION
 	CovTitle = new JLabel("Welcome To The Graphing Calculator");
-	Intro = new JLabel("This is a graphing calculator.");
+	Intro = new JLabel("<html><p style=\"text-align:center\">Do you like doing math?<br>" +
+					   "Of course not!<br>" +
+					   "Finding vertices, minimums, maximums, asymptotes, etc. is all a bore.<br>" +
+					   "And why take your time to open a browser, look up Wolfram Alpha or Geogebra, and take years typing in your function when you can do it in a few simple steps here!<br>" +
+					   "Use this free and easy Graphing Calculator for all your graphing needs!<br>" +
+					   "(except large values, please dont put in large values)</p></html>");
 
 	CovTitle.setFont(newFont);
 
