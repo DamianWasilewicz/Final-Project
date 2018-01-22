@@ -6,7 +6,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     private JFrame frame;
 
     private JPanel CoverMain, CoverTitle, CoverHeader, CoverBody,
-			CalculationInputMain, CalculationInputTitle, CalculationInputHeader, 
+			CalculationInputMain, CalculationInputTitle, CalculationInputHeader, CalculationInputFooter, HelpCalcPane,
 			AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
 			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter,
 			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter,
@@ -21,7 +21,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     private JButton CovToCalc,
 			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7, BGHyp,
-			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, back;
+			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, 
+			HelpCalc,
+			back;
 
     private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, 
 			Add, Subtract, Multiply, Divide, Exponent, LogBase, 
@@ -35,7 +37,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 			TF1sixth, TF2sixth, TF3sixth, TF4sixth, TF5sixth, TF6sixth, TF7sixth;
 
     private JLabel CovTitle, Intro,
-			LCalc, LCalc2,
+			LCalc, LCalc2, HelpCalcLabel,
 			L1c,
 			L1l, L2l, 
 			L1q, L2q, L3q, 
@@ -82,6 +84,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	DividePanel = new JPanel();
 	ExponentPanel = new JPanel();
 	LogPanel = new JPanel();
+	CalculationInputFooter = new JPanel();
+	HelpCalcPane = new JPanel();
 
     ConstantMain = new JPanel();
 	ConstantTitle = new JPanel();
@@ -152,6 +156,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	DividePanel.setLayout(new FlowLayout());
 	ExponentPanel.setLayout(new FlowLayout());
 	LogPanel.setLayout(new FlowLayout());
+	CalculationInputFooter.setLayout(new FlowLayout());
+	HelpCalcPane.setLayout(new FlowLayout());
 
     ConstantMain.setLayout(new BoxLayout(ConstantMain, BoxLayout.Y_AXIS));
 	ConstantTitle.setLayout(new FlowLayout());
@@ -238,6 +244,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	DivideButton = new JButton (" / ");
 	ExponentButton = new JButton (" to the power of ");
 	LogButton = new JButton (" Log base ");
+
+	HelpCalc = new JButton ("How To Use");
 
 
 
@@ -370,6 +378,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
+	HelpCalcLabel = new JLabel("help for the calculations panel");
+
 
 
 
@@ -411,24 +421,20 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     TF2fifth.addActionListener(this);
     TF2sixth.addActionListener(this);
 
-
     TF3q.addActionListener(this);
     TF3cu.addActionListener(this);
     TF3fourth.addActionListener(this);
     TF3fifth.addActionListener(this);
     TF3sixth.addActionListener(this);
 
-
     TF4cu.addActionListener(this);
     TF4fourth.addActionListener(this);
     TF4fifth.addActionListener(this);
     TF4sixth.addActionListener(this);
 
-
     TF5fourth.addActionListener(this);
     TF5fifth.addActionListener(this);
     TF5sixth.addActionListener(this);
-
 
     TF6fifth.addActionListener(this);
     TF6sixth.addActionListener(this);
@@ -458,6 +464,8 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	Divide.addActionListener(this);
 	Exponent.addActionListener(this);
 	LogBase.addActionListener(this);
+
+	HelpCalc.addActionListener(this);
 
 
 
@@ -500,6 +508,9 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LogPanel.add(LCalc2);
     LogPanel.add(Calc6);
 
+	HelpCalcPane.add(HelpCalcLabel);
+	CalculationInputFooter.add(HelpCalc);
+
 	CalculationInputMain.add(CalculationInputTitle);
 	CalculationInputMain.add(CalculationInputHeader);
     CalculationInputMain.add(AddPanel);
@@ -508,6 +519,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     CalculationInputMain.add(DividePanel);
     CalculationInputMain.add(ExponentPanel);
     CalculationInputMain.add(LogPanel);
+	CalculationInputMain.add(CalculationInputFooter);
 
 
 	
@@ -878,7 +890,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//CONSTANT PANEL
     else if (button == B1){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
   		test.setC(Double.parseDouble(TF1c.getText()));
@@ -911,7 +922,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//LINEAR PANEL
     else if (button == B2){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   		try {
   		  test.setC(Double.parseDouble(TF1l.getText()));
@@ -944,7 +954,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//QUADRATIC PANEL
     else if (button == B3){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1q.getText()));
@@ -977,7 +986,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//CUBIC PANEL
     else if (button == B4){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
           test.setC(Double.parseDouble(TF1cu.getText()));
@@ -1007,7 +1015,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//QUARTIC PANEL
     else if (button == B5){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1fourth.getText()));
@@ -1040,7 +1047,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	//QUINTIC PANEL
     else if (button == B6){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1fifth.getText()));
@@ -1073,7 +1079,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     //SEXTIC PANEL
     else if (button == B7){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1sixth.getText()));
@@ -1106,7 +1111,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     //HYPERBOLA PANEL
     else if (button == BGHyp){
         JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Function test = new Function();
         try {
             test.setXHyp(Double.parseDouble(TFHyp.getText()));
@@ -1136,7 +1140,21 @@ public class GraphingCalculator extends JFrame implements ActionListener{
   		frame.repaint();
   		frame.setVisible(true);
   	}
+
+
+
+
+	
+	//HELP PANELS
+	else if (button == HelpCalc){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpCalcPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
     }
+	}
 
 
 
