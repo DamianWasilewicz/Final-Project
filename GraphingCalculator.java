@@ -407,7 +407,12 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
-	HelpCalcLabel = new JLabel("help for the calculations panel");
+	HelpCalcLabel = new JLabel("<html><p style=\"text-align:center\">Enter numbers that you wish to perform operations on on opposite sides of an operator.<br>" + 
+							   "for example:<br>" +
+							   "5 + 10<br>" +
+							   "Press the operation button, in this case +, to perform the calculation.<br>" +
+							   "The result of this operation will become the input of the other functions automatically, allowing you to string together successive operations.<br>" + 
+							   "For log and exponent, simply input the information needed to raise an inputted value to a certain power or to find the log of a desired base of a desired number.</p></html>");
 	HelpConsLabel = new JLabel("help for the calculations panel");
 	HelpLineLabel = new JLabel("help for the calculations panel");
 	HelpQuadLabel = new JLabel("help for the calculations panel");
@@ -951,7 +956,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//CONSTANT PANEL
     else if (button == B1){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
   		test.setC(Double.parseDouble(TF1c.getText()));
@@ -983,7 +988,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//LINEAR PANEL
     else if (button == B2){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   		try {
   		  test.setC(Double.parseDouble(TF1l.getText()));
@@ -1015,7 +1020,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//QUADRATIC PANEL
     else if (button == B3){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1q.getText()));
@@ -1047,7 +1052,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//CUBIC PANEL
     else if (button == B4){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
           test.setC(Double.parseDouble(TF1cu.getText()));
@@ -1076,7 +1081,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//QUARTIC PANEL
     else if (button == B5){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1fourth.getText()));
@@ -1108,7 +1113,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
 	//QUINTIC PANEL
     else if (button == B6){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1fifth.getText()));
@@ -1140,7 +1145,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     //SEXTIC PANEL
     else if (button == B7){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
   	    try {
         test.setC(Double.parseDouble(TF1sixth.getText()));
@@ -1172,7 +1177,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     //HYPERBOLA PANEL
     else if (button == BGHyp){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Graph");
         Function test = new Function();
         try {
             test.setXHyp(Double.parseDouble(TFHyp.getText()));
@@ -1209,81 +1214,81 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	
 	//HELP PANELS
 	else if (button == HelpCalc){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpCalcPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpCons){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpConsPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpLine){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpLinePane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpQuad){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpQuadPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpCube){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpCubePane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpQuar){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpQuarPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpQuin){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpQuinPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpSext){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpSextPane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
     }
 
 	else if (button == HelpHype){
-        JFrame f = new JFrame();
+        JFrame f = new JFrame("Help");
 		f.setContentPane(HelpHypePane);
-		f.setSize(400, 400);
+		f.setSize(1000, 150);
         f.setLocation(200,200);
         f.repaint();
         f.setVisible(true);
