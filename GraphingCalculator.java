@@ -8,21 +8,21 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     private JPanel CoverMain, CoverTitle, CoverHeader, CoverBody,
 			CalculationInputMain, CalculationInputTitle, CalculationInputHeader, CalculationInputFooter, HelpCalcPane,
 			AddPanel, SubtractPanel, MultiplyPanel, DividePanel, ExponentPanel, LogPanel,
-			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter,
-			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter,
-			QuadraticMain, QuadraticTitle, QuadraticHeader, QuadraticBody, QuadraticFooter,
-			CubicMain, CubicTitle, CubicHeader, CubicBody, CubicFooter,
-			FourthMain, FourthTitle, FourthHeader, FourthBody, FourthFooter,
-			FifthMain, FifthTitle, FifthHeader, FifthBody, FifthFooter,
-			SixthMain, SixthTitle, SixthHeader, SixthBody, SixthFooter,
-			HyperbolaMain, HyperbolaTitle, HyperbolaHeader, HyperbolaBody, HyperbolaFooter,
+			ConstantMain, ConstantTitle, ConstantHeader, ConstantBody, ConstantFooter, HelpConsPane,
+			LinearMain, LinearTitle, LinearHeader, LinearBody, LinearFooter, HelpLinePane,
+			QuadraticMain, QuadraticTitle, QuadraticHeader, QuadraticBody, QuadraticFooter, HelpQuadPane,
+			CubicMain, CubicTitle, CubicHeader, CubicBody, CubicFooter, HelpCubePane,
+			FourthMain, FourthTitle, FourthHeader, FourthBody, FourthFooter, HelpQuarPane,
+			FifthMain, FifthTitle, FifthHeader, FifthBody, FifthFooter, HelpQuinPane,
+			SixthMain, SixthTitle, SixthHeader, SixthBody, SixthFooter, HelpSextPane,
+			HyperbolaMain, HyperbolaTitle, HyperbolaHeader, HyperbolaBody, HyperbolaFooter, HelpHypePane,
 			errorPanel;
 
     private JButton CovToCalc,
 			AddButton, SubtractButton, MultiplyButton, DivideButton, ExponentButton, LogButton, 
 			B1, B2, B3, B4, B5, B6, B7, BGHyp,
 			BC0, BC1, BC2, BC3, BC4, BC5, BC6, BC7, BHyp, 
-			HelpCalc,
+			HelpCalc, HelpCons, HelpLine, HelpQuad, HelpCube, HelpQuar, HelpQuin, HelpSext, HelpHype,
 			back;
 
     private JTextField Calc1, Calc2, Calc3, Calc4, Calc5, Calc6, 
@@ -38,15 +38,15 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 
     private JLabel CovTitle, Intro,
 			LCalc, LCalc2, HelpCalcLabel,
-			L1c,
-			L1l, L2l, 
-			L1q, L2q, L3q, 
-			L1cu, L2cu, L3cu, L4cu,
-			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth,
-			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth,
-			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth,
+			L1c, HelpConsLabel,
+			L1l, L2l, HelpLineLabel,
+			L1q, L2q, L3q, HelpQuadLabel,
+			L1cu, L2cu, L3cu, L4cu, HelpCubeLabel,
+			L1fourth, L2fourth, L3fourth, L4fourth, L5fourth, HelpQuarLabel,
+			L1fifth, L2fifth, L3fifth, L4fifth, L5fifth, L6fifth, HelpQuinLabel,
+			L1sixth, L2sixth, L3sixth, L4sixth, L5sixth, L6sixth, L7sixth, HelpSextLabel,
 			LH1, LH2, LH3, LH4, LH5, LH6, LH7, 
-			LHyp, LHypx, LHyp1x, 
+			LHyp, LHypx, LHyp1x, HelpHypeLabel,
 			errorMessage;
 
 
@@ -92,48 +92,56 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ConstantHeader = new JPanel();
 	ConstantBody = new JPanel();
 	ConstantFooter = new JPanel();
+	HelpConsPane = new JPanel();
 
     LinearMain = new JPanel();
 	LinearTitle = new JPanel();
 	LinearHeader = new JPanel();
 	LinearBody = new JPanel();
 	LinearFooter = new JPanel();
+	HelpLinePane = new JPanel();
 
     QuadraticMain = new JPanel();
 	QuadraticTitle = new JPanel();
     QuadraticHeader = new JPanel();
     QuadraticBody = new JPanel();
     QuadraticFooter = new JPanel();
+	HelpQuadPane = new JPanel();
 
     CubicMain = new JPanel();
 	CubicTitle = new JPanel();
     CubicHeader = new JPanel();
     CubicBody = new JPanel();
     CubicFooter = new JPanel();
+	HelpCubePane = new JPanel();
 
     FourthMain = new JPanel();
 	FourthTitle = new JPanel();
     FourthHeader = new JPanel();
     FourthBody = new JPanel();
     FourthFooter = new JPanel();
+	HelpQuarPane = new JPanel();
 
     FifthMain = new JPanel();
 	FifthTitle = new JPanel();
     FifthHeader = new JPanel();
     FifthBody = new JPanel();
     FifthFooter = new JPanel();
+	HelpQuinPane = new JPanel();
 
     SixthMain = new JPanel();
 	SixthTitle = new JPanel();
     SixthHeader = new JPanel();
     SixthBody = new JPanel();
     SixthFooter = new JPanel();
+	HelpSextPane = new JPanel();
 
     HyperbolaMain = new JPanel();
 	HyperbolaTitle = new JPanel();
 	HyperbolaHeader = new JPanel();
 	HyperbolaBody = new JPanel();
 	HyperbolaFooter = new JPanel();
+	HelpHypePane = new JPanel();
 
 	errorPanel = new JPanel();
 
@@ -164,48 +172,56 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ConstantHeader.setLayout(new FlowLayout());
 	ConstantBody.setLayout(new FlowLayout());
 	ConstantFooter.setLayout(new FlowLayout());
+	HelpConsPane.setLayout(new FlowLayout());
 
     LinearMain.setLayout(new BoxLayout(LinearMain, BoxLayout.Y_AXIS));
 	LinearTitle.setLayout(new FlowLayout());
 	LinearHeader.setLayout(new FlowLayout());
 	LinearBody.setLayout(new FlowLayout());
 	LinearFooter.setLayout(new FlowLayout());
+	HelpLinePane.setLayout(new FlowLayout());
 
     QuadraticMain.setLayout(new BoxLayout(QuadraticMain, BoxLayout.Y_AXIS));
 	QuadraticTitle.setLayout(new FlowLayout());
     QuadraticHeader.setLayout(new FlowLayout());
     QuadraticBody.setLayout(new FlowLayout());
     QuadraticFooter.setLayout(new FlowLayout());
+	HelpQuadPane.setLayout(new FlowLayout());
 
     CubicMain.setLayout(new BoxLayout(CubicMain, BoxLayout.Y_AXIS));
 	CubicTitle.setLayout(new FlowLayout());
     CubicHeader.setLayout(new FlowLayout());
     CubicBody.setLayout(new FlowLayout());
     CubicFooter.setLayout(new FlowLayout());
+	HelpCubePane.setLayout(new FlowLayout());
 
     FourthMain.setLayout(new BoxLayout(FourthMain, BoxLayout.Y_AXIS));
 	FourthTitle.setLayout(new FlowLayout());
     FourthHeader.setLayout(new FlowLayout());
     FourthBody.setLayout(new FlowLayout());
     FourthFooter.setLayout(new FlowLayout());
+	HelpQuarPane.setLayout(new FlowLayout());
 
     FifthMain.setLayout(new BoxLayout(FifthMain, BoxLayout.Y_AXIS));
 	FifthTitle.setLayout(new FlowLayout());
     FifthHeader.setLayout(new FlowLayout());
     FifthBody.setLayout(new FlowLayout());
     FifthFooter.setLayout(new FlowLayout());
+	HelpQuinPane.setLayout(new FlowLayout());
 
     SixthMain.setLayout(new BoxLayout(SixthMain, BoxLayout.Y_AXIS));
 	SixthTitle.setLayout(new FlowLayout());
     SixthHeader.setLayout(new FlowLayout());
     SixthBody.setLayout(new FlowLayout());
     SixthFooter.setLayout(new FlowLayout());
+	HelpSextPane.setLayout(new FlowLayout());
 
     HyperbolaMain.setLayout(new BoxLayout(HyperbolaMain, BoxLayout.Y_AXIS));
 	HyperbolaTitle.setLayout(new FlowLayout());
 	HyperbolaHeader.setLayout(new FlowLayout());
 	HyperbolaBody.setLayout(new FlowLayout());
 	HyperbolaFooter.setLayout(new FlowLayout());
+	HelpHypePane.setLayout(new FlowLayout());
 
 	errorPanel.setLayout(new BoxLayout(errorPanel, BoxLayout.Y_AXIS));
 
@@ -246,6 +262,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogButton = new JButton (" Log base ");
 
 	HelpCalc = new JButton ("How To Use");
+	HelpCons = new JButton ("How To Use");
+	HelpLine = new JButton ("How To Use");
+	HelpQuad = new JButton ("How To Use");
+	HelpCube = new JButton ("How To Use");
+	HelpQuar = new JButton ("How To Use");
+	HelpQuin = new JButton ("How To Use");
+	HelpSext = new JButton ("How To Use");
+	HelpHype = new JButton ("How To Use");
 
 
 
@@ -379,7 +403,14 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	errorMessage = new JLabel("Please input only numerical coefficients");
 
 	HelpCalcLabel = new JLabel("help for the calculations panel");
-
+	HelpConsLabel = new JLabel("help for the calculations panel");
+	HelpLineLabel = new JLabel("help for the calculations panel");
+	HelpQuadLabel = new JLabel("help for the calculations panel");
+	HelpCubeLabel = new JLabel("help for the calculations panel");
+	HelpQuarLabel = new JLabel("help for the calculations panel");
+	HelpQuinLabel = new JLabel("help for the calculations panel");
+	HelpSextLabel = new JLabel("help for the calculations panel");
+	HelpHypeLabel = new JLabel("help for the calculations panel");
 
 
 
@@ -466,12 +497,31 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	LogBase.addActionListener(this);
 
 	HelpCalc.addActionListener(this);
+	HelpCons.addActionListener(this);
+	HelpLine.addActionListener(this);
+	HelpQuad.addActionListener(this);
+	HelpCube.addActionListener(this);
+	HelpQuar.addActionListener(this);
+	HelpQuin.addActionListener(this);
+	HelpSext.addActionListener(this);
+	HelpHype.addActionListener(this);
 
 
 
 
 
 	//ADD ITEMS TO PANELS
+
+	//Help Panels
+	HelpCalcPane.add(HelpCalcLabel);
+	HelpConsPane.add(HelpConsLabel);
+	HelpLinePane.add(HelpLineLabel);
+	HelpQuadPane.add(HelpQuadLabel);
+	HelpCubePane.add(HelpCubeLabel);
+	HelpQuarPane.add(HelpQuarLabel);
+	HelpQuinPane.add(HelpQuinLabel);
+	HelpSextPane.add(HelpSextLabel);
+	HelpHypePane.add(HelpHypeLabel);
 
 	//Cover Panel
 	CoverTitle.add(CovTitle);
@@ -508,7 +558,6 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LogPanel.add(LCalc2);
     LogPanel.add(Calc6);
 
-	HelpCalcPane.add(HelpCalcLabel);
 	CalculationInputFooter.add(HelpCalc);
 
 	CalculationInputMain.add(CalculationInputTitle);
@@ -529,6 +578,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	ConstantBody.add(L1c);
 	ConstantBody.add(TF1c);
 	ConstantFooter.add(B1);
+	ConstantFooter.add(HelpCons);
 
     ConstantMain.add(ConstantTitle);
     ConstantMain.add(ConstantHeader);
@@ -545,6 +595,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     LinearBody.add(L2l);
     LinearBody.add(TF1l);
     LinearFooter.add(B2);
+    LinearFooter.add(HelpLine);
 
 	LinearMain.add(LinearTitle);
 	LinearMain.add(LinearHeader);
@@ -563,6 +614,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     QuadraticBody.add(L2q);
     QuadraticBody.add(TF1q);
     QuadraticFooter.add(B3);
+    QuadraticFooter.add(HelpQuad);
 
 	QuadraticMain.add(QuadraticTitle);
 	QuadraticMain.add(QuadraticHeader);
@@ -583,6 +635,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     CubicBody.add(L2cu);
     CubicBody.add(TF1cu);
     CubicFooter.add(B4);
+    CubicFooter.add(HelpCube);
 
 	CubicMain.add(CubicTitle);
 	CubicMain.add(CubicHeader);
@@ -605,6 +658,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     FourthBody.add(L2fourth);
     FourthBody.add(TF1fourth);
     FourthFooter.add(B5);
+    FourthFooter.add(HelpQuar);
 
 	FourthMain.add(FourthTitle);
 	FourthMain.add(FourthHeader);
@@ -629,6 +683,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     FifthBody.add(L2fifth);
     FifthBody.add(TF1fifth);
     FifthFooter.add(B6);
+    FifthFooter.add(HelpQuin);
 
 	FifthMain.add(FifthTitle);
 	FifthMain.add(FifthHeader);
@@ -655,6 +710,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     SixthBody.add(L2sixth);
     SixthBody.add(TF1sixth);
     SixthFooter.add(B7);
+    SixthFooter.add(HelpSext);
 
 	SixthMain.add(SixthTitle);
 	SixthMain.add(SixthHeader);
@@ -670,6 +726,7 @@ public class GraphingCalculator extends JFrame implements ActionListener{
     HyperbolaBody.add(TFHyp);
     HyperbolaBody.add(LHyp1x);
     HyperbolaFooter.add(BGHyp);
+    HyperbolaFooter.add(HelpHype);
 
 	HyperbolaMain.add(HyperbolaTitle);
 	HyperbolaMain.add(HyperbolaHeader);
@@ -1149,6 +1206,78 @@ public class GraphingCalculator extends JFrame implements ActionListener{
 	else if (button == HelpCalc){
         JFrame f = new JFrame();
 		f.setContentPane(HelpCalcPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpCons){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpConsPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpLine){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpLinePane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpQuad){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpQuadPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpCube){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpCubePane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpQuar){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpQuarPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpQuin){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpQuinPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpSext){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpSextPane);
+		f.setSize(400, 400);
+        f.setLocation(200,200);
+        f.repaint();
+        f.setVisible(true);
+    }
+
+	else if (button == HelpHype){
+        JFrame f = new JFrame();
+		f.setContentPane(HelpHypePane);
 		f.setSize(400, 400);
         f.setLocation(200,200);
         f.repaint();
