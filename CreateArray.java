@@ -1,15 +1,14 @@
 public class CreateArray{
-  private double C;
-  private double X1;
-  private double X2;
-  private double X3;
-  private double X4;
-  private double X5;
-  private double X6;
-  private double XHyp;
-  private double[] xCoords;
-  private double[] yCoords;
+  private double C, X1, X2, X3, X4, X5, X6, XHyp;
+
+  private double[] xCoords, yCoords;
+
   private char[] Roots;
+
+
+
+
+
   public CreateArray(double Ci, double X1i, double X2i, double X3i, double X4i, double X5i, double X6i){
     C = Ci;
     X1 = X1i;
@@ -25,6 +24,11 @@ public class CreateArray{
     xCoords = X;
     createY();
   }
+
+
+
+
+
   public CreateArray(double XHypi){
     XHyp = XHypi;
     double[] X = new double[10100000];
@@ -34,10 +38,20 @@ public class CreateArray{
     xCoords = X;
     createYH();
   }
+
+
+
+
+
   public double evaluateH(double value){
     double answer = (XHyp * (1/value));
     return answer;
   }
+
+
+
+
+
   public void createYH(){
     double[] Y = new double[(10100000)];
     for(int counter = 0; counter < Y.length; counter++){
@@ -47,6 +61,11 @@ public class CreateArray{
   }
     yCoords = Y;
   }
+
+
+
+
+
   public double evaluate(double value){
     double answer = (C + (value * X1) + (value * value * X2)
     + (value * value * value * X3) +(value * value * value* value * X4) +
@@ -54,6 +73,11 @@ public class CreateArray{
     (value * value * value * value * value* value * X6));
     return answer;
   }
+
+
+
+
+
   public void createY(){
     double[] Y = new double[(10100000)];
     for(int counter = 0; counter < Y.length; counter++){
@@ -61,6 +85,11 @@ public class CreateArray{
     }
     yCoords = Y;
   }
+
+
+
+
+
   public void CreateRoots(){
     char[] answer = new char[6];
     String ans = new String ("");
@@ -72,12 +101,21 @@ public class CreateArray{
     answer = ans.toCharArray();
     Roots = answer;
   }
+
+
+
+
+
   public char[] getRoots(){
     return Roots;
   }
+
+
+
   public double[] getX(){
     return xCoords;
   }
+
   public double[] getY(){
     return yCoords;
   }
