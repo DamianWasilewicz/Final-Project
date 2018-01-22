@@ -47,15 +47,15 @@ public class Function extends JPanel {
 
         //Add Header
         g2.setPaint(Color.MAGENTA);
-        g2.drawString("You are viewing a function", 50, 50);
-        g2.drawString("of degree: ", 50, 65);
-        g2.drawChars(labelchars,0, 1, 120, 65);
+        g2.drawString("You are viewing a function", 1, 50);
+        g2.drawString("of degree: ", 1, 65);
+        g2.drawChars(labelchars,0, 1, 71, 65);
         ymax();
         ymin();
-        g2.drawString("The max of the function:", 50, 150);
-        g2.drawChars(Max, 0, Max.length, 210, 150);
-        g2.drawString("The min of the function:", 50, 165);
-        g2.drawChars(Min, 0, Min.length, 210, 165);
+        g2.drawString("The max of the function:", 1, 150);
+        g2.drawChars(Max, 0, Max.length, 170, 150);
+        g2.drawString("The min of the function:", 1, 165);
+        g2.drawChars(Min, 0, Min.length, 170, 165);
 
 
         findYIntercepts();
@@ -63,7 +63,7 @@ public class Function extends JPanel {
         g2.drawString("The turning points of the function:", 1, 220);
         g2.drawChars(TurningPoints, 0, TurningPoints.length, 1, 240);
         g2.drawString("The y-intercepts of the function:", 1, 260);
-        g2.drawChars(YIntercepts, 0, YIntercepts.length, 210, 260);
+        g2.drawChars(YIntercepts, 0, YIntercepts.length, 215, 260);
 
 
         g2.drawString("X-Axis", 750, 435);
@@ -582,6 +582,9 @@ public class Function extends JPanel {
         if(Math.signum(data1[counter] - data1[counter - 1]) != Math.signum(data1[counter + 1] -  data1[counter])){
           answer+= "(" + String.format("%.2f",data[counter]) + "," + String.format("%.2f",data1[counter])  + ")  ";
         }
+      }
+      if (answer.equals("")){
+        answer+= "None";
       }
       TurningPoints = answer.toCharArray();
     }
