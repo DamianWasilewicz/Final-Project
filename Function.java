@@ -4,6 +4,7 @@ import java.awt.geom.*;
 import javax.swing.*;
 
 public class Function extends JPanel {
+  //FIELDS
     private double[] data, data1;
 
     private char[] labelchars;
@@ -17,39 +18,43 @@ public class Function extends JPanel {
 
 
 
-
+   //ADD PAINT ASPECTS
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        //USES GRAPHICS 2D CLASS
         Graphics2D g2 = (Graphics2D)g;
 
 
-        //Set variables for size of graph screen
+        //VARIABLES FOR SCREEN DIMENSIONS
         int w = getWidth();
         int h = getHeight();
 
 
-        //Set color of axes
-	    g2.setBackground(Color.BLACK);
+        //SET AXES COLOR
+	      g2.setBackground(Color.BLACK);
         g2.setPaint(Color.BLUE);
 
 
-        //Draw x axis
+        //DRAW X AXIS
         g2.draw(new Line2D.Double(0, .5 * h, w, .5 * h));
 
-        //Draw y axis
+        //DRAW Y AIXS
         g2.draw(new Line2D.Double(.5 * w, 0, .5 * w, h));
 
 
-        //Draw lines
+
+
+
+
+
+        //ADD HEADER
         createLabel();
-
-
-
-        //Add Header
         g2.setPaint(Color.MAGENTA);
+        //SHOW DEGREE
         g2.drawString("You are viewing a function", 1, 50);
         g2.drawString("of degree: ", 1, 65);
         g2.drawChars(labelchars,0, 1, 71, 65);
+        //YMIN AND YMAX
         ymax();
         ymin();
         g2.drawString("The max of the function:", 1, 150);
@@ -57,7 +62,7 @@ public class Function extends JPanel {
         g2.drawString("The min of the function:", 1, 165);
         g2.drawChars(Min, 0, Min.length, 170, 165);
 
-
+        //Y INTERCEPTS AND TURNING POINTS
         findYIntercepts();
         FindTurningPoints();
         g2.drawString("The turning points of the function:", 1, 220);
@@ -65,16 +70,16 @@ public class Function extends JPanel {
         g2.drawString("The y-intercepts of the function:", 1, 260);
         g2.drawChars(YIntercepts, 0, YIntercepts.length, 215, 260);
 
-
+        //ADD AXES
         g2.drawString("X-Axis", 750, 435);
         g2.drawString("Y-Axis", 450, 40);
 
 
 
-        //Add labels for axes
+
         g2.setPaint(Color.BLUE);
 
-        //Construct arrows;
+        //CONSTRUCT ARROWS
         g2.draw(new Line2D.Double(0, h/2, 20, h/2 + 20));
         g2.draw(new Line2D.Double(0, h/2, 20, h/2 - 20));
         g2.draw(new Line2D.Double(w/2, 0, w/2 + 20, 20));
@@ -86,10 +91,11 @@ public class Function extends JPanel {
 
         g2.drawString("Your function is:", 10, 180);
 
+        //DISPLAY FUNCTION NAME
         createFunctionName();
         g2.drawChars(FunctionName, 0, FunctionName.length, 10, 200);
 
-
+        //ADD LINES FOR AXES
         for(int counter = -100; counter < 100; counter++){
         g2.draw(new Line2D.Double(w/2 - 10, h/2+ 79 * counter, w/2 + 10, h/2 + 79 * counter));
         }
@@ -100,7 +106,7 @@ public class Function extends JPanel {
 
 
 
-
+        //ADD NEGATIVE AND POSITIVE NUMBERS FOR AXES
         createNumbers();
         for(int counter = 1; counter < 25; counter++){
           g2.drawChars(numbers[counter], 0, numbers[counter].length, w/2+ 10, (h/2- (79* counter)));
@@ -122,7 +128,7 @@ public class Function extends JPanel {
 
 
 
-
+        //GRAPH
         g2.setPaint(Color.RED);
         for(int i = 0; i < data.length-1; i++) {
             double x1 = w/2 + data[i] * w/100;
@@ -172,7 +178,7 @@ public class Function extends JPanel {
 
 
 
-
+    //creates numbers for negative and positive axes
    public void createNumbers(){
        char[][] a = new char[100][10];
        for(int counter = 0; counter < 25; counter++){
@@ -334,7 +340,7 @@ public class Function extends JPanel {
 
 
 
-
+    //create function name
     public void createFunctionName(){
       String answer = new String("y = ");
       if(XHyp != 0.0){
@@ -546,7 +552,7 @@ public class Function extends JPanel {
 
 
 
-
+    // accessors
     public double getC(){
       return C;
     }
@@ -575,7 +581,7 @@ public class Function extends JPanel {
 
 
 
-
+    //calculate turning points
     public void FindTurningPoints(){
       String answer = new String("");
       for(int counter = 1; counter< data.length - 1; counter++){
@@ -592,7 +598,7 @@ public class Function extends JPanel {
 
 
 
-
+    //calculate y intercepts
     public void findYIntercepts(){
       String answer = new String("");
       answer+= C;

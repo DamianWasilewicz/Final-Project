@@ -1,14 +1,14 @@
 public class CreateArray{
+  //fields
   private double C, X1, X2, X3, X4, X5, X6, XHyp;
 
   private double[] xCoords, yCoords;
 
-  private char[] Roots;
 
 
 
 
-
+//constructor for general functions C through X6
   public CreateArray(double Ci, double X1i, double X2i, double X3i, double X4i, double X5i, double X6i){
     C = Ci;
     X1 = X1i;
@@ -28,7 +28,7 @@ public class CreateArray{
 
 
 
-
+//constructor for hyperbola
   public CreateArray(double XHypi){
     XHyp = XHypi;
     double[] X = new double[10100000];
@@ -42,7 +42,7 @@ public class CreateArray{
 
 
 
-
+//generates y value from x value for hyperbola
   public double evaluateH(double value){
     double answer = (XHyp * (1/value));
     return answer;
@@ -51,7 +51,7 @@ public class CreateArray{
 
 
 
-
+//creates y value array for hyperbola
   public void createYH(){
     double[] Y = new double[(10100000)];
     for(int counter = 0; counter < Y.length; counter++){
@@ -65,7 +65,7 @@ public class CreateArray{
 
 
 
-
+//generates y values from x values for general functions
   public double evaluate(double value){
     double answer = (C + (value * X1) + (value * value * X2)
     + (value * value * value * X3) +(value * value * value* value * X4) +
@@ -77,7 +77,7 @@ public class CreateArray{
 
 
 
-
+//creates y value array for general functions
   public void createY(){
     double[] Y = new double[(10100000)];
     for(int counter = 0; counter < Y.length; counter++){
@@ -85,37 +85,11 @@ public class CreateArray{
     }
     yCoords = Y;
   }
-
-
-
-
-
-  public void CreateRoots(){
-    char[] answer = new char[6];
-    String ans = new String ("");
-    for(int counter = 0; counter < yCoords.length; counter++){
-      if(yCoords[counter] == 0){
-        ans+= ", " + xCoords[counter];
-      }
-    }
-    answer = ans.toCharArray();
-    Roots = answer;
-  }
-
-
-
-
-
-  public char[] getRoots(){
-    return Roots;
-  }
-
-
-
-  public double[] getX(){
+//accessor for X value array
+public double[] getX(){
     return xCoords;
   }
-
+//accessor for Y value array
   public double[] getY(){
     return yCoords;
   }
